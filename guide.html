@@ -1,0 +1,292 @@
+<!-- This page shows daily steps with a background plant animation (a simple SVG that grows over time). -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growth Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            position: relative;
+            overflow: auto;
+            min-height: 100vh;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .container.show {
+            opacity: 1;
+        }
+        h1 {
+            font-weight: 600;
+            color: #4a7c59;
+            text-align: center;
+        }
+        .step {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+        .step h3 {
+            margin-top: 0;
+            color: #4a7c59;
+        }
+        button {
+            background: #4a7c59;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #3a5f47;
+        }
+        /* Intro Animation */
+        .intro {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            animation: fadeOut 5s ease-in-out 5s forwards;
+        }
+        .pot {
+            width: 200px;
+            height: 200px;
+            position: relative;
+        }
+        .soil {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 60%;
+            background: #8B4513;
+            border-radius: 0 0 50% 50%;
+        }
+        .seed {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 10px;
+            height: 10px;
+            background: #654321;
+            border-radius: 50%;
+            animation: plantSeed 1s ease-in-out 0.5s forwards, growSprout 3s ease-in-out 2s forwards;
+        }
+        .sprout {
+            position: absolute;
+            bottom: 60%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 20px;
+            background: #4a7c59;
+            opacity: 0;
+            animation: showSprout 2s ease-in-out 3s forwards;
+        }
+        .leaves {
+            position: absolute;
+            bottom: 80%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 15px;
+            background: #228B22;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            opacity: 0;
+            animation: showLeaves 2s ease-in-out 4s forwards;
+        }
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; visibility: hidden; }
+        }
+        @keyframes plantSeed {
+            0% { top: 20px; }
+            100% { top: 50px; }
+        }
+        @keyframes growSprout {
+            0% { height: 0; }
+            100% { height: 20px; }
+        }
+        @keyframes showSprout {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        @keyframes showLeaves {
+            0% { opacity: 0; transform: translateX(-50%) scale(0); }
+            100% { opacity: 1; transform: translateX(-50%) scale(1); }
+        }
+        /* Plant Animation Background (after intro) */
+        .plant-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.15;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            padding-bottom: 20px;
+        }
+        .plant {
+            width: 250px;
+            height: 250px;
+            animation: growPlant 15s ease-in-out forwards;
+        }
+        @keyframes growPlant {
+            0% { transform: scale(0.2); opacity: 0.5; }
+            20% { transform: scale(0.4); opacity: 0.7; }
+            40% { transform: scale(0.6); opacity: 0.8; }
+            60% { transform: scale(0.8); opacity: 0.9; }
+            80% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.1); opacity: 1; }
+        }
+        /* Dynamic elements for animation */
+        .seed-bg { opacity: 1; transition: all 2s; }
+        .sprout-bg { opacity: 0; transition: all 2s; }
+        .leaves-bg { opacity: 0; transition: all 2s; }
+        .fruit { opacity: 0; transition: all 2s; }
+        .branches { opacity: 0; transition: all 2s; }
+    </style>
+</head>
+<body>
+    <!-- Intro Animation -->
+    <div class="intro" id="intro">
+        <div class="pot">
+            <div class="soil"></div>
+            <div class="seed"></div>
+            <div class="sprout"></div>
+            <div class="leaves"></div>
+        </div>
+    </div>
+
+    <!-- Background Plant Animation -->
+    <div class="plant-bg">
+        <svg class="plant" viewBox="0 0 100 100" id="plantSvg">
+            <!-- Seed (always visible at start) -->
+            <circle class="seed-bg" cx="50" cy="85" r="3" fill="#8B4513"/>
+            <!-- Stem/Sprout -->
+            <rect class="sprout-bg" x="48" y="75" width="4" height="10" fill="#4a7c59"/>
+            <!-- Leaves/Plant -->
+            <ellipse class="leaves-bg" cx="50" cy="65" rx="6" ry="8" fill="#228B22"/>
+            <ellipse class="leaves-bg" cx="45" cy="60" rx="4" ry="6" fill="#228B22"/>
+            <ellipse class="leaves-bg" cx="55" cy="60" rx="4" ry="6" fill="#228B22"/>
+            <!-- Fruit (for tomato, etc.) -->
+            <circle class="fruit" cx="50" cy="55" r="3" fill="#FF6347"/>
+            <circle class="fruit" cx="45" cy="50" r="2" fill="#FF6347"/>
+            <!-- Branches/Tree -->
+            <polygon class="branches" points="50,45 40,35 60,35" fill="#8B4513"/>
+            <polygon class="branches" points="50,40 35,30 65,30" fill="#228B22"/>
+        </svg>
+    </div>
+
+    <div class="container" id="mainContainer">
+        <h1>Growing Your <span id="plantNameDisplay"></span> - <span id="stageDisplay"></span> Stage</h1>
+        <div id="steps"></div>
+        <button onclick="window.location.href='stage.html'">Change Stage</button>
+    </div>
+
+    <script>
+        const plantName = localStorage.getItem('plantName') || 'Plant';
+        const stage = localStorage.getItem('plantStage') || 'seed';
+        document.getElementById('plantNameDisplay').textContent = plantName;
+        document.getElementById('stageDisplay').textContent = stage.charAt(0).toUpperCase() + stage.slice(1);
+
+        // Customize plant based on name
+        const svg = document.getElementById('plantSvg');
+        const lowerPlant = plantName.toLowerCase();
+        if (lowerPlant.includes('tomato')) {
+            // Add more red fruits
+            svg.innerHTML += '<circle class="fruit" cx="55" cy="50" r="2" fill="#FF6347"/>';
+        } else if (lowerPlant.includes('basil') || lowerPlant.includes('herb')) {
+            // More green leaves
+            svg.innerHTML += '<ellipse class="leaves-bg" cx="40" cy="55" rx="5" ry="7" fill="#32CD32"/><ellipse class="leaves-bg" cx="60" cy="55" rx="5" ry="7" fill="#32CD32"/>';
+        } else if (lowerPlant.includes('oak') || lowerPlant.includes('tree')) {
+            // Thicker branches
+            svg.querySelector('.branches').setAttribute('points', '50,45 35,30 65,30 50,20 40,10 60,10');
+        }
+        // Show main content after intro
+        setTimeout(() => {
+            document.getElementById('intro').style.display = 'none';
+            document.getElementById('mainContainer').classList.add('show');
+        }, 5500); // 5.5s to account for fade
+
+        // Animate background plant based on stage
+        setTimeout(() => {
+            if (stage === 'seed') {
+                document.querySelector('.sprout-bg').style.opacity = '1';
+            } else if (stage === 'plant') {
+                document.querySelector('.sprout-bg').style.opacity = '1';
+                setTimeout(() => document.querySelectorAll('.leaves-bg').forEach(el => el.style.opacity = '1'), 2000);
+                setTimeout(() => document.querySelectorAll('.fruit').forEach(el => el.style.opacity = '1'), 4000);
+            } else if (stage === 'tree') {
+                document.querySelector('.sprout-bg').style.opacity = '1';
+                setTimeout(() => document.querySelectorAll('.leaves-bg').forEach(el => el.style.opacity = '1'), 2000);
+                setTimeout(() => document.querySelectorAll('.fruit').forEach(el => el.style.opacity = '1'), 4000);
+                setTimeout(() => document.querySelectorAll('.branches').forEach(el => el.style.opacity = '1'), 6000);
+            }
+        }, 6000); // Start after intro
+
+        const stepsData = {
+            seed: [
+                { day: 1, title: "Prepare the Seed", desc: "Soak the seed in water for 24 hours. Choose a pot with drainage holes and fill with moist potting soil." },
+                { day: 2, title: "Plant the Seed", desc: "Bury the seed 1/4 inch deep. Water gently and place in a warm, sunny spot (70-80°F)." },
+                { day: 3, title: "Monitor Germination", desc: "Keep soil moist but not soggy. Expect sprouting in 5-14 days depending on the plant." },
+                { day: 4, title: "Thin Seedlings", desc: "Once sprouted, thin to one strong seedling per pot if multiple emerge." },
+                { day: 5, title: "Harden Off", desc: "Gradually expose to outdoor conditions if transplanting." }
+            ],
+            plant: [
+                { day: 1, title: "Water Regularly", desc: "Water when the top inch of soil is dry. Avoid overwatering to prevent root rot." },
+                { day: 2, title: "Provide Sunlight", desc: "Ensure 6-8 hours of direct sunlight daily. Rotate the pot for even growth." },
+                { day: 3, title: "Fertilize", desc: "Apply a balanced, diluted fertilizer every 2 weeks during growing season." },
+                { day: 4, title: "Prune", desc: "Remove dead or yellow leaves. Pinch tips to encourage bushiness." },
+                { day: 5, title: "Check for Pests", desc: "Inspect for bugs; use neem oil if needed. Ensure good air circulation." }
+            ],
+            tree: [
+                { day: 1, title: "Deep Watering", desc: "Water deeply but infrequently, allowing soil to dry between sessions." },
+                { day: 2, title: "Mulch", desc: "Apply 2-3 inches of mulch around the base to retain moisture and suppress weeds." },
+                { day: 3, title: "Support Structure", desc: "Stake if needed for wind protection. Prune dead branches." },
+                { day: 4, title: "Fertilize Seasonally", desc: "Use tree-specific fertilizer in spring and fall." },
+                { day: 5, title: "Monitor Health", desc: "Watch for diseases; ensure proper spacing for mature size." }
+            ]
+        };
+
+        const stepsContainer = document.getElementById('steps');
+        stepsData[stage].forEach(step => {
+            const stepDiv = document.createElement('div');
+            stepDiv.className = 'step';
+            stepDiv.innerHTML = `<h3>Day ${step.day}: ${step.title}</h3><p>${step.desc}</p>`;
+            stepsContainer.appendChild(stepDiv);
+        });
+    </script>
+</body>
+</html>
