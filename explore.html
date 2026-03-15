@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Plants - plant.08</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="explore.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <a href="index.html" class="back-link">← Back to Home</a>
+            <h1 class="logo">🌱 Explore Plants</h1>
+            <p class="tagline">Browse our complete plant collection</p>
+        </header>
+
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <div class="filter-container">
+                <label for="categoryFilter">Filter by Category:</label>
+                <select id="categoryFilter" class="filter-select">
+                    <option value="">All Categories</option>
+                    <option value="Vegetable">Vegetables</option>
+                    <option value="Herb">Herbs</option>
+                    <option value="Flower">Flowers</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Plants Grid -->
+        <main class="main-content">
+            <div id="plantsGrid" class="plants-grid">
+                <!-- Plants will be loaded here by JavaScript -->
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2026 plant.08 - Open-source plant care guide. Made with 🌱 for beginners.</p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="plants-data.js"></script>
+    <script src="explore.js"></script>
+</body>
+</html>

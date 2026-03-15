@@ -1,158 +1,88 @@
-<!-- This page welcomes the user and collects the plant name. -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plant Growth Guide</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%), url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjZjVmN2ZhIi8+CjxjaXJjbGUgY3g9IjUwIiBjeT0iODAiIHI9IjUiIGZpbGw9IiM0YTdjNTkiLz4KPHJlY3QgeD0iNDgiIHk9IjcwIiB3aWR0aD0iNCIgaGVpZ2h0PSIxMCIgZmlsbD0iIzRhN2M1OSIvPgo8ZWxsaXBzZSBjeD0iNTAiIGN5PSI2MCIgcng9IjgiIHJ5PSIxMCIgZmlsbD0iIzRhN2M1OSIvPgo8cG9seWdvbiBwb2ludHM9IjUwLDUwIDQ1LDQwIDU1LDQwIiBmaWxsPSIjNGE3YzU5Ii8+Cjwvc3ZnPg==') no-repeat center center;
-            background-size: cover;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            text-align: center;
-        }
-        .container {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 50px 40px;
-            border-radius: 16px;
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-            max-width: 500px;
-            width: 90%;
-            animation: fadeIn 1s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .icon {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto 20px;
-            display: block;
-            animation: bounce 2s infinite;
-        }
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
-        }
-        h1 {
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: #4a7c59;
-            font-size: 2.5em;
-        }
-        .subtitle {
-            font-weight: 300;
-            font-size: 1.2em;
-            color: #666;
-            margin-bottom: 20px;
-        }
-        .description {
-            font-size: 1em;
-            line-height: 1.6;
-            margin-bottom: 30px;
-            color: #555;
-        }
-        .tips {
-            background: #f0f8f0;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            text-align: left;
-        }
-        .tips h3 {
-            margin-top: 0;
-            color: #4a7c59;
-            font-size: 1.1em;
-        }
-        .tips ul {
-            margin: 0;
-            padding-left: 20px;
-        }
-        .tips li {
-            margin-bottom: 5px;
-        }
-        input {
-            width: 100%;
-            padding: 14px;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            font-size: 16px;
-            margin-bottom: 20px;
-            transition: border-color 0.3s, box-shadow 0.3s;
-        }
-        input:focus {
-            border-color: #4a7c59;
-            box-shadow: 0 0 8px rgba(74, 124, 89, 0.3);
-            outline: none;
-        }
-        button {
-            background: linear-gradient(135deg, #4a7c59, #3a5f47);
-            color: white;
-            border: none;
-            padding: 14px 28px;
-            border-radius: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.3s;
-        }
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(74, 124, 89, 0.4);
-        }
-        .footer {
-            margin-top: 30px;
-            font-size: 0.9em;
-            color: #888;
-        }
-    </style>
+    <title>plant.08 - Learn Plant Care</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <svg class="icon" viewBox="0 0 100 100">
-            <circle cx="50" cy="80" r="5" fill="#4a7c59"/>
-            <rect x="48" y="70" width="4" height="10" fill="#4a7c59"/>
-            <ellipse cx="50" cy="60" rx="8" ry="10" fill="#4a7c59"/>
-            <polygon points="50,50 45,40 55,40" fill="#4a7c59"/>
-        </svg>
-        <h1>Plant Growth Guide</h1>
-        <p class="subtitle">Nurture Your Green Friend from Seed to Tree</p>
-        <p class="description">Embark on a personalized journey to grow any plant! Enter your plant's name below, and we'll guide you through daily, detailed steps tailored to its stage—whether it's a tiny seed, a sprouting plant, or a mighty tree. Watch it thrive with our animated tips!</p>
-        <div class="tips">
-            <h3>Quick Tips to Get Started:</h3>
-            <ul>
-                <li>Choose a plant you're excited about, like tomatoes, basil, or an oak tree.</li>
-                <li>Ensure you have basic supplies: seeds, soil, water, and sunlight.</li>
-                <li>Track your progress daily for the best results!</li>
-            </ul>
-        </div>
-        <input type="text" id="plantName" placeholder="e.g., Tomato, Basil, Oak Tree">
-        <button onclick="savePlantName()">Start Your Growth Journey</button>
-        <div class="footer">
-            Made with 🌱 for plant lovers everywhere.
-        </div>
+        <!-- Header -->
+        <header class="header">
+            <h1 class="logo">🌱 plant.08</h1>
+            <p class="tagline">Learn to grow and care for plants</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Search Section -->
+            <section class="search-section">
+                <h2>Which plant are you growing?</h2>
+                
+                <!-- Plant Input with Autocomplete -->
+                <div class="search-container">
+                    <input 
+                        type="text" 
+                        id="plantSearch" 
+                        class="search-input" 
+                        placeholder="Search for a plant (e.g., Tomato, Basil, Rose)..."
+                        autocomplete="off"
+                    >
+                    <div id="searchSuggestions" class="search-suggestions"></div>
+                </div>
+
+                <!-- Search Button -->
+                <button id="selectPlantBtn" class="btn btn-primary" disabled>
+                    Get Care Guide
+                </button>
+            </section>
+
+            <!-- Divider -->
+            <div class="divider">
+                <span>OR</span>
+            </div>
+
+            <!-- Explore Section -->
+            <section class="explore-section">
+                <h2>Browse All Plants</h2>
+                <p>Don't know which plant to choose? Check out our complete plant collection.</p>
+                <a href="explore.html" class="btn btn-secondary">
+                    Explore Plants →
+                </a>
+            </section>
+        </main>
+
+        <!-- Features Section -->
+        <section class="features">
+            <h3>How plant.08 Works</h3>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h4>Select a Plant</h4>
+                    <p>Search for or browse the plant you want to grow</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h4>Choose Your Stage</h4>
+                    <p>Pick the current stage: seed, seedling, or tree</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📋</div>
+                    <h4>Get a Guide</h4>
+                    <p>Learn everything about soil, water, sunlight & care</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2026 plant.08 - Open-source plant care guide. Made with 🌱 for beginners.</p>
+        </footer>
     </div>
-    <script>
-        function savePlantName() {
-            const name = document.getElementById('plantName').value.trim();
-            if (name) {
-                localStorage.setItem('plantName', name);
-                window.location.href = 'stage.html';
-            } else {
-                alert('Please enter a plant name to begin!');
-            }
-        }
-    </script>
+
+    <!-- Scripts -->
+    <script src="plants-data.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
