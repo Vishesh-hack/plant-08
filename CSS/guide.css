@@ -1,5 +1,5 @@
 /* === Guide Page Styles === */
-
+/* === Guide CSS File === */
 .guide-content {
     background: white;
     border-radius: 12px;
@@ -163,4 +163,4 @@
     .navigation-section {
         grid-template-columns: 1fr;
     }
-}
+} /* === Guide CSS File End === */

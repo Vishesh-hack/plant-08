@@ -1,4 +1,5 @@
 /* === Stage Selection Page Styles === */
+/* === Stage CSS File === */
 
 .plant-info-section {
     background: white;
@@ -148,4 +149,4 @@
     .plant-info-section h2 {
         font-size: 1.5em;
     }
-}
+} /* === Stage CSS File End === */

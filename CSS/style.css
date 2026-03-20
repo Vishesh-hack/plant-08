@@ -1,4 +1,5 @@
 /* === Global Styles === */
+/* === Style CSS File ==*/
 * {
     margin: 0;
     padding: 0;
@@ -290,4 +291,4 @@ body {
     .container {
         padding: 10px;
     }
-}
+} /* === Style CSS File End ===*/
