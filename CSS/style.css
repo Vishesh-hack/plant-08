@@ -7,11 +7,12 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #1b4d2e 0%, #2d6a4f 100%);
+    font-family: 'Manrope', 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f9f0 100%);
     min-height: 100vh;
     color: #333;
     overflow-x: hidden;
+    padding-top: 85px;
 }
 
 .container {
@@ -21,37 +22,94 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    padding-top: 20px;
 }
 
 /* === Header === */
 .header {
-    text-align: center;
-    padding: 40px 20px 20px;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-    margin-bottom: 30px;
-    margin-top: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2000;
+    padding: 18px 40px;
+    background: rgba(18, 97, 56, 0.95);
+    color: #ffffff;
+    border-radius: 0;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.24);
+    text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+    margin-bottom: 0;
+    margin-top: 0;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-bottom: 2px solid #2db47a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 80px;
 }
 
 .logo {
-    font-size: 2rem;
-    color: #2d6a4f;
-    margin-bottom: 10px;
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 0;
     font-weight: 700;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
+    justify-content: flex-start;
+    gap: 12px;
+}
+
+.logo h1 {
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+}
+
+.nav {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    font-size: 1rem;
+}
+
+.nav a:hover {
+    color: #a8e6cf;
+    transform: translateY(-2px);
+}
+
+.nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: #a8e6cf;
+    transition: width 0.3s ease;
+}
+
+.nav a:hover::after {
+    width: 100%;
+}
+
+.leaf-icon {
+    font-size: 28px;
 }
 
 .tagline {
     font-size: 1.1em;
-    color: #1b4d2e;
+    color: #ffffff;
     font-weight: 400;
 }
+
 
 /* === Main Content === */
 .main-content {
