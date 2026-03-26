@@ -1,0 +1,625 @@
+﻿/* ===== Plant Detail Page - Scroll-Based Layout ===== */
+/* Forest & Earth Tones Theme - Simple Scroll Layout */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-dark: #1B5E20;
+    --primary-mid: #558B2F;
+    --primary-light: #7CB342;
+    --accent-earth: #8D6E63;
+    --accent-light: #A1887F;
+    --bg-light: #FAFBF7;
+    --text-dark: #2C3E1F;
+    --text-light: #555;
+    --border-color: #D7CCC8;
+    --plant-bg-image: none;
+}
+
+html, body {
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, var(--bg-light) 0%, #EFE7E0 100%);
+    color: var(--text-dark);
+    overflow-x: hidden;
+}
+
+/* ===== Scroll Container ===== */
+.scroll-container {
+    width: 100%;
+    position: relative;
+    background: linear-gradient(135deg, var(--bg-light) 0%, #EFE7E0 100%);
+}
+
+/* ===== Navigation Bar ===== */
+.detail-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.nav-logo {
+    font-size: 1.1em;
+    font-weight: 700;
+    color: var(--primary-dark);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+.nav-logo:hover {
+    background: var(--primary-light);
+    color: white;
+}
+
+/* ===== Scroll Sections ===== */
+.scroll-section {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 40px 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.scroll-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at top right, rgba(122, 179, 66, 0.05), transparent);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.section-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ===== Hero Section ===== */
+.hero-section {
+    background: linear-gradient(135deg, #FAFBF7 0%, #EFE7E0 100%);
+    text-align: center;
+}
+
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.5em;
+    color: var(--primary-dark);
+    margin-bottom: 15px;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.hero-category {
+    font-size: 1.2em;
+    color: var(--primary-light);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.hero-tagline {
+    font-size: 1.3em;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto 50px;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+.scroll-indicator {
+    font-size: 1em;
+    color: var(--primary-mid);
+    animation: bounce 2s infinite;
+    margin-top: 60px;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* ===== Section Headers ===== */
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5em;
+    color: var(--primary-dark);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.section-subtitle {
+    font-size: 1.1em;
+    color: var(--text-light);
+    font-weight: 400;
+}
+
+/* ===== Info Section ===== */
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.info-item {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 12px;
+    text-align: center;
+    border: 2px solid var(--border-color);
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.info-item:hover {
+    border-color: var(--primary-light);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(27, 94, 32, 0.15);
+}
+
+.info-icon {
+    font-size: 3em;
+    margin-bottom: 15px;
+}
+
+.info-label {
+    font-size: 0.95em;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.info-value {
+    font-size: 1.2em;
+    color: var(--primary-dark);
+    font-weight: 600;
+    line-height: 1.6;
+}
+
+/* ===== Appearance Section ===== */
+
+.appearance-content {
+    max-width: 800px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+.appearance-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.detail-row {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background: white;
+    border-left: 4px solid var(--primary-light);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.detail-row:hover {
+    box-shadow: 0 8px 20px rgba(27, 94, 32, 0.1);
+    transform: translateX(5px);
+}
+
+.detail-label {
+    font-weight: 700;
+    color: var(--primary-dark);
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.detail-value {
+    color: var(--text-light);
+    font-size: 1.1em;
+    line-height: 1.5;
+}
+
+.appearance-description {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    line-height: 1.8;
+    color: var(--text-light);
+    border: 1px solid var(--border-color);
+    grid-column: 1 / -1;
+}
+
+/* ===== Benefits Section ===== */
+.benefits-section {
+    background: linear-gradient(135deg, rgba(85, 139, 47, 0.05), rgba(122, 179, 66, 0.05));
+}
+
+.benefits-showcase {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.benefits-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.benefits-list li {
+    padding: 25px;
+    background: white;
+    border-radius: 10px;
+    border-left: 5px solid var(--primary-light);
+    transition: all 0.3s ease;
+    line-height: 1.7;
+    color: var(--text-light);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.benefits-list li:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(27, 94, 32, 0.2);
+    border-left-color: var(--primary-dark);
+}
+
+.benefits-list li::before {
+    content: "✓ ";
+    font-weight: 700;
+    color: var(--primary-light);
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+/* ===== Growth Stages Section ===== */
+
+.stages-timeline {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.stage-card {
+    padding: 25px;
+    background: white;
+    border-radius: 10px;
+    text-align: center;
+    border: 2px solid var(--border-color);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.stage-card:hover {
+    border-color: var(--primary-light);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(27, 94, 32, 0.15);
+}
+
+.stage-card h4 {
+    font-size: 1.3em;
+    color: var(--primary-dark);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.stage-card p {
+    color: var(--text-light);
+    font-size: 0.95em;
+}
+
+/* ===== Care Guide Section ===== */
+
+.care-details {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.care-stage {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    border-left: 5px solid var(--primary-light);
+    transition: all 0.3s ease;
+}
+
+.care-stage:hover {
+    box-shadow: 0 12px 40px rgba(27, 94, 32, 0.15);
+    transform: translateY(-5px);
+}
+
+.care-stage h3 {
+    color: var(--primary-dark);
+    margin-bottom: 20px;
+    font-size: 1.3em;
+    font-weight: 700;
+}
+
+.care-item {
+    margin-bottom: 15px;
+    padding: 12px;
+    background: var(--bg-light);
+    border-radius: 6px;
+}
+
+.care-item strong {
+    color: var(--primary-mid);
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.care-item p {
+    color: var(--text-light);
+    margin: 0;
+    line-height: 1.5;
+    font-size: 0.95em;
+}
+
+/* ===== Similar Plants Section ===== */
+
+.similar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.similar-card {
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid var(--border-color);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.similar-card:hover {
+    border-color: var(--primary-light);
+    transform: scale(1.05) translateY(-8px);
+    box-shadow: 0 15px 40px rgba(27, 94, 32, 0.2);
+}
+
+.similar-icon {
+    font-size: 80px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.similar-name {
+    font-weight: 700;
+    color: var(--primary-dark);
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+
+.similar-category {
+    font-size: 0.85em;
+    color: var(--text-light);
+}
+
+/* ===== Growing Tips Section ===== */
+
+.tips-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.tips-card {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    border-left: 5px solid var(--primary-light);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.tips-card h3 {
+    color: var(--primary-dark);
+    font-size: 1.4em;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.tips-card p {
+    color: var(--text-light);
+    line-height: 1.8;
+    font-size: 1.05em;
+}
+
+/* ===== Companion Planting Section ===== */
+
+.companions-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.companions-card {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    border: 2px solid var(--primary-light);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.companions-card p {
+    color: var(--text-light);
+    line-height: 1.8;
+    font-size: 1.05em;
+    margin: 0;
+}
+
+/* ===== CTA Section ===== */
+.cta-section {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-mid) 100%);
+    text-align: center;
+    padding: 100px 40px !important;
+}
+
+.cta-section .section-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.cta-section h2 {
+    color: var(--bg-light);
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+.cta-section p {
+    color: rgba(250, 251, 247, 0.85);
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.cta-button {
+    display: inline-block;
+    background: var(--primary-light);
+    color: white;
+    padding: 16px 50px;
+    border-radius: 50px;
+    font-size: 1.1em;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid var(--primary-light);
+    box-shadow: 0 6px 20px rgba(27, 94, 32, 0.3);
+}
+
+.cta-button:hover {
+    background: var(--bg-light);
+    color: var(--primary-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(27, 94, 32, 0.4);
+}
+
+.cta-button:active {
+    transform: translateY(-1px);
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+    .detail-nav {
+        padding: 0 20px;
+        height: 70px;
+    }
+
+    .hero-title {
+        font-size: 2.5em;
+    }
+
+    .section-header h2 {
+        font-size: 2.2em;
+    }
+
+    .scroll-section {
+        padding: 70px 20px 40px;
+    }
+
+    .appearance-content {
+        grid-template-columns: 1fr;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .detail-nav {
+        padding: 0 15px;
+        height: 60px;
+    }
+
+    .nav-logo {
+        font-size: 0.9em;
+    }
+
+    .hero-title {
+        font-size: 1.8em;
+    }
+
+    .hero-tagline {
+        font-size: 1em;
+    }
+
+    .section-header h2 {
+        font-size: 1.6em;
+    }
+
+    .section-subtitle {
+        font-size: 0.95em;
+    }
+
+    .scroll-section {
+        padding: 60px 15px 40px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .benefits-list {
+        grid-template-columns: 1fr;
+    }
+
+    .appearance-content {
+        gap: 20px;
+    }
+}

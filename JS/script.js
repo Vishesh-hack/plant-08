@@ -65,8 +65,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle "Get Care Guide" button click
     selectPlantBtn.addEventListener('click', function() {
         if (selectedPlantId) {
-            // Redirect to stage selection page
-            window.location.href = 'stage.html';
+            // Redirect to detail page
+            window.location.href = 'detail.html';
         }
     });
 
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 selectedPlantId = matchedPlant.id;
                 sessionStorage.setItem('selectedPlantId', matchedPlant.id);
                 sessionStorage.setItem('selectedPlantName', matchedPlant.name);
-                window.location.href = 'stage.html';
+                window.location.href = 'detail.html';
             }
         }
     });

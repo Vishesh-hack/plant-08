@@ -14,19 +14,19 @@
 
 .plant-info-section h2 {
     font-size: 2em;
-    color: #2d6a4f;
+    color: #1B5E20;
     margin-bottom: 10px;
     font-weight: 700;
 }
 
 .plant-info-section p {
     font-size: 1.1em;
-    color: #1b4d2e;
+    color: #558B2F;
     font-weight: 500;
 }
 
 #plantNameSpan {
-    color: #2d6a4f;
+    color: #1B5E20;
     font-weight: 700;
 }
 
@@ -55,13 +55,13 @@
 .stage-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 20px 45px rgba(0, 0, 0, 0.2);
-    border-color: #52b788;
+    border-color: #7CB342;
 }
 
 .stage-card.selected {
-    border-color: #52b788;
+    border-color: #7CB342;
     background: linear-gradient(135deg, #f8fff5 0%, #e8f5e8 100%);
-    box-shadow: 0 15px 35px rgba(82, 183, 136, 0.3);
+    box-shadow: 0 15px 35px rgba(123, 179, 66, 0.3);
 }
 
 .stage-icon {
@@ -71,21 +71,21 @@
 
 .stage-card h3 {
     font-size: 1.5em;
-    color: #2d6a4f;
+    color: #1B5E20;
     margin-bottom: 12px;
     font-weight: 700;
 }
 
 .stage-description {
     font-size: 0.95em;
-    color: #1b4d2e;
+    color: #558B2F;
     line-height: 1.6;
     margin-bottom: 20px;
 }
 
 .btn-stage {
-    background: linear-gradient(45deg, #52b788, #74c69d);
-    color: #0b3b29;
+    background: linear-gradient(45deg, #7CB342, #558B2F);
+    color: white;
     width: 100%;
     padding: 12px 20px;
     font-weight: 600;
@@ -93,30 +93,30 @@
     border: none;
     border-radius: 15px;
     cursor: pointer;
-    box-shadow: 0 5px 15px rgba(82, 183, 136, 0.3);
+    box-shadow: 0 5px 15px rgba(123, 179, 66, 0.3);
 }
 
 .btn-stage:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(82, 183, 136, 0.5);
+    box-shadow: 0 8px 20px rgba(123, 179, 66, 0.5);
 }
 
 .stage-card.selected .btn-stage {
-    box-shadow: 0 8px 20px rgba(82, 183, 136, 0.5);
+    box-shadow: 0 8px 20px rgba(123, 179, 66, 0.5);
 }
 
 /* === Info Box === */
 .info-box {
     background: linear-gradient(135deg, #f8fff5 0%, #e8f5e8 100%);
-    border-left: 4px solid #52b788;
+    border-left: 4px solid #7CB342;
     border-radius: 15px;
     padding: 25px;
     margin-bottom: 30px;
-    box-shadow: 0 10px 25px rgba(82, 183, 136, 0.2);
+    box-shadow: 0 10px 25px rgba(123, 179, 66, 0.2);
 }
 
 .info-box h3 {
-    color: #2d6a4f;
+    color: #1B5E20;
     margin-bottom: 15px;
     font-weight: 700;
 }
@@ -130,7 +130,7 @@
     padding: 10px 0;
     color: #555;
     line-height: 1.6;
-    border-bottom: 1px solid rgba(82, 183, 136, 0.2);
+    border-bottom: 1px solid rgba(123, 179, 66, 0.2);
 }
 
 .info-box li:last-child {
@@ -138,24 +138,219 @@
 }
 
 .info-box strong {
-    color: #2d6a4f;
+    color: #1B5E20;
 }
 
 /* === Responsive Design === */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+    .plant-info-section {
+        padding: 25px 20px;
+        margin-bottom: 25px;
+        border-radius: 15px;
+    }
+
+    .plant-info-section h2 {
+        font-size: 1.8em;
+        margin-bottom: 8px;
+    }
+
+    .plant-info-section p {
+        font-size: 1em;
+    }
+
     .stages-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin-bottom: 25px;
+    }
+
+    .stage-card {
+        padding: 25px 15px;
+        border-radius: 15px;
     }
 
     .stage-icon {
-        font-size: 4em;
+        font-size: 4.5em;
+        margin-bottom: 12px;
     }
 
     .stage-card h3 {
         font-size: 1.3em;
+        margin-bottom: 10px;
+    }
+
+    .stage-description {
+        font-size: 0.9em;
+        margin-bottom: 15px;
+        line-height: 1.5;
+    }
+
+    .btn-stage {
+        padding: 10px 18px;
+        font-size: 0.9em;
+    }
+
+    .info-box {
+        padding: 20px;
+        margin-bottom: 25px;
+        border-radius: 12px;
+        border-left-width: 3px;
+    }
+
+    .info-box h3 {
+        margin-bottom: 12px;
+        font-size: 1.1em;
+    }
+
+    .info-box li {
+        padding: 8px 0;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .plant-info-section {
+        padding: 20px 15px;
+        margin-bottom: 20px;
+        border-radius: 12px;
     }
 
     .plant-info-section h2 {
         font-size: 1.5em;
+        margin-bottom: 6px;
     }
-} /* === Stage CSS File End === */
+
+    .plant-info-section p {
+        font-size: 0.95em;
+    }
+
+    .stages-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    .stage-card {
+        padding: 20px 12px;
+        border-radius: 12px;
+    }
+
+    .stage-icon {
+        font-size: 4em;
+        margin-bottom: 10px;
+    }
+
+    .stage-card h3 {
+        font-size: 1.2em;
+        margin-bottom: 8px;
+    }
+
+    .stage-description {
+        font-size: 0.85em;
+        margin-bottom: 12px;
+    }
+
+    .btn-stage {
+        padding: 8px 16px;
+        font-size: 0.85em;
+    }
+
+    .info-box {
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+    }
+
+    .info-box h3 {
+        margin-bottom: 10px;
+        font-size: 1em;
+    }
+
+    .info-box li {
+        padding: 6px 0;
+        font-size: 0.85em;
+    }
+}
+
+/* === Mobile Enhancements === */
+@media (max-width: 768px) {
+    /* Touch-friendly stage cards */
+    .stage-card {
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .stage-card:active {
+        transform: scale(0.98);
+    }
+
+    /* Better button interaction */
+    .btn-stage {
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        width: 100%;
+        border-radius: 12px;
+    }
+
+    /* Improve card layout */
+    .stage-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 200px;
+    }
+
+    .stage-description {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+    }
+
+    /* Better info box */
+    .info-box ul {
+        list-style-position: inside;
+        padding-left: 0;
+    }
+
+    .info-box li {
+        border-bottom: 1px solid rgba(82, 183, 136, 0.1);
+        padding: 10px 0;
+    }
+
+    .info-box li:last-child {
+        border-bottom: none;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Optimize for very small screens */
+    .plant-info-section {
+        margin: 0;
+        border-radius: 0;
+    }
+
+    .stages-container {
+        gap: 12px;
+    }
+
+    .stage-card {
+        min-height: 180px;
+        padding: 15px;
+    }
+
+    .stage-icon {
+        font-size: 3.5em;
+    }
+
+    .stage-card h3 {
+        font-size: 1.1em;
+    }
+
+    .info-box {
+        margin: 0;
+        border-radius: 0;
+    }
+}
