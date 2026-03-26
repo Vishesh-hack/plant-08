@@ -1,3 +1,12 @@
+@font-face {
+    font-family: 'datatype';
+    /* fallback to a system font to make visible changes immediately when custom file is not available */
+    src: local('Segoe UI'), local('Arial'), local('Helvetica');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -12,7 +21,7 @@ html {
 body {
     font-family: 'Manrope', 'datatype', sans-serif;
     overflow-x: hidden;
-    background: white;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f9f0 100%);
     min-height: 100vh;
     margin: 0;
     padding: 0;
@@ -24,7 +33,6 @@ body {
     padding:20px 0 20px 0;
 }
 
-/* Hero Section */
 .hero {
     position: relative;
     min-height: 100vh;
@@ -33,8 +41,7 @@ body {
     justify-content: center;
     overflow: hidden;
     padding-top: 0;
-    margin-top: -70px;
-    background: white;
+    margin-top: -85px;
 }
 
 .hero-bg {
@@ -54,20 +61,23 @@ body {
 }
 
 .header {
-    position: fixed; /* Changed from absolute to fixed for proper header behavior */
+    position: fixed;
     top: 0;
     left: 0;
-    right: 0;
+    width: 100%;
     padding: 15px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1000; /* Increased z-index for better layering */
+    z-index: 2000;
     backdrop-filter: blur(10px);
-    background: rgba(3, 99, 24, 0.833);
-    border-bottom: 1px solid rgb(46, 184, 99);
-    
-    /* Fallback for browsers that don't support backdrop-filter */
+    background: rgba(18, 97, 56, 0.95);
+    border-bottom: 2px solid #2db47a;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.22);
+    min-height: 80px;
+    font-family: 'Manrope', sans-serif;
+    color: white;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.7);
     -webkit-backdrop-filter: blur(10px);
 }
 
@@ -140,8 +150,9 @@ body {
 .hero-subtitle {
     font-size: 1.3rem;
     margin-bottom: 40px;
-    opacity: 0.9;
-    font-weight: 300;
+    opacity: 1.0;
+    font-weight: 400;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .cta-buttons {
@@ -165,7 +176,7 @@ body {
 
 .cta-primary {
     background: linear-gradient(45deg, #52b788, #74c69d);
-    color: #0b3b29;
+    color: white;
     box-shadow: 0 10px 30px rgba(82, 183, 136, 0.4);
 }
 
@@ -185,6 +196,8 @@ body {
 .cta-secondary:hover {
     background: rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
 }
 
 /* Footer */
