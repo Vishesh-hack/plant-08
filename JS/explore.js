@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 sessionStorage.setItem('selectedPlantId', plantId);
                 sessionStorage.setItem('selectedPlantName', plantName);
-                window.location.href = 'stage.html';
+                window.location.href = 'detail.html';
             });
         });
     }

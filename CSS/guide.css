@@ -35,12 +35,12 @@
 .overview-section {
     margin-bottom: 40px;
     padding-bottom: 30px;
-    border-bottom: 2px solid rgba(168, 230, 207, 0.2);
+    border-bottom: 2px solid rgba(123, 179, 66, 0.2);
 }
 
 .overview-section h2 {
     font-size: 1.8em;
-    color: #2d6a4f;
+    color: #1B5E20;
     margin-bottom: 15px;
     font-weight: 700;
 }
@@ -58,7 +58,7 @@
 
 .care-section h2 {
     font-size: 1.8em;
-    color: #2d6a4f;
+    color: #1B5E20;
     margin-bottom: 25px;
     font-weight: 700;
 }
@@ -74,15 +74,15 @@
     background: linear-gradient(135deg, #f8fff5 0%, #e8f5e8 100%);
     border-radius: 15px;
     padding: 25px;
-    border: 1px solid rgba(168, 230, 207, 0.3);
+    border: 1px solid rgba(123, 179, 66, 0.3);
     transition: all 0.3s ease;
-    box-shadow: 0 10px 25px rgba(168, 230, 207, 0.1);
+    box-shadow: 0 10px 25px rgba(123, 179, 66, 0.1);
 }
 
 .care-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(82, 183, 136, 0.15);
-    border-color: #076217;
+    box-shadow: 0 15px 35px rgba(123, 179, 66, 0.15);
+    border-color: #1B5E20;
 }
 
 .care-icon {
@@ -93,7 +93,7 @@
 
 .care-card h3 {
     font-size: 1.3em;
-    color: #2d6a4f;
+    color: #1B5E20;
     text-align: center;
     margin-bottom: 15px;
     font-weight: 700;
@@ -119,23 +119,23 @@
 }
 
 .care-info strong {
-    color: #2d6a4f;
+    color: #1B5E20;
     font-weight: 600;
 }
 
 /* === Tips Section === */
 .tips-section {
-    background: linear-gradient(135deg, #b0d3a2 0%, #cceac1 100%);
-    border-left: 4px solid #52b788;
+    background: linear-gradient(135deg, #c8e6c9 0%, #dcedc1 100%);
+    border-left: 4px solid #7CB342;
     border-radius: 15px;
     padding: 25px;
     margin-bottom: 30px;
-    box-shadow: 0 10px 25px rgba(82, 183, 136, 0.2);
+    box-shadow: 0 10px 25px rgba(123, 179, 66, 0.2);
 }
 
 .tips-section h2 {
     font-size: 1.5em;
-    color: #2d6a4f;
+    color: #1B5E20;
     margin-bottom: 20px;
     font-weight: 700;
 }
@@ -169,24 +169,243 @@
 }
 
 /* === Responsive Design === */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .guide-content {
-        padding: 25px 15px;
+        padding: 30px 20px;
+        margin-bottom: 25px;
+        border-radius: 15px;
+    }
+
+    .overview-section {
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+    }
+
+    .overview-section h2 {
+        font-size: 1.6em;
+        margin-bottom: 12px;
+    }
+
+    .overview-section p {
+        font-size: 1em;
+        line-height: 1.7;
+    }
+
+    .care-section {
+        margin-bottom: 30px;
+    }
+
+    .care-section h2 {
+        font-size: 1.6em;
+        margin-bottom: 20px;
     }
 
     .care-grid {
         grid-template-columns: 1fr;
+        gap: 15px;
     }
 
-    .overview-section h2 {
-        font-size: 1.4em;
+    .care-card {
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    .care-icon {
+        font-size: 2.8em;
+        margin-bottom: 12px;
+    }
+
+    .care-card h3 {
+        font-size: 1.2em;
+        margin-bottom: 12px;
+    }
+
+    .care-info {
+        font-size: 0.9em;
+    }
+
+    .care-info p {
+        margin-bottom: 8px;
+    }
+
+    .care-info ul {
+        margin-left: 15px;
+        margin-bottom: 8px;
+    }
+
+    .care-info li {
+        margin-bottom: 6px;
+    }
+
+    .tips-section {
+        padding: 20px;
+        margin-bottom: 25px;
+        border-radius: 12px;
+        border-left-width: 3px;
     }
 
     .tips-section h2 {
-        font-size: 1.3em;
+        font-size: 1.4em;
+        margin-bottom: 15px;
+    }
+
+    .tips-list {
+        gap: 12px;
+    }
+
+    .tip-item {
+        padding: 12px;
+        border-radius: 8px;
+        font-size: 0.9em;
+        border-left-width: 2px;
     }
 
     .navigation-section {
         grid-template-columns: 1fr;
+        gap: 15px;
+        margin-bottom: 25px;
     }
-} /* === Guide CSS File End === */
+
+    .navigation-section .btn {
+        padding: 12px 20px;
+        font-size: 0.95em;
+    }
+}
+
+@media (max-width: 480px) {
+    .guide-content {
+        padding: 25px 15px;
+        margin-bottom: 20px;
+        border-radius: 12px;
+    }
+
+    .overview-section {
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+    }
+
+    .overview-section h2 {
+        font-size: 1.4em;
+        margin-bottom: 10px;
+    }
+
+    .overview-section p {
+        font-size: 0.95em;
+        line-height: 1.6;
+    }
+
+    .care-section {
+        margin-bottom: 25px;
+    }
+
+    .care-section h2 {
+        font-size: 1.4em;
+        margin-bottom: 15px;
+    }
+
+    .care-card {
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    .care-icon {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+    }
+
+    .care-card h3 {
+        font-size: 1.1em;
+        margin-bottom: 10px;
+    }
+
+    .care-info {
+        font-size: 0.85em;
+    }
+
+    .tips-section {
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+    }
+
+    .tips-section h2 {
+        font-size: 1.2em;
+        margin-bottom: 12px;
+    }
+
+    .tips-list {
+        gap: 10px;
+    }
+
+    .tip-item {
+        padding: 10px;
+        font-size: 0.85em;
+    }
+
+    .navigation-section {
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+
+    .navigation-section .btn {
+        padding: 10px 18px;
+        font-size: 0.9em;
+    }
+}
+
+/* === Mobile Enhancements === */
+@media (max-width: 768px) {
+    /* Better readability */
+    .overview-section p,
+    .care-info,
+    .tip-item {
+        line-height: 1.6;
+    }
+
+    /* Touch-friendly care cards */
+    .care-card {
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .care-card:active {
+        transform: scale(0.98);
+    }
+
+    /* Better navigation buttons */
+    .navigation-section .btn {
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+    }
+
+    /* Improve list readability */
+    .care-info ul,
+    .care-info ol {
+        padding-left: 20px;
+    }
+
+    .care-info li {
+        margin-bottom: 8px;
+        padding-left: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Optimize spacing for small screens */
+    .guide-content {
+        margin: 0;
+        border-radius: 0;
+    }
+
+    .overview-section,
+    .care-section {
+        margin-bottom: 20px;
+    }
+
+    .tips-section {
+        margin-bottom: 15px;
+    }
+}

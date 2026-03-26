@@ -80,8 +80,16 @@
     <!-- 💧 WATERING - Card RIGHT, Description LEFT -->
     <div class="guide-slide watering-slide">
         <div class="container">
-            <div class="slide-content reverse">
-                <div class="desc-side left-desc">
+            <div class="slide-content ">
+                <div class="card-side left-card">
+                    <div class="guide-card watering-card">
+                        <div class="card-icon">💧</div>
+                        <h3>Watering</h3>
+                        <p>Perfect schedule for every season</p>
+                        <div class="water-drop">💧</div>
+                    </div>
+                </div>
+                <div class="desc-side right-desc">
                     <h2 class="slide-title">💧 Watering Schedule</h2>
                     <div class="desc-content">
                         <div class="watering-wheel">
@@ -91,14 +99,6 @@
                             <div class="wheel-item winter">Winter<br>1x/week</div>
                         </div>
                         <p class="highlight">👆 <strong>Finger Test:</strong> Dry 2" deep = WATER!</p>
-                    </div>
-                </div>
-                <div class="card-side right-card">
-                    <div class="guide-card watering-card">
-                        <div class="card-icon">💧</div>
-                        <h3>Watering</h3>
-                        <p>Perfect schedule for every season</p>
-                        <div class="water-drop">💧</div>
                     </div>
                 </div>
             </div>
@@ -120,7 +120,7 @@
                     </div>
                 </div>
                 <div class="desc-side right-desc">
-                    <h2 class="slide-title">🌺 Flower Magic</h2>
+                    <h3 class="slide-title">🌺 Flower Magic</h3>
                     <div class="desc-content">
                         <p class="highlight"><strong>6+ hours sun</strong> = Maximum blooms!</p>
                         <div class="sun-rays">☀️☀️☀️☀️☀️☀️</div>
@@ -138,8 +138,16 @@
     <!-- 🍎 FRUITS - Card RIGHT, Description LEFT -->
     <div class="guide-slide fruits-slide">
         <div class="container">
-            <div class="slide-content reverse">
-                <div class="desc-side left-desc">
+            <div class="slide-content ">
+                <div class="card-side left-card">
+                    <div class="guide-card fruits-card">
+                        <div class="card-icon">🍎</div>
+                        <h3>Fruits</h3>
+                        <p>Harvest sweet success</p>
+                        <div class="fruit-icons">🍓🍎🍇</div>
+                    </div>
+                </div>
+                <div class="desc-side right-desc">
                     <h2 class="slide-title">🍎 Fruit Harvest</h2>
                     <div class="desc-content">
                         <p class="highlight">🐝 <strong>Bees = 80% more fruit!</strong></p>
@@ -149,14 +157,6 @@
                             <li>✂️ Prune winter</li>
                             <li>💧 Consistent moisture</li>
                         </ul>
-                    </div>
-                </div>
-                <div class="card-side right-card">
-                    <div class="guide-card fruits-card">
-                        <div class="card-icon">🍎</div>
-                        <h3>Fruits</h3>
-                        <p>Harvest sweet success</p>
-                        <div class="fruit-icons">🍓🍎🍇</div>
                     </div>
                 </div>
             </div>
@@ -198,8 +198,16 @@
     <!-- 🥕 VEGETABLES - Card RIGHT, Description LEFT -->
     <div class="guide-slide vegetables-slide">
         <div class="container">
-            <div class="slide-content reverse">
-                <div class="desc-side left-desc">
+            <div class="slide-content ">
+                <div class="card-side left-card">
+                    <div class="guide-card vegetables-card">
+                        <div class="card-icon">🥕</div>
+                        <h3>Vegetables</h3>
+                        <p>Grow your own veggies</p>
+                        <div class="veggie-roots">🥕🥬🥒</div>
+                    </div>
+                </div>
+                <div class="desc-side right-desc">
                     <h3 class="slide-title">🥕 Veggie Power</h3>
                     <div class="desc-content">
                         <p class="highlight"><strong>Fast growers:</strong> Radish (25d), Lettuce (30d)</p>
@@ -213,14 +221,6 @@
                             <li>🛡️ Neem oil for pests</li>
                             <li>🌞 Full sun</li>
                         </ul>
-                    </div>
-                </div>
-                <div class="card-side right-card">
-                    <div class="guide-card vegetables-card">
-                        <div class="card-icon">🥕</div>
-                        <h3>Vegetables</h3>
-                        <p>Grow your own veggies</p>
-                        <div class="veggie-roots">🥕🥬🥒</div>
                     </div>
                 </div>
             </div>
@@ -343,17 +343,27 @@
                 observer.observe(slide);
             });
 
-            // Animate meter fill
-            const meterFill = document.querySelector('.meter-fill');
-            if (meterFill) {
-                setTimeout(() => {
-                    meterFill.style.width = '70%';
-                }, 500);
-            }
+            // One-time blur reveal on desc-side with synced meter-fill animation
+            let meterAnimationTriggered = false;
+            
+            document.querySelectorAll('.desc-side').forEach(descSide => {
+                descSide.addEventListener('mouseenter', function() {
+                    if (!this.classList.contains('revealed')) {
+                        this.classList.add('revealed');
+                        
+                        // Trigger meter-fill animation on first reveal
+                        if (!meterAnimationTriggered) {
+                            meterAnimationTriggered = true;
+                            const meterFill = document.querySelector('.meter-fill');
+                            if (meterFill) {
+                                meterFill.style.width = '70%';
+                            }
+                        }
+                    }
+                }, { once: false });
+            });
         });
     </script>
     
-    <!-- Sound Effects -->
-    <script src="JS/soundManager.js"></script>
 </body>
 </html>

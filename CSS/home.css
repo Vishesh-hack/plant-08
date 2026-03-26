@@ -30,7 +30,7 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding:20px 0 20px 0;
 }
 
 .hero {
@@ -51,6 +51,7 @@ body {
     width: 100%;
     height: 100%;
     z-index: 1;
+    background: white;
 }
 
 #bgCanvas {
@@ -186,7 +187,7 @@ body {
 
 .cta-secondary {
     background: transparent;
-    color: white;
+    color: #0b3b29;
     border: 2px solid rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -250,20 +251,118 @@ body {
         flex-direction: column;
         gap: 15px;
     }
-    
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .logo h1 {
+        font-size: 20px;
+    }
+
+    .leaf-icon {
+        font-size: 28px;
+    }
+
     .nav {
         display: flex;
         gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
-    
+
     .nav a {
         margin-left: 0;
         font-size: 0.9rem;
+        padding: 8px 12px;
     }
-    
+
+    .hero-content {
+        padding: 0 15px;
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: clamp(2rem, 8vw, 3.5rem);
+        margin-bottom: 15px;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+    }
+
     .cta-buttons {
         flex-direction: column;
+        gap: 15px;
         align-items: center;
+    }
+
+    .cta-primary,
+    .cta-secondary {
+        padding: 14px 35px;
+        font-size: 1rem;
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .footer {
+        padding: 20px 15px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 12px 15px;
+        gap: 12px;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .logo h1 {
+        font-size: 18px;
+    }
+
+    .leaf-icon {
+        font-size: 24px;
+    }
+
+    .nav {
+        gap: 15px;
+    }
+
+    .nav a {
+        font-size: 0.85rem;
+        padding: 6px 10px;
+    }
+
+    .hero-content {
+        padding: 0 10px;
+    }
+
+    .hero-title {
+        font-size: clamp(1.8rem, 9vw, 3rem);
+        margin-bottom: 12px;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 25px;
+    }
+
+    .cta-primary,
+    .cta-secondary {
+        padding: 12px 30px;
+        font-size: 0.95rem;
+        max-width: 250px;
+    }
+
+    .footer {
+        padding: 15px 10px;
+        font-size: 0.85em;
     }
 }
 
@@ -299,41 +398,93 @@ body {
     min-width: 0;
 }
 
-.left-card, .right-desc { text-align: left; }
-.right-card, .left-desc { text-align: right; }
+.desc-side {
+    filter: blur(4px);
+    transition: filter 0.5s ease;
+}
+
+.desc-side.revealed {
+    filter: blur(0px);
+}
+
+.left-card, .left-desc { text-align: left; }
+.right-card, .right-desc { text-align: right; }
 
 .guide-card {
     background: white;
     padding: 60px 40px;
-    border-radius: 30px;
+    border-radius: 20px;
     box-shadow: 0 40px 80px rgba(0,0,0,0.15), 0 0 0 1px rgba(255,255,255,0.8);
     position: relative;
     min-height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     overflow: visible;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: pointer;
 }
 
 .guide-card::before {
     content: '';
     position: absolute;
     top: 0;
-    left: -100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
-    transition: left 0.8s;
+    border-radius: 20px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
 }
 
-.guide-card:hover::before {
-    left: 100%;
+.guide-card::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, rgba(124, 179, 66, 0.5), rgba(139, 195, 74, 0.3), rgba(124, 179, 66, 0.5));
+    border-radius: 20px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
 }
 
 .guide-card:hover {
-    transform: translateY(-30px) scale(1.02);
-    box-shadow: 0 60px 120px rgba(0,0,0,0.25);
+    transform: scale(1.08);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.2), 0 0 40px rgba(124, 179, 66, 0.4);
+}
+
+.guide-card:hover::before {
+    opacity: 1;
+    animation: shine 0.6s ease-in-out;
+}
+
+.guide-card:hover::after {
+    opacity: 1;
+    animation: glowBorder 0.8s ease-in-out infinite;
+}
+
+@keyframes shine {
+    0% { 
+        left: -100%;
+    }
+    100% { 
+        left: 100%;
+    }
+}
+
+@keyframes glowBorder {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(124, 179, 66, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 35px rgba(139, 195, 74, 0.6);
+    }
 }
 
 .card-icon {
@@ -550,24 +701,312 @@ body {
     .slide-content {
         flex-direction: column;
         gap: 60px;
+        padding: 0 20px;
     }
-    
+
     .slide-content.reverse {
         flex-direction: column;
     }
-    
+
     .left-card, .right-card, .left-desc, .right-desc {
         text-align: center !important;
+    }
+
+    .guide-card, .desc-content {
+        padding: 40px 25px;
+        min-height: auto;
+    }
+
+    .slide-title {
+        font-size: clamp(2.2rem, 5vw, 4rem);
+        margin-bottom: 30px;
+    }
+
+    .highlight {
+        font-size: 1.3rem;
+        margin-bottom: 30px;
+    }
+
+    .pro-tips li {
+        font-size: 1.1rem;
+        padding-left: 35px;
+    }
+
+    .watering-wheel {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .wheel-item {
+        padding: 20px;
+        font-size: 0.9em;
+    }
+
+    .finger-test-demo, .sun-rays, .fruit-tree-anim, .harvest-demo, .veggie-grid {
+        font-size: 2.5rem;
+        margin: 30px 0;
+    }
+
+    .veggie-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 15px;
     }
 }
 
 @media (max-width: 768px) {
-    .guide-card, .desc-content {
-        height: auto;
-        padding: 40px 30px;
+    .plant-guide {
+        padding: 60px 0;
     }
-    
+
+    .guide-card, .desc-content {
+        padding: 30px 20px;
+        border-radius: 20px;
+    }
+
     .slide-title {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
+        margin-bottom: 25px;
+    }
+
+    .highlight {
+        font-size: 1.1rem;
+        margin-bottom: 25px;
+    }
+
+    .card-icon {
+        font-size: 4rem;
+        margin-bottom: 20px;
+    }
+
+    .guide-card h3 {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+    }
+
+    .guide-card p {
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+    }
+
+    .soil-types, .flower-blooms, .fruit-icons, .herb-leaves, .veggie-roots {
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .soil-types span, .flower-blooms span, .fruit-icons span, .herb-leaves span, .veggie-roots span {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+
+    .water-drop {
+        font-size: 5rem;
+        margin-top: 15px;
+    }
+
+    .ph-meter {
+        margin: 30px 0;
+    }
+
+    .meter-track {
+        height: 20px;
+    }
+
+    .pro-tips {
+        margin-top: 20px;
+    }
+
+    .pro-tips li {
+        font-size: 1rem;
+        margin-bottom: 12px;
+        padding-left: 30px;
+    }
+
+    .pro-tips li::before {
+        width: 20px;
+        height: 20px;
+        top: 3px;
+    }
+
+    .watering-wheel {
+        margin: 30px 0;
+    }
+
+    .finger-test-demo, .sun-rays, .fruit-tree-anim, .harvest-demo, .veggie-grid {
+        font-size: 2rem;
+        margin: 25px 0;
+    }
+
+    .veggie-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 12px;
+    }
+
+    .veggie-grid span {
+        padding: 15px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .plant-guide {
+        padding: 40px 0;
+    }
+
+    .guide-card, .desc-content {
+        padding: 25px 15px;
+        border-radius: 15px;
+    }
+
+    .slide-title {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+
+    .highlight {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
+    .card-icon {
+        font-size: 3rem;
+        margin-bottom: 15px;
+    }
+
+    .guide-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 12px;
+    }
+
+    .guide-card p {
+        font-size: 1rem;
+        margin-bottom: 15px;
+    }
+
+    .soil-types, .flower-blooms, .fruit-icons, .herb-leaves, .veggie-roots {
+        gap: 8px;
+    }
+
+    .soil-types span, .flower-blooms span, .fruit-icons span, .herb-leaves span, .veggie-roots span {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+
+    .water-drop {
+        font-size: 4rem;
+        margin-top: 12px;
+    }
+
+    .ph-meter {
+        margin: 25px 0;
+    }
+
+    .meter-track {
+        height: 18px;
+    }
+
+    .pro-tips li {
+        font-size: 0.95rem;
+        margin-bottom: 10px;
+        padding-left: 25px;
+    }
+
+    .watering-wheel {
+        margin: 25px 0;
+        gap: 12px;
+    }
+
+    .wheel-item {
+        padding: 15px;
+        font-size: 0.85em;
+    }
+
+    .finger-test-demo, .sun-rays, .fruit-tree-anim, .harvest-demo, .veggie-grid {
+        font-size: 1.8rem;
+        margin: 20px 0;
+    }
+
+    .veggie-grid {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 10px;
+    }
+
+    .veggie-grid span {
+        padding: 12px;
+        font-size: 0.8em;
+    }
+}
+
+/* === Mobile Enhancements === */
+@media (max-width: 768px) {
+    /* Improve hero section for mobile */
+    .hero {
+        min-height: 90vh;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 5;
+        max-width: 100%;
+        padding: 0 20px;
+    }
+
+    /* Better navigation on mobile */
+    .nav {
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .nav a {
+        flex: 1;
+        text-align: center;
+        padding: 12px 8px;
+        border-radius: 8px;
+        margin: 0 2px;
+        transition: all 0.2s ease;
+    }
+
+    .nav a:hover {
+        background: rgba(82, 183, 136, 0.1);
+        transform: translateY(-1px);
+    }
+
+    /* Touch-friendly buttons */
+    .cta-primary, .cta-secondary {
+        min-height: 50px;
+        width: 100%;
+        max-width: 300px;
+        font-size: 1.1rem;
+        border-radius: 25px;
+    }
+
+    /* Better spacing */
+    .cta-buttons {
+        width: 100%;
+        max-width: 320px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        min-height: 85vh;
+    }
+
+    .hero-content {
+        padding: 0 15px;
+    }
+
+    .nav a {
+        font-size: 0.8rem;
+        padding: 10px 6px;
+    }
+
+    .cta-primary, .cta-secondary {
+        min-height: 45px;
+        font-size: 1rem;
+        max-width: 280px;
+    }
+
+    .cta-buttons {
+        max-width: 300px;
     }
 }
