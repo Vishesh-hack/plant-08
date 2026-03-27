@@ -3,66 +3,6 @@
 // Plants are organized alphabetically by name
 
 const GUIDE_DATA = {
-    "1": { // Apple
-        "name": "Apple",
-        "overview": "Apple trees are rewarding to grow and provide fruit for many years. They require well-drained soil, full sunlight, and regular pruning for optimal fruit production.",
-        "stages": {
-            "seed": {
-                "soil": "Use seed-starting mix or well-draining potting soil. Keep moist but not waterlogged.",
-                "water": "Keep soil consistently moist during germination. Mist lightly if needed.",
-                "sunlight": "Provide 12-16 hours of indirect light per day. Use grow lights if starting indoors.",
-                "environment": "Keep in a warm, humid environment. Best results with stratification (cold period).",
-                "temperature": "Maintain 65-75°F (18-24°C). Apple seeds benefit from cold stratification.",
-                "pest": "Generally secure at this stage. Monitor for mold and fungal issues."
-            },
-            "seedling": {
-                "soil": "Transfer to potting soil when first leaves appear. Ensure well-draining mix.",
-                "water": "Water when top inch of soil feels dry. Avoid water on leaves.",
-                "sunlight": "Provide 14-16 hours of bright light daily. Gradually acclimatize to outdoor conditions.",
-                "environment": "Keep away from drafts. Provide adequate air circulation.",
-                "temperature": "Maintain 60-70°F (15-21°C). Young seedlings prefer cooler conditions.",
-                "pest": "Monitor for aphids and spider mites. Ensure good air circulation."
-            },
-            "tree": {
-                "soil": "Plant in nutrient-rich garden soil with good drainage. Mix compost into planting hole.",
-                "water": "Water deeply 1-2 times per week during growing season. Ensure deep, consistent moisture.",
-                "sunlight": "Requires 6-8 hours of direct sunlight daily for fruit production.",
-                "environment": "Plant in full sun location with good air circulation. Support young trees with stakes.",
-                "temperature": "Thrives in 60-75°F (15-24°C). Most varieties need winter chill hours.",
-                "pest": "Watch for aphids, codling moths, and fungal diseases. Prune for air circulation and disease prevention."
-            }
-        }
-    },
-    "2": { // Banana
-        "name": "Banana",
-        "overview": "Bananas are tropical fruits that require warm temperatures and consistent moisture. They grow quickly and produce fruit within 9-12 months of planting.",
-        "stages": {
-            "seed": {
-                "soil": "Use well-draining potting soil mixed with peat moss. Keep moist but well-draining.",
-                "water": "Keep soil consistently moist. Mist regularly to maintain humidity.",
-                "sunlight": "Provide 12-14 hours of bright light daily. Bananas prefer warm conditions.",
-                "environment": "Warm, humid environment is essential. Use a propagation mat if available.",
-                "temperature": "Maintain 75-85°F (24-29°C) for optimal germination and growth.",
-                "pest": "Monitor for spider mites and fungal issues in humid conditions."
-            },
-            "seedling": {
-                "soil": "Transfer to larger container when first leaves appear. Use well-draining mix.",
-                "water": "Keep soil consistently moist. Bananas prefer regular moisture.",
-                "sunlight": "Provide 14-16 hours of bright light. More light encourages faster growth.",
-                "environment": "Maintain warm, humid conditions for healthy growth.",
-                "temperature": "Maintain 75-85°F (24-29°C). Bananas are very sensitive to cold.",
-                "pest": "Watch for spider mites and fungal diseases. Provide good air circulation."
-            },
-            "tree": {
-                "soil": "Plant in rich, well-draining soil with plenty of organic matter.",
-                "water": "Water regularly and deeply; bananas need consistently moist soil.",
-                "sunlight": "Requires full sun; at least 6-8 hours of direct sunlight daily.",
-                "environment": "Protect from strong winds. Plant in location with shelter.",
-                "temperature": "Prefers 78-86°F (26-30°C). Dies in frost. Keep warm year-round.",
-                "pest": "Monitor for spider mites, scale insects, and fungal leaf spots. Provide good drainage."
-            }
-        }
-    },
     "3": { // Basil
         "name": "Basil",
         "overview": "Basil is a fragrant herb that's perfect for beginners. It grows quickly and is great for cooking. Pinch off flower buds to encourage leaf growth.",
@@ -362,36 +302,6 @@ const GUIDE_DATA = {
             }
         }
     },
-    "13": { // Mango
-        "name": "Mango",
-        "overview": "Mango trees are tropical fruits that require warm temperatures and good drainage. They produce sweet, juicy fruit and can live for many decades.",
-        "stages": {
-            "seed": {
-                "soil": "Use well-draining potting soil mixed with peat moss. Keep moist but not waterlogged.",
-                "water": "Keep soil consistently moist during germination. Mist regularly.",
-                "sunlight": "Provide 12-14 hours of bright light daily. Light supports germination.",
-                "environment": "Warm, humid environment essential. Maintain consistent warmth.",
-                "temperature": "Maintain 75-85°F (24-29°C) for optimal germination and growth.",
-                "pest": "Monitor for fungal issues in humid conditions. Ensure good air circulation."
-            },
-            "seedling": {
-                "soil": "Transfer to larger container when first leaves appear. Use well-draining mix.",
-                "water": "Keep soil consistently moist. Mango seedlings prefer regular moisture.",
-                "sunlight": "Provide 14-16 hours of bright light. More light encourages faster growth.",
-                "environment": "Maintain warm, humid conditions for healthy growth.",
-                "temperature": "Maintain 75-85°F (24-29°C). Mangoes are very sensitive to cold.",
-                "pest": "Watch for spider mites and fungal diseases. Provide good air circulation."
-            },
-            "tree": {
-                "soil": "Plant in rich, well-draining soil with good organic matter content.",
-                "water": "Water regularly; mango trees prefer evenly moist soil but not waterlogged.",
-                "sunlight": "Requires full sun; at least 6-8 hours of direct sunlight daily.",
-                "environment": "Protect from strong winds. Plant in sheltered, warm location.",
-                "temperature": "Prefers 80-90°F (27-32°C). Dies in frost. Keep consistently warm.",
-                "pest": "Monitor for scale insects, spider mites, and fungal leaf spots. Good drainage prevents diseases."
-            }
-        }
-    },
     "14": { // Mint
         "name": "Mint",
         "overview": "Mint is a fast-growing herb with aromatic leaves. It's best grown in containers to control spread.",
@@ -419,36 +329,6 @@ const GUIDE_DATA = {
                 "environment": "Trim regularly to prevent legginess.",
                 "temperature": "Best at 60-70°F (16-21°C).",
                 "pest": "Divide and refresh soil yearly to reduce disease build-up."
-            }
-        }
-    },
-    "15": { // Orange
-        "name": "Orange",
-        "overview": "Orange trees are subtropical fruits that produce sweet, juicy fruit. They require full sunlight, regular watering, and well-drained soil for best results.",
-        "stages": {
-            "seed": {
-                "soil": "Use seed-starting mix or light potting soil. Keep moist but well-draining.",
-                "water": "Keep soil consistently moist during germination. Water gently but regularly.",
-                "sunlight": "Provide 12-14 hours of indirect light per day. Use grow lights if indoors.",
-                "environment": "Warm environment ideal. Maintain consistent moisture.",
-                "temperature": "Maintain 70-80°F (21-27°C) for optimal germination.",
-                "pest": "Monitor for damping-off disease. Ensure good drainage and air circulation."
-            },
-            "seedling": {
-                "soil": "Transfer to potting soil when first leaves appear. Ensure well-draining mix.",
-                "water": "Water when top inch of soil feels dry. Avoid overwatering.",
-                "sunlight": "Provide 14-16 hours of bright light daily. Gradually introduce to outdoor light.",
-                "environment": "Keep warm and protected from drafts.",
-                "temperature": "Maintain 65-75°F (18-24°C). Young trees prefer moderate warmth.",
-                "pest": "Watch for spider mites and fungal issues. Ensure adequate air circulation."
-            },
-            "tree": {
-                "soil": "Plant in rich, well-draining soil with compost mixed in.",
-                "water": "Water deeply and regularly; orange trees need consistent moisture.",
-                "sunlight": "Requires 6-8 hours of direct sunlight daily for sweet fruit.",
-                "environment": "Plant in warm, sunny location with shelter from strong winds.",
-                "temperature": "Thrives in 65-85°F (18-29°C). Protect from frost and freezing.",
-                "pest": "Watch for scale insects, spider mites, and fungal diseases. Prune for air circulation."
             }
         }
     },
@@ -599,36 +479,6 @@ const GUIDE_DATA = {
                 "environment": "Cool-season crop, harvest before heat arrives.",
                 "temperature": "Keep between 50-65°F (10-18°C).",
                 "pest": "Avoid bolting with consistent water and cooler soil."
-            }
-        }
-    },
-    "21": { // Strawberry
-        "name": "Strawberry",
-        "overview": "Strawberries are fast-growing fruits perfect for beginners. They produce sweet berries within 4-5 months and can be grown in garden beds or containers.",
-        "stages": {
-            "seed": {
-                "soil": "Use seed-starting mix or light potting soil. Keep moist but not waterlogged.",
-                "water": "Keep soil consistently moist. Mist lightly to prevent drying.",
-                "sunlight": "Provide 12-16 hours of indirect light per day. Good light promotes germination.",
-                "environment": "Warm environment ideal. Light is important for strawberry seed germination.",
-                "temperature": "Maintain 65-75°F (18-24°C) for optimal germination.",
-                "pest": "Generally disease-free. Monitor for mold in overly moist conditions."
-            },
-            "seedling": {
-                "soil": "Transfer to potting soil when first leaves appear. Ensure well-draining mix.",
-                "water": "Water when soil surface feels dry. Don't let soil dry out completely.",
-                "sunlight": "Provide 14-16 hours of bright light daily. Strawberries love light.",
-                "environment": "Maintain moderate humidity. Good air circulation is important.",
-                "temperature": "Maintain 60-70°F (15-21°C) for healthy seedling growth.",
-                "pest": "Watch for spider mites in dry conditions. Monitor for fungal issues."
-            },
-            "tree": {
-                "soil": "Plant in well-draining soil with organic matter. Sandy loam is ideal.",
-                "water": "Water regularly and deeply; keep soil consistently moist.",
-                "sunlight": "Requires full sun; at least 6-8 hours of direct sunlight daily.",
-                "environment": "Plant in raised beds or containers for best drainage.",
-                "temperature": "Prefers 60-80°F (15-27°C). Cool nights improve sugar content.",
-                "pest": "Watch for spider mites, slugs, and fungal diseases. Good drainage prevents root issues."
             }
         }
     },
@@ -852,28 +702,12 @@ const PLANT_TIPS = {
             "💡 Tip: Provide afternoon shade in hot climates to prevent bolting."
         ]
     },
-    "13": { // Mango
-        "general": [
-            "💡 Tip: Young mango trees benefit from light pruning for shape.",
-            "💡 Tip: Mango trees can take 3-5 years to produce fruit.",
-            "💡 Tip: Provide consistent watering but avoid waterlogging.",
-            "💡 Tip: Harvest when fruit develops color and slight give when squeezed."
-        ]
-    },
     "14": { // Mint
         "general": [
             "💡 Tip: Grow mint in containers to prevent invasive spread.",
             "💡 Tip: Pinch tips regularly to keep plants bushy.",
             "💡 Tip: Avoid overfertilizing to preserve essential oil flavor.",
             "💡 Tip: Harvest leaves in the morning when oil content is highest."
-        ]
-    },
-    "15": { // Orange
-        "general": [
-            "💡 Tip: Orange trees need 5-6 years before producing significant fruit.",
-            "💡 Tip: Thin young fruit to prevent overcrowding and ensure larger oranges.",
-            "💡 Tip: Water deeply but allow soil to dry between waterings.",
-            "💡 Tip: Harvest when fruit is fully colored and slightly soft to pressure."
         ]
     },
     "16": { // Oregano
@@ -914,14 +748,6 @@ const PLANT_TIPS = {
             "💡 Tip: Provide afternoon shade in hot weather to prevent bolting.",
             "💡 Tip: Keep soil consistently moist to avoid bitter leaves.",
             "💡 Tip: Harvest outer leaves first to extend growing period."
-        ]
-    },
-    "21": { // Strawberry
-        "general": [
-            "💡 Tip: Replace strawberry plants every 3-4 years for best production.",
-            "💡 Tip: Remove runners on June-bearing varieties for stronger plants.",
-            "💡 Tip: Mulch around plants to keep berries clean and prevent rot.",
-            "💡 Tip: Harvest berries in the morning when they're cool and firm."
         ]
     },
     "22": { // Sunflower
@@ -973,12 +799,10 @@ function getCategory(name) {
     const vegetables = ['Tomato', 'Carrot', 'Cucumber', 'Bell Pepper', 'Broccoli', 'Spinach', 'Lettuce'];
     const herbs = ['Basil', 'Mint', 'Parsley', 'Thyme', 'Oregano', 'Sage', 'Chives'];
     const flowers = ['Rose', 'Sunflower', 'Tulip', 'Daffodil', 'Lavender', 'Daisy'];
-    const fruits = ['Apple', 'Banana', 'Orange', 'Strawberry', 'Mango'];
 
     if (vegetables.includes(name)) return 'Vegetable';
     if (herbs.includes(name)) return 'Herb';
     if (flowers.includes(name)) return 'Flower';
-    if (fruits.includes(name)) return 'Fruit';
 
     return 'Other';
 }

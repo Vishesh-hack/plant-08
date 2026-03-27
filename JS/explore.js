@@ -2,7 +2,7 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     const plantsGrid = document.getElementById('plantsGrid');
-    const categoryFilter = document.getElementById('categoryFilter');
+    const categoryFilters = Array.from(document.querySelectorAll('.category-filter'));
     
     // Plant icons
     const plantIcons = {
@@ -98,11 +98,22 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Filter
-    if (categoryFilter) {
-        categoryFilter.addEventListener('change', function() {
-            const value = this.value;
+    if (categoryFilters.length > 0) {
+        const applyFilter = (value) => {
             const filtered = value ? PLANTS.filter(p => p.category === value) : PLANTS;
             displayPlants(filtered);
+        };
+
+        categoryFilters.forEach((filter) => {
+            filter.addEventListener('change', function() {
+                categoryFilters.forEach(otherFilter => {
+                    if (otherFilter !== this) {
+                        otherFilter.value = this.value;
+                    }
+                });
+
+                applyFilter(this.value);
+            });
         });
     }
 

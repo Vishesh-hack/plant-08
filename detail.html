@@ -6,11 +6,13 @@
     <title>Plant Details - plant.08</title>
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="CSS/detail.css">
-    <link rel="icon" href="plant-08_logo-removebg-preview.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"> -->
 </head>
 <body>
     <div class="scroll-container">
+
+        <!-- Header -->
         <header class="header">
             <div class="logo">
                 <div class="leaf-icon">🌿</div>
@@ -23,105 +25,154 @@
             </nav>
         </header>
 
+        <!-- Scroll Header -->
         <header class="scroll-header">
             <h1 id="scrollPlantName"></h1>
         </header>
 
+        <!-- Navigation Bar -->
+        <!-- <nav class="detail-nav">
+            <a href="explore.html" class="nav-logo">← Back</a>
+            <div style="width: 60px;"></div>
+        </nav> -->
+
+        <!-- Hero Section -->
         <section class="scroll-section hero-section" id="section-hero">
             <div class="section-content">
                 <h1 class="hero-title" id="plantName">Plant Name</h1>
                 <p class="hero-category" id="plantCategory">Category</p>
                 <p class="hero-tagline" id="plantOverview">Loading plant information...</p>
                 <a href="stage.html" class="cta-button" id="heroStartGrowingBtn">Start Growing</a>
-                <div class="scroll-indicator">Scroll to plant profile</div>
+                <div class="scroll-indicator">↓ Scroll to explore</div>
             </div>
         </section>
 
-        <main class="detail-main" id="detailMain">
-            <section class="profile-section">
-                <div class="section-headline">
-                    <p class="kicker">Plant dossier</p>
-                    <h2 id="profileTitle">Detailed Profile</h2>
-                    <p id="profileSubtitle">Core identity, growing context, and practical cultivation notes.</p>
+        <!-- Quick Info Section -->
+        <section class="scroll-section info-section" id="section-info">
+            <div class="section-header">
+                <h2>Quick Info</h2>
+                <p class="section-subtitle">Essential plant details at a glance</p>
+            </div>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-icon">☀️</div>
+                    <div class="info-label">Light</div>
+                    <div class="info-value" id="lightInfo">Full sun</div>
                 </div>
+                <div class="info-item">
+                    <div class="info-icon">🌡️</div>
+                    <div class="info-label">Temperature</div>
+                    <div class="info-value" id="tempInfo">65-75°F</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">💧</div>
+                    <div class="info-label">Water</div>
+                    <div class="info-value" id="waterInfo">Weekly</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">🌍</div>
+                    <div class="info-label">Origin</div>
+                    <div class="info-value" id="originInfo">Global</div>
+                </div>
+            </div>
+        </section>
 
-                <div class="quick-facts" id="quickFactsGrid"></div>
-            </section>
+        <!-- Appearance Section -->
+        <section class="scroll-section appearance-section" id="section-appearance">
+            <div class="section-header">
+                <h2>Appearance</h2>
+                <p class="section-subtitle">Visual characteristics and physical features</p>
+            </div>
+            <div class="appearance-content">
+                <div class="appearance-details">
+                    <div class="detail-row">
+                        <span class="detail-label">Height:</span>
+                        <span class="detail-value" id="heightInfo">-</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Spread:</span>
+                        <span class="detail-value" id="spreadInfo">-</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Leaf Type:</span>
+                        <span class="detail-value" id="leafInfo">-</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Color:</span>
+                        <span class="detail-value" id="colorInfo">-</span>
+                    </div>
+                </div>
+                <div class="appearance-description" id="appearanceDesc"></div>
+            </div>
+        </section>
 
-            <section class="profile-section split-section">
-                <div class="split-card">
-                    <h3>About This Plant</h3>
-                    <div id="introContent" class="flow-text"></div>
+        <!-- Growing Tips Section -->
+        <section class="scroll-section tips-section" id="section-tips">
+            <div class="section-header">
+                <h2>Growing Tips</h2>
+                <p class="section-subtitle">Expert advice for successful cultivation</p>
+            </div>
+            <div class="tips-content">
+                <div class="tips-card">
+                    <h3>🌱 Planting Tips</h3>
+                    <p id="plantTips"></p>
                 </div>
-                <div class="split-card">
-                    <h3>Distribution</h3>
-                    <p id="distributionGlobal"></p>
-                    <p class="mini-title">Major Indian producing states</p>
-                    <ul id="distributionIndia" class="chip-list"></ul>
-                </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="profile-section">
-                <div class="section-headline small">
-                    <h3>Growing Conditions</h3>
-                    <p>Balanced soil, stable warmth, and sunlight consistency make the biggest difference.</p>
+        <!-- Companion Planting Section -->
+        <section class="scroll-section companions-section" id="section-companions">
+            <div class="section-header">
+                <h2>Companion Planting</h2>
+                <p class="section-subtitle">Best plants to grow together</p>
+            </div>
+            <div class="companions-content">
+                <div class="companions-card">
+                    <p id="plantCompanions"></p>
                 </div>
-                <div class="conditions-grid" id="conditionsGrid"></div>
-            </section>
+            </div>
+        </section>
 
-            <section class="profile-section">
-                <div class="section-headline small">
-                    <h3>Best Growing Seasons In India</h3>
-                    <p>Typical sowing and transplant windows for central and northern belts.</p>
-                </div>
-                <div class="season-grid" id="seasonGrid"></div>
-            </section>
+        <!-- Benefits Section -->
+        <section class="scroll-section benefits-section" id="section-benefits">
+            <div class="section-header">
+                <h2>Benefits</h2>
+                <p class="section-subtitle">Why you should grow this plant</p>
+            </div>
+            <div class="benefits-showcase">
+                <ul class="benefits-list" id="benefitsList"></ul>
+            </div>
+        </section>
 
-            <section class="profile-section split-section">
-                <div class="split-card">
-                    <h3>Growth Habits</h3>
-                    <div id="habitCards" class="habit-grid"></div>
-                </div>
-                <div class="split-card">
-                    <h3>Popular Varieties In India</h3>
-                    <ul id="varietyList" class="detail-list"></ul>
-                </div>
-            </section>
+        <!-- Growth Stages Section -->
+        <section class="scroll-section stages-section" id="section-stages">
+            <div class="section-header">
+                <h2>Growth Stages</h2>
+                <p class="section-subtitle">How to nurture your plant through its lifecycle</p>
+            </div>
+            <div class="stages-timeline" id="stagesTimeline"></div>
+        </section>
 
-            <section class="profile-section split-section">
-                <div class="split-card">
-                    <h3>Common Uses</h3>
-                    <ul id="useList" class="detail-list"></ul>
-                </div>
-                <div class="split-card">
-                    <h3>Key Challenges</h3>
-                    <ul id="riskList" class="detail-list"></ul>
-                </div>
-            </section>
+        <!-- Care Guide Section -->
+        <section class="scroll-section care-section" id="section-care">
+            <div class="section-header">
+                <h2>Complete Care Guide</h2>
+                <p class="section-subtitle">Detailed instructions for optimal plant health</p>
+            </div>
+            <div class="care-details" id="careDetails"></div>
+        </section>
 
-            <section class="profile-section">
-                <div class="summary-card">
-                    <h3>Brief</h3>
-                    <p id="briefSummary"></p>
-                </div>
-            </section>
-        </main>
-
+        <!-- CTA Section -->
         <section class="scroll-section cta-section" id="section-cta">
             <div class="section-content">
                 <h2>Ready to grow?</h2>
-                <p>Start your growing journey with detailed stage-by-stage guidance.</p>
+                <p>Start your growing journey with detailed stage-by-stage guidance</p>
                 <a href="stage.html" class="cta-button" id="startGrowingBtn">Start Growing</a>
             </div>
         </section>
-
-        <!-- <footer class="footer detail-footer">
-            <p>&copy; 2026 plant.08 - Open-source plant care guide. Made with care for beginners.</p>
-        </footer> -->
     </div>
 
     <script src="JS/guide-data.js"></script>
-    <script src="JS/details-data.js"></script>
     <script src="JS/detail.js"></script>
 </body>
 </html>
