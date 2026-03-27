@@ -57,26 +57,29 @@ body {
     position: fixed; /* Changed from absolute to fixed for proper header behavior */
     top: 0;
     left: 0;
-    right: 0;
-    padding: 15px 40px;
+    width: 100%;
+    padding: 9px 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 1000; /* Increased z-index for better layering */
     backdrop-filter: blur(10px);
-    background: rgba(3, 99, 24, 0.833);
-    border-bottom: 1px solid rgb(46, 184, 99);
-    
-    /* Fallback for browsers that don't support backdrop-filter */
+    background: #427D2B;
+    border-bottom: 2px solid #0276447b;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.22);
+    min-height: 48px;
+    font-family: 'Manrope', sans-serif;
+    color: white;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.7);
     -webkit-backdrop-filter: blur(10px);
 }
 
 .logo {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 7.2px;
     color: white;
-    font-size: 24px;
+    font-size: 14.4px;
     font-weight: 700;
 }
 
@@ -86,7 +89,7 @@ body {
 }
 
 .leaf-icon {
-    font-size: 32px;
+    font-size: 19.2px;
     animation: bounce 2s infinite;
 }
 
@@ -131,17 +134,19 @@ body {
 }
 
 .hero-title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(4.5rem, 5vw, 4rem);
     font-weight: 700;
     margin-bottom: 20px;
-    color: #126138;
+    color: #1b5e20;
+    font-family: 'Playfair Display', serif;
 }
 
 .hero-subtitle {
     font-size: 1.3rem;
     margin-bottom: 40px;
-    opacity: 0.9;
-    font-weight: 300;
+    opacity: 1.0;
+    font-weight: 400;
+    color: #555;
 }
 
 .cta-buttons {
@@ -149,6 +154,7 @@ body {
     gap: 20px;
     justify-content: center;
     flex-wrap: wrap;
+    font-family: 'Manrope', sans-serif;
 }
 
 .cta-primary, .cta-secondary {
@@ -164,9 +170,14 @@ body {
 }
 
 .cta-primary {
-    background: linear-gradient(45deg, #52b788, #74c69d);
-    color: #0b3b29;
+    background: linear-gradient(45deg, rgba(51, 162, 47, 0.3), rgba(47, 130, 47, 0.3));
+    color: #555;
     box-shadow: 0 10px 30px rgba(82, 183, 136, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(124, 181, 106, 0.2);
+    opacity: 1;
+    font-family: 'Manrope', sans-serif;
 }
 
 .cta-primary:hover {
@@ -234,21 +245,21 @@ body {
 /* Responsive */
 @media (max-width: 768px) {
     .header {
-        padding: 15px 20px;
+        padding: 9px 12px;
         flex-direction: column;
-        gap: 15px;
+        gap: 9px;
     }
 
     .logo {
-        font-size: 20px;
+        font-size: 12px;
     }
 
     .logo h1 {
-        font-size: 20px;
+        font-size: 12px;
     }
 
     .leaf-icon {
-        font-size: 28px;
+        font-size: 16.8px;
     }
 
     .nav {
@@ -301,20 +312,20 @@ body {
 
 @media (max-width: 480px) {
     .header {
-        padding: 12px 15px;
-        gap: 12px;
+        padding: 7.2px 9px;
+        gap: 7.2px;
     }
 
     .logo {
-        font-size: 18px;
+        font-size: 10.8px;
     }
 
     .logo h1 {
-        font-size: 18px;
+        font-size: 10.8px;
     }
 
     .leaf-icon {
-        font-size: 24px;
+        font-size: 14.4px;
     }
 
     .nav {

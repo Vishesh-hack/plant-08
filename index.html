@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>plant-08 - Your Plant Growing Guide</title>
     <link rel="stylesheet" href="CSS/home.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="plant-08_logo-removebg-preview.png" type="image/x-icon">
+<!--     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"> -->
 </head>
 <body>
 
@@ -272,8 +274,8 @@
                 this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
                 
                 const gradient = this.ctx.createLinearGradient(0, 0, 0, this.canvas.height);
-                gradient.addColorStop(0, 'rgba(102, 126, 234, 0.3)');
-                gradient.addColorStop(1, 'rgba(118, 75, 162, 0.3)');
+                gradient.addColorStop(0, '#fafbf7');
+                gradient.addColorStop(1, '#EFE7E0');
                 this.ctx.fillStyle = gradient;
                 this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 
@@ -354,7 +356,7 @@
                             meterAnimationTriggered = true;
                             const meterFill = document.querySelector('.meter-fill');
                             if (meterFill) {
-                                meterFill.style.width = '70%';
+                                meterFill.style.width = '50%';
                             }
                         }
                     }

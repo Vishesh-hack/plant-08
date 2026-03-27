@@ -19,6 +19,10 @@ document.addEventListener('DOMContentLoaded', function() {
     selectedPlantName.textContent = plantName;
     plantNameSpan.textContent = plantName;
     
+    // Set scroll header plant name
+    const scrollPlantName = document.getElementById('scrollPlantName');
+    scrollPlantName.textContent = plantName;
+    
     let selectedStage = null;
     
     // Stage selection logic
@@ -50,6 +54,22 @@ document.addEventListener('DOMContentLoaded', function() {
             if (stageCards[cardIndex]) {
                 stageCards[cardIndex].click();
             }
+        }
+    });
+    
+    // Scroll header functionality
+    const header = document.querySelector('.header');
+    const scrollHeader = document.querySelector('.scroll-header');
+    
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 100) {
+            header.style.opacity = '0';
+            header.style.pointerEvents = 'none';
+            scrollHeader.classList.add('visible');
+        } else {
+            header.style.opacity = '1';
+            header.style.pointerEvents = 'auto';
+            scrollHeader.classList.remove('visible');
         }
     });
 });

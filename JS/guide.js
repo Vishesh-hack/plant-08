@@ -54,6 +54,26 @@ document.addEventListener('DOMContentLoaded', function() {
     if (stageBackLink) {
         stageBackLink.href = `stage.html?plant=${finalPlantId}`;
     }
+    
+    // Set scroll header plant name
+    const scrollPlantName = document.getElementById('scrollPlantName');
+    scrollPlantName.textContent = plant.name;
+    
+    // Scroll header functionality
+    const header = document.querySelector('.header');
+    const scrollHeader = document.querySelector('.scroll-header');
+    
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 100) {
+            header.style.opacity = '0';
+            header.style.pointerEvents = 'none';
+            scrollHeader.classList.add('visible');
+        } else {
+            header.style.opacity = '1';
+            header.style.pointerEvents = 'auto';
+            scrollHeader.classList.remove('visible');
+        }
+    });
 });
 
 // Helper function to populate care sections

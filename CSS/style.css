@@ -25,32 +25,120 @@ body {
 
 /* === Header === */
 .header {
-    text-align: center;
-    padding: 40px 20px 20px;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-    margin-bottom: 30px;
-    margin-top: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2000;
+    padding: 10.8px 24px;
+    background: #427D2B;
+    color: #ffffff;
+    border-radius: 0;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.24);
+    text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+    margin-bottom: 0;
+    margin-top: 0;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-bottom: 2px solid #0276447b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 48px;
 }
 
 .logo {
-    font-size: 2rem;
-    color: #1B5E20;
-    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: #ffffff;
+    margin-bottom: 0;
     font-weight: 700;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
+    justify-content: flex-start;
+    gap: 7.2px;
+}
+
+.logo h1 {
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+}
+
+.nav {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    font-size: 1rem;
+}
+
+.nav a:hover {
+    color: #a8e6cf;
+    transform: translateY(-2px);
+}
+
+.nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: #a8e6cf;
+    transition: width 0.3s ease;
+}
+
+.nav a:hover::after {
+    width: 100%;
+}
+
+.leaf-icon {
+    font-size: 16.8px;
 }
 
 .tagline {
     font-size: 1.1em;
     color: #558B2F;
     font-weight: 400;
+}
+
+
+/* === Scroll Header === */
+.scroll-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.7);
+    color: #1b5e20;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.scroll-header.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scroll-left, .scroll-right, .scroll-header h1 {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #1b5e20;
 }
 
 /* === Main Content === */
@@ -321,18 +409,18 @@ body {
     }
 
     .header {
-        padding: 20px 15px;
-        margin: 15px 0;
+        padding: 12px 9px;
+        margin: 9px 0;
         text-align: center;
     }
 
     .logo {
-        font-size: 1.8rem;
-        margin-bottom: 8px;
+        font-size: 1.08rem;
+        margin-bottom: 4.8px;
     }
 
     .tagline {
-        font-size: 1em;
+        font-size: 0.6em;
     }
 
     .main-content {
@@ -450,16 +538,16 @@ body {
     }
 
     .header {
-        padding: 15px 10px;
-        margin: 10px 0;
+        padding: 9px 6px;
+        margin: 6px 0;
     }
 
     .logo {
-        font-size: 1.6rem;
+        font-size: 0.96rem;
     }
 
     .tagline {
-        font-size: 0.9em;
+        font-size: 0.54em;
     }
 
     .main-content,

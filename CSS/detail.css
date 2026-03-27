@@ -131,16 +131,20 @@ body {
     font-size: 1.3em;
     color: var(--text-light);
     max-width: 600px;
-    margin: 0 auto 50px;
+    margin: 0 auto 30px;
     line-height: 1.6;
     font-weight: 400;
+}
+
+.hero-section .cta-button {
+    margin: 20px 0 40px;
 }
 
 .scroll-indicator {
     font-size: 1em;
     color: var(--primary-mid);
     animation: bounce 2s infinite;
-    margin-top: 60px;
+    margin-top: 20px;
 }
 
 @keyframes bounce {
