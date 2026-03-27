@@ -33,6 +33,34 @@ const plantIcons = {
 
 document.addEventListener('DOMContentLoaded', function() {
     initializeScroll();
+
+    const selectedPlantName = document.getElementById('selectedPlantName');
+    const plantNameSpan = document.getElementById('plantNameSpan');
+
+    // Get selected plant from session storage
+    const plantId = sessionStorage.getItem('selectedPlantId');
+    const plantName = sessionStorage.getItem('selectedPlantName');
+
+    // Set scroll header plant name
+    const scrollPlantName = document.getElementById('scrollPlantName');
+    scrollPlantName.textContent = plantName;
+
+    // Scroll header functionality
+    const header = document.querySelector('.header');
+    const scrollHeader = document.querySelector('.scroll-header');
+    
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 100) {
+            header.style.opacity = '0';
+            header.style.pointerEvents = 'none';
+            scrollHeader.classList.add('visible');
+        } else {
+            header.style.opacity = '1';
+            header.style.pointerEvents = 'auto';
+            scrollHeader.classList.remove('visible');
+        }
+    });
+
 });
 
 function initializeScroll() {

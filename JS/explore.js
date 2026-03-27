@@ -69,6 +69,32 @@ document.addEventListener('DOMContentLoaded', function() {
                 window.location.href = 'detail.html';
             });
         });
+
+        // Icon click
+        document.querySelectorAll('.plant-icon').forEach(icon => {
+            icon.addEventListener('click', function() {
+                const plantCard = this.closest('.plant-card');
+                const plantId = plantCard.dataset.plantId;
+                const plantName = plantCard.querySelector('.plant-name').textContent;
+
+                sessionStorage.setItem('selectedPlantId', plantId);
+                sessionStorage.setItem('selectedPlantName', plantName);
+                window.location.href = 'detail.html';
+            });
+        });
+
+        // Info click
+        document.querySelectorAll('.plant-info').forEach(info => {
+            info.addEventListener('click', function() {
+                const plantCard = this.closest('.plant-card');
+                const plantId = plantCard.dataset.plantId;
+                const plantName = plantCard.querySelector('.plant-name').textContent;
+
+                sessionStorage.setItem('selectedPlantId', plantId);
+                sessionStorage.setItem('selectedPlantName', plantName);
+                window.location.href = 'detail.html';
+            });
+        });
     }
 
     // Filter

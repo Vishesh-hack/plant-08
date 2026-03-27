@@ -7,7 +7,7 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Manrope', sans-serif;
     background: linear-gradient(135deg, #FAFBF7 0%, #EFE7E0 100%);
     min-height: 100vh;
     color: #2C3E1F;
@@ -148,6 +148,7 @@ body {
     border-radius: 12px;
     padding: 40px 30px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 90px;
     margin-bottom: 30px;
 }
 

@@ -170,8 +170,8 @@ body {
 }
 
 .cta-primary {
-    background: linear-gradient(45deg, #6bc90081, #519c0077);
-    color: #fff;
+    background: linear-gradient(45deg, rgba(51, 162, 47, 0.3), rgba(47, 130, 47, 0.3));
+    color: #555;
     box-shadow: 0 10px 30px rgba(82, 183, 136, 0.4);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);

@@ -6,17 +6,22 @@
     <title>Explore Plants - plant.08</title>
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="CSS/explore.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"> -->
 </head>
 <body>
     <div class="container">
         <!-- Header -->
         <header class="header">
             <div class="logo">
-                <div style="font-size: 32px;">🌿</div>
-                <span>plant.08</span>
+                <div class="leaf-icon">🌿</div>
+                <h1>plant-08</h1>
             </div>
-            <p class="tagline">Browse our complete plant collection</p>
+            <nav class="nav">
+                <a href="index.html">Home</a>
+                <a href="browse.html">Search</a>
+                <!-- <a href="explore.html">Explore</a> -->
+            </nav>
         </header>
 
         <!-- Scroll Header -->
@@ -24,7 +29,7 @@
             <div class="scroll-left">Explore</div>
             <div class="scroll-right"><div class="filter-container">
                 <label for="categoryFilter">Filter by Category:</label>
-                <select id="categoryFilter" class="filter-select">
+                <select id="categoryFilter" class="filter-select" style="font-size: 14px;">
                     <option value="">All Categories</option>
                     <option value="Vegetable">Vegetables</option>
                     <option value="Herb">Herbs</option>
@@ -49,7 +54,7 @@
         </div>
 
         <!-- Plants Grid -->
-        <main class="main-content">
+        <main class="main-content" id="plants-grid-content">
             <div id="plantsGrid" class="plants-grid">
                 <!-- Plants will be loaded here by JavaScript -->
             </div>
