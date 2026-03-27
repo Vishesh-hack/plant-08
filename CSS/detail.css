@@ -22,7 +22,7 @@
 
 html, body {
     scroll-behavior: smooth;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Manrope', sans-serif;
 }
 
 body {
@@ -39,7 +39,7 @@ body {
 }
 
 /* ===== Navigation Bar ===== */
-.detail-nav {
+/* .detail-nav {
     position: fixed;
     top: 0;
     left: 0;
@@ -69,6 +69,38 @@ body {
 .nav-logo:hover {
     background: var(--primary-light);
     color: white;
+} */
+
+/* === Scroll Header === */
+.scroll-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.7);
+    color: #1b5e20;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.scroll-header.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scroll-left, .scroll-right {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #1b5e20;
 }
 
 /* ===== Scroll Sections ===== */
