@@ -157,21 +157,25 @@
 }
 
 .plant-btn {
+    font-family: 'Manrope', sans-serif;
     width: 100%;
     padding: 10px;
-    background: linear-gradient(45deg, #52b788, #74c69d);
-    color: #0b3b29;
+    background: linear-gradient(45deg, #6b9939, #7cb342);
+    color: #fff;
     border: none;
     border-radius: 15px;
     cursor: pointer;
     font-weight: 600;
     transition: all 0.3s ease;
+    border: 2px solid #7CB342;
     box-shadow: 0 5px 15px rgba(82, 183, 136, 0.3);
 }
 
 .plant-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(82, 183, 136, 0.5);
+    background: #FAFBF7;
+    color: #1B5E20;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(27, 94, 32, 0.4);
 }
 
 /* === Empty State === */
