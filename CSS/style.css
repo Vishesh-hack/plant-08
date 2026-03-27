@@ -7,12 +7,11 @@
 }
 
 body {
-    font-family: 'Manrope', 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #ffffff 0%, #f0f9f0 100%);
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #FAFBF7 0%, #EFE7E0 100%);
     min-height: 100vh;
     color: #2C3E1F;
     overflow-x: hidden;
-    padding-top: 85px;
 }
 
 .container {
@@ -22,7 +21,6 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    padding-top: 20px;
 }
 
 /* === Header === */
@@ -106,7 +104,7 @@ body {
 
 .tagline {
     font-size: 1.1em;
-    color: #ffffff;
+    color: #558B2F;
     font-weight: 400;
 }
 

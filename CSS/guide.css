@@ -42,27 +42,6 @@
     border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-/* === Title Section === */
-.title-section {
-    text-align: center;
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 2px solid rgba(168, 230, 207, 0.2);
-}
-
-.title-section h1 {
-    font-size: 2.2em;
-    color: #2d6a4f;
-    margin-bottom: 10px;
-    font-weight: 800;
-}
-
-.title-section p {
-    font-size: 1.1em;
-    color: #666;
-    font-weight: 500;
-}
-
 /* === Overview Section === */
 .overview-section {
     margin-bottom: 40px;

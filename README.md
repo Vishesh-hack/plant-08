@@ -30,8 +30,7 @@ It also provides a monitoring feature to help users track plant health over time
 
 ##  Tech Stack
 - **Frontend:** HTML, CSS  , java script
-- **Backend:** Python (Flask)  
-- **Database:** MongoDB  
+- **Backend:** Python (Flask)   
 - **Hosting:** Vercel  
 
 ---
