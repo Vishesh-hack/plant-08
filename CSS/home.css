@@ -161,6 +161,7 @@ body {
     gap: 20px;
     justify-content: center;
     flex-wrap: wrap;
+    font-family: 'Manrope', sans-serif;
 }
 
 .cta-primary, .cta-secondary {
@@ -176,13 +177,14 @@ body {
 }
 
 .cta-primary {
-    background: linear-gradient(45deg, rgba(124, 179, 66, 0.5), rgba(139, 194, 81, 0.5));
-    color: white;
+    background: linear-gradient(45deg, rgba(51, 162, 47, 0.3), rgba(47, 130, 47, 0.3));
+    color: #555;
     box-shadow: 0 10px 30px rgba(82, 183, 136, 0.4);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(124, 181, 106, 0.2);
     opacity: 1;
+    font-family: 'Manrope', sans-serif;
 }
 
 .cta-primary:hover {
