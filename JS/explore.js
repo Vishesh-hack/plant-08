@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
         Tulip: '\ud83c\udf37',
         Daffodil: '\ud83c\udf3c',
         Thyme: '\ud83e\udeb4',
-        Oregano: '\ud83e\udec2',
+        Oregano: '\ud83c\udf43',
         'Bell Pepper': '\ud83e\uded1',
         Broccoli: '\ud83e\udd66',
         Lavender: '\ud83c\udf38',
@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="plant-icon">${plantIcons[plant.name] || '\ud83c\udf31'}</div>
                 <div class="plant-info">
                     <div class="plant-name">${plant.name}</div>
+                    <div class="plant-category">${plant.category || 'Other'}</div>
                     <button class="plant-btn" data-id="${plant.id}">
                         Select Plant
                     </button>

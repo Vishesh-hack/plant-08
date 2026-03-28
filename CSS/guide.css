@@ -101,7 +101,7 @@
 
 .care-grid.is-interactive .care-card {
     opacity: 0.5;
-    transform: scale(0.35);
+    transform: none;
 }
 
 .care-grid.is-interactive {
@@ -109,6 +109,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     gap: 15px;
+    justify-content: center;
 }
 
 .care-grid.is-interactive .care-card.active {
@@ -149,6 +150,7 @@
     padding: 15px;
     min-height: auto;
     min-width: 120px;
+    margin: 0 auto;
 }
 
 .care-grid.is-interactive .care-card.collapsed .care-info,
@@ -168,7 +170,10 @@
 }
 
 .care-grid.is-interactive .care-card.collapsed:hover {
-    transform: scale(0.98);
+    transform: translateY(-10px) scale(1.07) rotate(-1.5deg);
+    box-shadow: 0 22px 42px rgba(123, 179, 66, 0.24);
+    border-color: #4CAF50;
+    filter: saturate(1.08) brightness(1.02);
 }
 
 .care-icon {
@@ -279,6 +284,7 @@
 
     .overview-section {
         margin-bottom: 30px;
+        margin-top: 70px;
         padding-bottom: 20px;
     }
 
