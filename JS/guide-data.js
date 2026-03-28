@@ -960,13 +960,17 @@ const PLANT_TIPS = {
 
 // ===== Convert GUIDE_DATA → PLANTS (REQUIRED FOR EXPLORE PAGE) =====
 
-const PLANTS = Object.keys(GUIDE_DATA).map(id => {
-    return {
-        id: id,
-        name: GUIDE_DATA[id].name,
-        category: getCategory(GUIDE_DATA[id].name)
-    };
-});
+const EXCLUDED_PLANT_NAMES = new Set(['Apple', 'Banana', 'Orange', 'Strawberry', 'Mango']);
+
+const PLANTS = Object.keys(GUIDE_DATA)
+    .map(id => {
+        return {
+            id: id,
+            name: GUIDE_DATA[id].name,
+            category: getCategory(GUIDE_DATA[id].name)
+        };
+    })
+    .filter(plant => !EXCLUDED_PLANT_NAMES.has(plant.name));
 
 // ===== Category Helper Function =====
 function getCategory(name) {

@@ -129,13 +129,14 @@
     flex: 1;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 .plant-name {
     font-size: 1.2em;
     font-weight: 700;
     color: #1B5E20;
-    margin-bottom: 5px;
+    margin-bottom: 12px;
     line-height: 1.3;
 }
 
@@ -193,6 +194,20 @@
 
 /* === Responsive Design === */
 @media (max-width: 768px) {
+    .scroll-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .scroll-right {
+        width: 100%;
+    }
+
+    .scroll-right .filter-container {
+        width: 100%;
+    }
+
     .back-link {
         margin-bottom: 20px;
         font-size: 0.95em;
@@ -222,19 +237,19 @@
     }
 
     .plants-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 20px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
     }
 
     .plant-card {
         height: auto;
-        padding: 20px;
+        padding: 16px;
         border-radius: 15px;
     }
 
     .plant-icon {
-        font-size: 3.5em;
-        padding: 25px 15px;
+        font-size: 3.2em;
+        padding: 20px 12px;
     }
 
     .plant-info {
@@ -242,20 +257,8 @@
     }
 
     .plant-name {
-        font-size: 1.1em;
-        margin-bottom: 8px;
-    }
-
-    .plant-category {
-        font-size: 0.85em;
-        padding: 5px 12px;
-        margin-bottom: 12px;
-    }
-
-    .plant-description {
-        font-size: 0.85em;
-        margin-bottom: 12px;
-        line-height: 1.4;
+        font-size: 1.05em;
+        margin-bottom: 10px;
     }
 
     .plant-btn {
@@ -299,18 +302,18 @@
     }
 
     .plants-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
     }
 
     .plant-card {
-        padding: 15px;
+        padding: 12px;
         border-radius: 12px;
     }
 
     .plant-icon {
-        font-size: 3em;
-        padding: 20px 12px;
+        font-size: 2.6em;
+        padding: 14px 8px;
     }
 
     .plant-info {
@@ -318,19 +321,8 @@
     }
 
     .plant-name {
-        font-size: 1em;
-        margin-bottom: 6px;
-    }
-
-    .plant-category {
-        font-size: 0.8em;
-        padding: 4px 10px;
-        margin-bottom: 10px;
-    }
-
-    .plant-description {
-        font-size: 0.8em;
-        margin-bottom: 10px;
+        font-size: 0.98em;
+        margin-bottom: 8px;
     }
 
     .plant-btn {

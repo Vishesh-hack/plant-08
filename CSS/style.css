@@ -98,6 +98,63 @@ body {
     width: 100%;
 }
 
+.nav-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.nav-toggle:hover {
+    transform: translateY(-1px);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.nav-toggle-bar {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: #ffffff;
+    border-radius: 999px;
+    position: relative;
+}
+
+.nav-toggle-bar::before,
+.nav-toggle-bar::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 20px;
+    height: 2px;
+    background: #ffffff;
+    border-radius: 999px;
+    transition: transform 0.2s ease;
+}
+
+.nav-toggle-bar::before {
+    top: -6px;
+}
+
+.nav-toggle-bar::after {
+    top: 6px;
+}
+
+.nav-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(11, 27, 16, 0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    z-index: 1500;
+}
+
 .leaf-icon {
     font-size: 16.8px;
 }
@@ -410,14 +467,14 @@ body {
     }
 
     .header {
-        padding: 12px 9px;
-        margin: 9px 0;
-        text-align: center;
+        padding: 10px 12px;
+        margin: 0;
+        text-align: left;
     }
 
     .logo {
-        font-size: 1.08rem;
-        margin-bottom: 4.8px;
+        font-size: 1.02rem;
+        margin-bottom: 0;
     }
 
     .tagline {
@@ -426,6 +483,7 @@ body {
 
     .main-content {
         padding: 25px 20px;
+        margin-top: 84px;
         margin-bottom: 20px;
     }
 
@@ -531,6 +589,45 @@ body {
         font-size: 0.85em;
         margin-bottom: 5px;
     }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        right: -270px;
+        height: 100vh;
+        width: 270px;
+        flex-direction: column;
+        gap: 12px;
+        padding: 80px 20px 20px;
+        background: #1B5E20;
+        box-shadow: -16px 0 30px rgba(0, 0, 0, 0.25);
+        transition: right 0.25s ease;
+        z-index: 2100;
+    }
+
+    .nav a {
+        font-size: 1.05rem;
+        padding: 10px 12px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.08);
+    }
+
+    .nav a::after {
+        display: none;
+    }
+
+    body.nav-open .nav {
+        right: 0;
+    }
+
+    body.nav-open .nav-backdrop {
+        opacity: 1;
+        pointer-events: auto;
+    }
 }
 
 @media (max-width: 480px) {
@@ -539,8 +636,8 @@ body {
     }
 
     .header {
-        padding: 9px 6px;
-        margin: 6px 0;
+        padding: 9px 10px;
+        margin: 0;
     }
 
     .logo {
@@ -582,16 +679,21 @@ body {
     .feature-icon {
         font-size: 2em;
     }
+}
 
 /* === Mobile Enhancements === */
-/* Touch-friendly interactions */
 @media (max-width: 768px) {
     * {
         -webkit-tap-highlight-color: rgba(82, 183, 136, 0.1);
     }
 
-    /* Improve button touch targets */
-    .btn, .btn-primary, .btn-secondary, .plant-btn, .btn-stage, .cta-primary, .cta-secondary {
+    .btn,
+    .btn-primary,
+    .btn-secondary,
+    .plant-btn,
+    .btn-stage,
+    .cta-primary,
+    .cta-secondary {
         min-height: 44px;
         min-width: 44px;
         display: flex;
@@ -599,54 +701,50 @@ body {
         justify-content: center;
     }
 
-    /* Better text selection on mobile */
     body {
         -webkit-text-size-adjust: 100%;
         -ms-text-size-adjust: 100%;
     }
 
-    /* Prevent horizontal scroll */
-    html, body {
+    html,
+    body {
         overflow-x: hidden;
         width: 100%;
     }
 
-    /* Improve form inputs */
-    input, select, textarea {
-        font-size: 16px; /* Prevents zoom on iOS */
+    input,
+    select,
+    textarea {
+        font-size: 16px;
     }
 
-    /* Better spacing for mobile */
     .container {
         padding-left: 15px;
         padding-right: 15px;
     }
 }
 
-/* Additional mobile optimizations */
 @media (max-width: 480px) {
-    /* Reduce motion for better performance on low-end devices */
     *, *::before, *::after {
         animation-duration: 0.2s !important;
         animation-delay: 0s !important;
         transition-duration: 0.2s !important;
     }
 
-    /* Optimize for small screens */
     .container {
         padding-left: 10px;
         padding-right: 10px;
     }
 
-    /* Better readability */
     body {
         font-size: 14px;
         line-height: 1.5;
     }
 
-    /* Optimize images and icons */
-    .feature-icon, .care-icon, .stage-icon, .plant-icon {
+    .feature-icon,
+    .care-icon,
+    .stage-icon,
+    .plant-icon {
         image-rendering: -webkit-optimize-contrast;
     }
-} 
 }

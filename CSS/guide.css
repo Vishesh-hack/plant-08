@@ -77,8 +77,9 @@
 
 .care-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+    align-items: start;
 }
 
 /* === Care Card === */
@@ -87,14 +88,87 @@
     border-radius: 15px;
     padding: 25px;
     border: 1px solid rgba(123, 179, 66, 0.3);
-    transition: all 0.3s ease;
+    transition: transform 0.35s ease, opacity 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease, padding 0.35s ease, grid-column 0.35s ease;
     box-shadow: 0 10px 25px rgba(123, 179, 66, 0.1);
+    overflow: hidden;
 }
 
 .care-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 35px rgba(123, 179, 66, 0.15);
     border-color: #1B5E20;
+}
+
+.care-grid.is-interactive .care-card {
+    opacity: 0.5;
+    transform: scale(0.35);
+}
+
+.care-grid.is-interactive {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.care-grid.is-interactive .care-card.active {
+    order: -1;
+    width: 100%;
+    flex-basis: 100%;
+    align-self: center;
+    margin: 0 auto;
+    opacity: 1;
+    transform: translateY(-2px) scale(1);
+    box-shadow: 0 18px 40px rgba(123, 179, 66, 0.18);
+    border-color: #1B5E20;
+}
+
+.care-grid.is-interactive .care-card.active h3 {
+    display: block;
+}
+
+.care-grid.is-interactive .care-card.active .care-description {
+    display: block;
+    overflow: visible;
+    line-clamp: unset;
+    -webkit-line-clamp: unset;
+}
+
+.care-grid.is-interactive .care-card.active .care-info {
+    display: block;
+    overflow: visible;
+    line-clamp: unset;
+    -webkit-line-clamp: unset;
+    max-height: none;
+}
+
+.care-grid.is-interactive .care-card.collapsed {
+    order: 1;
+    width: auto;
+    flex: 0 1 auto;
+    padding: 15px;
+    min-height: auto;
+    min-width: 120px;
+}
+
+.care-grid.is-interactive .care-card.collapsed .care-info,
+.care-grid.is-interactive .care-card.collapsed .care-description {
+    display: none;
+}
+
+.care-grid.is-interactive .care-card.collapsed h3 {
+    display: block;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.care-grid.is-interactive .care-card.collapsed .care-icon {
+    margin-bottom: 8px;
+    font-size: 2em;
+}
+
+.care-grid.is-interactive .care-card.collapsed:hover {
+    transform: scale(0.98);
 }
 
 .care-icon {
@@ -111,23 +185,38 @@
     font-weight: 700;
 }
 
+.care-description {
+    font-size: 0.9em;
+    color: #666;
+    text-align: center;
+    margin-bottom: 12px;
+    line-height: 1.4;
+    display: block;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
 .care-info {
     font-size: 0.95em;
     color: #555;
     line-height: 1.8;
-}
-
-.care-info p {
-    margin-bottom: 10px;
+    display: none;
+    text-align: center;
 }
 
 .care-info ul {
-    margin-left: 20px;
-    margin-bottom: 10px;
+    margin: 0 auto;
+    padding-left: 18px;
+    display: grid;
+    gap: 12px;
+    justify-items: center;
 }
 
 .care-info li {
-    margin-bottom: 8px;
+    padding-left: 4px;
 }
 
 .care-info strong {
@@ -213,13 +302,54 @@
     }
 
     .care-grid {
+        display: grid;
         grid-template-columns: 1fr;
         gap: 15px;
+    }
+
+    .care-grid.is-interactive .care-card,
+    .care-grid.is-interactive .care-card.active,
+    .care-grid.is-interactive .care-card.collapsed {
+        width: 100%;
+        opacity: 1;
+        transform: none;
+        padding: 20px;
+        min-height: auto;
+    }
+
+    .care-grid.is-interactive .care-card.collapsed h3,
+    .care-grid.is-interactive .care-card.collapsed .care-info {
+        display: block;
+    }
+
+    .care-grid.is-interactive .care-card.collapsed .care-icon {
+        margin-bottom: 12px;
     }
 
     .care-card {
         padding: 20px;
         border-radius: 12px;
+        flex: 1 1 100%;
+        max-width: none;
+        min-width: 0;
+    }
+
+    .care-card.active,
+    .care-card.collapsed {
+        padding: 20px;
+        flex: 1 1 100%;
+        max-width: none;
+        min-width: 0;
+        transform: none;
+    }
+
+    .care-card.collapsed h3,
+    .care-card.collapsed .care-info {
+        display: block;
+    }
+
+    .care-card.collapsed .care-icon {
+        margin-bottom: 12px;
     }
 
     .care-icon {
@@ -318,6 +448,12 @@
     .care-card {
         padding: 15px;
         border-radius: 10px;
+    }
+
+    .care-grid.is-interactive .care-card,
+    .care-grid.is-interactive .care-card.active,
+    .care-grid.is-interactive .care-card.collapsed {
+        padding: 15px;
     }
 
     .care-icon {
