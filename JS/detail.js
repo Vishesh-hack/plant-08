@@ -6,7 +6,8 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function initializePage() {
-    const plantId = sessionStorage.getItem('selectedPlantId');
+    const params = new URLSearchParams(window.location.search);
+    const plantId = params.get('plant') || sessionStorage.getItem('selectedPlantId');
 
     if (!plantId || !GUIDE_DATA[plantId]) {
         window.location.href = 'explore.html';
@@ -14,6 +15,8 @@ function initializePage() {
     }
 
     currentPlant = { ...GUIDE_DATA[plantId], id: plantId };
+    sessionStorage.setItem('selectedPlantId', plantId);
+    sessionStorage.setItem('selectedPlantName', currentPlant.name);
 
     document.getElementById('scrollPlantName').textContent = currentPlant.name;
 
