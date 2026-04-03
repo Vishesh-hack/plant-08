@@ -1619,3 +1619,346 @@ window.DETAILS_DATA = {
             'Chives thrive with rich, damp soil and frequent snipping; divide crowded clumps and pinch flowers for continual leaf supply.'
     }
 };
+
+window.PLANT_PROBLEM_SOLUTION_BENEFITS = {
+    Tomato: {
+        problems: [
+            { problem: 'Yellow Leaves', cause: 'Overwatering or poor drainage', solution: 'Reduce watering and improve soil drainage.' },
+            { problem: 'Pests (Aphids, Whiteflies)', cause: 'Insect attack', solution: 'Spray neem oil or use natural insect repellents.' },
+            { problem: 'Slow Growth', cause: 'Lack of nutrients', solution: 'Add compost or organic fertilizer.' },
+            { problem: 'Fungal Diseases', cause: 'Excess moisture on leaves', solution: 'Avoid watering leaves directly and improve air circulation.' },
+            { problem: 'Flower Drop', cause: 'Extreme temperature or lack of nutrients', solution: 'Maintain proper temperature and fertilize regularly.' }
+        ],
+        benefits: [
+            'Rich in vitamins like Vitamin C, A, and antioxidants.',
+            'Helps improve heart health and immunity.',
+            'Good for skin and digestion.',
+            'Easy to grow at home with minimal effort.',
+            'Provides fresh, organic, and chemical-free food.',
+            'Can be used in multiple dishes daily.'
+        ]
+    },
+    Basil: {
+        problems: [
+            { problem: 'Yellow Leaves', cause: 'Overwatering', solution: 'Reduce watering and improve drainage.' },
+            { problem: 'Wilting Plant', cause: 'Lack of water or extreme heat', solution: 'Water properly and keep in partial shade.' },
+            { problem: 'Pests (Aphids, Spider mites)', cause: 'Insect attack', solution: 'Use neem oil spray.' },
+            { problem: 'Slow Growth', cause: 'Poor soil nutrients', solution: 'Add compost or organic fertilizer.' },
+            { problem: 'Leaf Spots', cause: 'Fungal infection', solution: 'Avoid wet leaves and improve air circulation.' }
+        ],
+        benefits: [
+            'Rich in antioxidants and vitamins.',
+            'Helps improve digestion and immunity.',
+            'Used in tea, salads, and cooking.',
+            'Has antibacterial and medicinal properties.',
+            'Easy to grow at home.',
+            'Fresh and chemical-free herb.'
+        ]
+    },
+    Lettuce: {
+        problems: [
+            { problem: 'Bitter Taste', cause: 'Too much heat or late harvesting', solution: 'Grow in cool conditions and harvest early.' },
+            { problem: 'Wilting Leaves', cause: 'Lack of water', solution: 'Water regularly.' },
+            { problem: 'Pests (Slugs, Aphids)', cause: 'Insect attack', solution: 'Use neem oil or natural pest control.' },
+            { problem: 'Bolting (Early flowering)', cause: 'High temperature', solution: 'Grow in cooler weather or partial shade.' },
+            { problem: 'Yellow Leaves', cause: 'Poor nutrients or overwatering', solution: 'Improve soil and adjust watering.' }
+        ],
+        benefits: [
+            'Rich in vitamins A, C, and K.',
+            'Good for hydration (high water content).',
+            'Helps in digestion and weight management.',
+            'Low in calories and very healthy.',
+            'Easy and fast to grow at home.',
+            'Perfect for fresh salads and daily meals.'
+        ]
+    },
+    Cucumber: {
+        problems: [
+            { problem: 'Yellow Fruits', cause: 'Overripe or irregular watering', solution: 'Harvest on time and water properly.' },
+            { problem: 'Bitter Taste', cause: 'Heat stress or lack of water', solution: 'Maintain regular watering and shade in extreme heat.' },
+            { problem: 'Pests (Aphids, Beetles)', cause: 'Insect attack', solution: 'Use neem oil spray.' },
+            { problem: 'Powdery Mildew (White spots)', cause: 'Fungal infection', solution: 'Improve air circulation and avoid wet leaves.' },
+            { problem: 'Slow Growth', cause: 'Poor soil nutrients', solution: 'Add organic fertilizer.' }
+        ],
+        benefits: [
+            'High in water content (keeps body hydrated).',
+            'Good for skin and digestion.',
+            'Helps in weight loss (low calories).',
+            'Easy to grow at home.',
+            'Fresh and chemical-free vegetable.',
+            'Perfect for summer diet.'
+        ]
+    },
+    Rose: {
+        problems: [
+            { problem: 'Yellow Leaves', cause: 'Overwatering or nutrient deficiency', solution: 'Adjust watering and add fertilizer.' },
+            { problem: 'Pests (Aphids, Spider mites)', cause: 'Insect attack', solution: 'Use neem oil spray.' },
+            { problem: 'No Flowers', cause: 'Lack of sunlight or pruning', solution: 'Ensure proper sunlight and regular pruning.' },
+            { problem: 'Black Spots on Leaves', cause: 'Fungal disease', solution: 'Remove affected leaves and use fungicide.' },
+            { problem: 'Weak Growth', cause: 'Poor soil quality', solution: 'Add compost or organic manure.' }
+        ],
+        benefits: [
+            'Enhances beauty of home and garden.',
+            'Pleasant fragrance improves mood.',
+            'Used in perfumes and cosmetics.',
+            'Attracts pollinators like bees and butterflies.',
+            'Symbol of love and positivity.',
+            'Can be used for decoration and gifting.'
+        ]
+    },
+    Sunflower: {
+        problems: [
+            { problem: 'Drooping Plant', cause: 'Lack of water or weak support', solution: 'Water properly and provide support.' },
+            { problem: 'Pests (Birds, Aphids)', cause: 'Insect or bird attack', solution: 'Use nets or neem oil spray.' },
+            { problem: 'Slow Growth', cause: 'Poor soil nutrients', solution: 'Add compost or fertilizer.' },
+            { problem: 'Fungal Diseases', cause: 'Excess moisture', solution: 'Avoid overwatering and improve air circulation.' },
+            { problem: 'Small Flowers', cause: 'Lack of sunlight', solution: 'Ensure full sun exposure.' }
+        ],
+        benefits: [
+            'Produces healthy and nutritious seeds.',
+            'Used for making sunflower oil.',
+            'Enhances garden beauty.',
+            'Attracts bees and pollinators.',
+            'Easy to grow and maintain.',
+            'Improves mood with its bright appearance.'
+        ]
+    },
+    Mint: {
+        problems: [
+            { problem: 'Yellow Leaves', cause: 'Overwatering', solution: 'Reduce watering and improve drainage.' },
+            { problem: 'Weak Growth', cause: 'Lack of nutrients', solution: 'Add compost or fertilizer.' },
+            { problem: 'Pests (Aphids, Spider mites)', cause: 'Insect attack', solution: 'Use neem oil spray.' },
+            { problem: 'Dry Leaves', cause: 'Lack of water or too much sun', solution: 'Water regularly and provide partial shade.' },
+            { problem: 'Over Spreading', cause: 'Natural fast growth', solution: 'Trim regularly and grow in pots.' }
+        ],
+        benefits: [
+            'Helps in digestion and improves gut health.',
+            'Used in drinks, chutneys, and cooking.',
+            'Has cooling and refreshing effect.',
+            'Rich in vitamins and antioxidants.',
+            'Easy to grow and maintain.',
+            'Natural air freshener and pest repellent.'
+        ]
+    },
+    Parsley: {
+        problems: [
+            { problem: 'Slow Germination', cause: 'Natural slow growth of seeds', solution: 'Be patient and keep soil moist.' },
+            { problem: 'Yellow Leaves', cause: 'Overwatering or poor nutrients', solution: 'Adjust watering and add fertilizer.' },
+            { problem: 'Pests (Aphids, Caterpillars)', cause: 'Insect attack', solution: 'Use neem oil spray.' },
+            { problem: 'Wilting Plant', cause: 'Lack of water', solution: 'Water regularly.' },
+            { problem: 'Fungal Issues', cause: 'Excess moisture', solution: 'Improve air circulation and avoid overwatering.' }
+        ],
+        benefits: [
+            'Rich in vitamins A, C, and K.',
+            'Supports immunity and digestion.',
+            'Helps detoxify the body.',
+            'Used in cooking, garnishing, and salads.',
+            'Easy to grow at home.',
+            'Fresh and chemical-free herb.'
+        ]
+    },
+    Spinach: {
+        problems: [
+            { problem: 'Yellow Leaves', cause: 'Overwatering or lack of nutrients', solution: 'Adjust watering and add fertilizer.' },
+            { problem: 'Bitter Leaves', cause: 'High temperature or late harvesting', solution: 'Harvest early and grow in cool conditions.' },
+            { problem: 'Pests (Aphids, Leaf miners)', cause: 'Insect attack', solution: 'Use neem oil spray.' },
+            { problem: 'Bolting (Early flowering)', cause: 'Heat stress', solution: 'Provide shade and grow in cooler weather.' },
+            { problem: 'Slow Growth', cause: 'Poor soil nutrients', solution: 'Add compost or organic manure.' }
+        ],
+        benefits: [
+            'Rich in iron, vitamins A, C, and K.',
+            'Good for blood health and immunity.',
+            'Supports eye health and digestion.',
+            'Low in calories and highly nutritious.',
+            'Easy and fast to grow at home.',
+            'Ideal for daily healthy meals.'
+        ]
+    },
+    Carrot: {
+        problems: [
+            { problem: 'Forked or Deformed Roots', cause: 'Hard or rocky soil', solution: 'Use loose, stone-free soil.' },
+            { problem: 'Slow Growth', cause: 'Poor nutrients', solution: 'Add compost or organic fertilizer.' },
+            { problem: 'Pests (Carrot flies, Aphids)', cause: 'Insect attack', solution: 'Use neem oil or natural spray.' },
+            { problem: 'Cracked Roots', cause: 'Irregular watering', solution: 'Maintain consistent watering.' },
+            { problem: 'Small Roots', cause: 'Overcrowding', solution: 'Thin seedlings properly.' }
+        ],
+        benefits: [
+            'Rich in Vitamin A (good for eyes).',
+            'Supports immunity and skin health.',
+            'Good for digestion.',
+            'Low in calories and very healthy.',
+            'Easy to grow at home.',
+            'Can be used in juices, salads, and cooking.'
+        ]
+    },
+    Tulip: {
+        problems: [
+            { problem: 'Bulb Rot', cause: 'Overwatering or poor drainage', solution: 'Use well-drained soil and reduce watering.' },
+            { problem: 'No Flowering', cause: 'Lack of cold period', solution: 'Provide proper cooling before planting.' },
+            { problem: 'Yellow Leaves', cause: 'Overwatering or natural cycle after bloom', solution: 'Adjust watering or allow natural drying.' },
+            { problem: 'Pests (Aphids, Slugs)', cause: 'Insect attack', solution: 'Use neem oil or natural pest control.' },
+            { problem: 'Weak Growth', cause: 'Poor soil nutrients', solution: 'Add compost or fertilizer.' }
+        ],
+        benefits: [
+            'Enhances beauty of garden and home.',
+            'Available in many attractive colors.',
+            'Perfect for decoration and gifting.',
+            'Improves mood and environment.',
+            'Easy to grow with proper care.',
+            'Ideal for seasonal gardening.'
+        ]
+    },
+    Daffodil: {
+        problems: [
+            { problem: 'Bulb Rot', cause: 'Overwatering or poor drainage', solution: 'Use well-drained soil and reduce watering.' },
+            { problem: 'No Flowering', cause: 'Lack of cold period or poor bulb quality', solution: 'Ensure proper cooling and use healthy bulbs.' },
+            { problem: 'Yellow Leaves', cause: 'Natural process after flowering', solution: 'Let leaves dry naturally.' },
+            { problem: 'Pests (Slugs, Aphids)', cause: 'Insect attack', solution: 'Use neem oil or natural pest control.' },
+            { problem: 'Weak Growth', cause: 'Poor soil nutrients', solution: 'Add compost or fertilizer.' }
+        ],
+        benefits: [
+            'Adds bright color and beauty to gardens.',
+            'Easy to grow and maintain.',
+            'Blooms every year with proper care.',
+            'Symbol of happiness and new beginnings.',
+            'Ideal for decoration and landscaping.',
+            'Low maintenance plant.'
+        ]
+    },
+    Thyme: {
+        problems: [
+            { problem: 'Root Rot', cause: 'Overwatering', solution: 'Reduce watering and improve drainage.' },
+            { problem: 'Slow Growth', cause: 'Lack of sunlight', solution: 'Provide full sun exposure.' },
+            { problem: 'Pests (Aphids, Spider mites)', cause: 'Insect attack', solution: 'Use neem oil spray.' },
+            { problem: 'Dry Leaves', cause: 'Extreme dryness or neglect', solution: 'Water lightly and regularly.' },
+            { problem: 'Weak Flavor', cause: 'Lack of sunlight', solution: 'Increase sun exposure.' }
+        ],
+        benefits: [
+            'Rich in antioxidants and vitamins.',
+            'Supports immunity and respiratory health.',
+            'Used in cooking and herbal tea.',
+            'Has antibacterial properties.',
+            'Easy to grow and low maintenance.',
+            'Natural air freshener.'
+        ]
+    },
+    Oregano: {
+        problems: [
+            { problem: 'Root Rot', cause: 'Overwatering', solution: 'Reduce watering and improve drainage.' },
+            { problem: 'Weak Growth', cause: 'Lack of sunlight', solution: 'Provide full sun exposure.' },
+            { problem: 'Pests (Aphids, Spider mites)', cause: 'Insect attack', solution: 'Use neem oil spray.' },
+            { problem: 'Dry Leaves', cause: 'Too much dryness or neglect', solution: 'Water lightly when soil is dry.' },
+            { problem: 'Poor Flavor', cause: 'Lack of sunlight', solution: 'Increase sun exposure.' }
+        ],
+        benefits: [
+            'Rich in antioxidants.',
+            'Supports immunity and digestion.',
+            'Used in pizza, pasta, and many dishes.',
+            'Has antibacterial and medicinal properties.',
+            'Easy to grow and low maintenance.',
+            'Natural flavor enhancer.'
+        ]
+    },
+    'Bell Pepper': {
+        problems: [
+            { problem: 'Flower Drop', cause: 'Temperature stress or lack of nutrients', solution: 'Maintain proper temperature and fertilize regularly.' },
+            { problem: 'Pests (Aphids, Whiteflies)', cause: 'Insect attack', solution: 'Use neem oil spray.' },
+            { problem: 'Yellow Leaves', cause: 'Overwatering or nutrient deficiency', solution: 'Adjust watering and add fertilizer.' },
+            { problem: 'Small Fruits', cause: 'Lack of nutrients or sunlight', solution: 'Improve soil and provide full sun.' },
+            { problem: 'Fungal Diseases', cause: 'Excess moisture', solution: 'Avoid overwatering and improve airflow.' }
+        ],
+        benefits: [
+            'Rich in vitamins A and C.',
+            'Good for immunity and skin health.',
+            'Adds color and flavor to food.',
+            'Easy to grow at home.',
+            'Fresh and chemical-free vegetable.',
+            'Suitable for daily cooking.'
+        ]
+    },
+    Daisy: {
+        problems: [
+            { problem: 'Yellow Leaves', cause: 'Overwatering', solution: 'Reduce watering and improve drainage.' },
+            { problem: 'No Flowers', cause: 'Lack of sunlight', solution: 'Provide enough sunlight.' },
+            { problem: 'Pests (Aphids, Spider mites)', cause: 'Insect attack', solution: 'Use neem oil spray.' },
+            { problem: 'Weak Growth', cause: 'Poor soil nutrients', solution: 'Add compost or fertilizer.' },
+            { problem: 'Fungal Issues', cause: 'Excess moisture', solution: 'Improve air circulation and avoid overwatering.' }
+        ],
+        benefits: [
+            'Enhances garden beauty.',
+            'Easy to grow and maintain.',
+            'Attracts bees and butterflies.',
+            'Symbol of happiness and positivity.',
+            'Ideal for decoration and gifting.',
+            'Suitable for beginners.'
+        ]
+    },
+    Broccoli: {
+        problems: [
+            { problem: 'Yellow Leaves', cause: 'Nutrient deficiency or overwatering', solution: 'Add fertilizer and adjust watering.' },
+            { problem: 'Small Heads', cause: 'Poor nutrients or lack of sunlight', solution: 'Improve soil quality and sunlight.' },
+            { problem: 'Pests (Cabbage worms, Aphids)', cause: 'Insect attack', solution: 'Use neem oil or natural pesticides.' },
+            { problem: 'Bolting (Early flowering)', cause: 'High temperature', solution: 'Grow in cool weather.' },
+            { problem: 'Slow Growth', cause: 'Poor soil nutrients', solution: 'Add compost or manure.' }
+        ],
+        benefits: [
+            'Rich in vitamins C, K, and fiber.',
+            'Supports immunity and overall health.',
+            'Good for digestion and heart health.',
+            'Low in calories and very nutritious.',
+            'Easy to grow at home.',
+            'Ideal for healthy diet.'
+        ]
+    },
+    Lavender: {
+        problems: [
+            { problem: 'Root Rot', cause: 'Overwatering', solution: 'Reduce watering and improve drainage.' },
+            { problem: 'Weak Growth', cause: 'Lack of sunlight', solution: 'Provide full sun exposure.' },
+            { problem: 'Pests (Aphids, Whiteflies)', cause: 'Insect attack', solution: 'Use neem oil spray.' },
+            { problem: 'No Flowers', cause: 'Lack of sunlight or overwatering', solution: 'Ensure proper sunlight and reduce watering.' },
+            { problem: 'Dry or Woody Plant', cause: 'Lack of pruning', solution: 'Prune regularly.' }
+        ],
+        benefits: [
+            'Has calming and relaxing fragrance.',
+            'Used in aromatherapy and essential oils.',
+            'Helps reduce stress and improve sleep.',
+            'Natural air freshener.',
+            'Attracts bees and pollinators.',
+            'Easy to grow and low maintenance.'
+        ]
+    },
+    Sage: {
+        problems: [
+            { problem: 'Root Rot', cause: 'Overwatering', solution: 'Reduce watering and improve drainage.' },
+            { problem: 'Weak Growth', cause: 'Lack of sunlight', solution: 'Provide full sun exposure.' },
+            { problem: 'Pests (Aphids, Spider mites)', cause: 'Insect attack', solution: 'Use neem oil spray.' },
+            { problem: 'Dry Leaves', cause: 'Too much dryness or neglect', solution: 'Water lightly when needed.' },
+            { problem: 'Poor Flavor', cause: 'Lack of sunlight', solution: 'Increase sun exposure.' }
+        ],
+        benefits: [
+            'Rich in antioxidants and nutrients.',
+            'Supports digestion and immunity.',
+            'Has antibacterial and medicinal properties.',
+            'Used in cooking and herbal remedies.',
+            'Easy to grow and low maintenance.',
+            'Natural air freshener.'
+        ]
+    },
+    Chives: {
+        problems: [
+            { problem: 'Yellow Leaves', cause: 'Overwatering or nutrient deficiency', solution: 'Adjust watering and add fertilizer.' },
+            { problem: 'Weak Growth', cause: 'Lack of sunlight', solution: 'Provide proper sunlight.' },
+            { problem: 'Pests (Aphids)', cause: 'Insect attack', solution: 'Use neem oil spray.' },
+            { problem: 'Dry Leaves', cause: 'Lack of water', solution: 'Water regularly.' },
+            { problem: 'Slow Regrowth', cause: 'Poor soil nutrients', solution: 'Add compost or organic manure.' }
+        ],
+        benefits: [
+            'Rich in vitamins A and C.',
+            'Supports digestion and immunity.',
+            'Adds flavor to food with mild onion taste.',
+            'Easy to grow and maintain.',
+            'Regrows quickly after harvesting.',
+            'Good for small spaces and containers.'
+        ]
+    }
+};

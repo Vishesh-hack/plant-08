@@ -6,7 +6,8 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function initializePage() {
-    const plantId = sessionStorage.getItem('selectedPlantId');
+    const params = new URLSearchParams(window.location.search);
+    const plantId = params.get('plant') || sessionStorage.getItem('selectedPlantId');
 
     if (!plantId || !GUIDE_DATA[plantId]) {
         window.location.href = 'explore.html';
@@ -14,6 +15,8 @@ function initializePage() {
     }
 
     currentPlant = { ...GUIDE_DATA[plantId], id: plantId };
+    sessionStorage.setItem('selectedPlantId', plantId);
+    sessionStorage.setItem('selectedPlantName', currentPlant.name);
 
     document.getElementById('scrollPlantName').textContent = currentPlant.name;
 
@@ -48,6 +51,7 @@ function populateHeroSection() {
 
 function populateProfileSections() {
     const profile = getProfileForPlant(currentPlant);
+    const problemData = getProblemSolutionBenefits(currentPlant.name);
 
     document.getElementById('profileTitle').textContent = `${currentPlant.name} Detailed Profile`;
     document.getElementById('profileSubtitle').textContent = profile.subtitle;
@@ -62,6 +66,8 @@ function populateProfileSections() {
     renderBulletList('varietyList', profile.varieties);
     renderBulletList('useList', profile.uses);
     renderBulletList('riskList', profile.risks);
+    renderProblemSolutionCards(problemData.problems);
+    renderBulletList('benefitsList', problemData.benefits);
     document.getElementById('briefSummary').textContent = profile.brief;
 }
 
@@ -181,6 +187,44 @@ function renderHabits(habits) {
 function renderBulletList(targetId, values) {
     const target = document.getElementById(targetId);
     target.innerHTML = values.map((value) => `<li>${value}</li>`).join('');
+}
+
+function renderProblemSolutionCards(problems) {
+    const target = document.getElementById('problemSolutionGrid');
+
+    target.innerHTML = problems
+        .map((problem) => {
+            const problemTitle = problem.problem || 'Common Issue';
+            const causeText = problem.cause || problem.reason || 'Cause information not available.';
+            const solutionText =
+                problem.solution ||
+                problem.solutions ||
+                problem.fix ||
+                problem.remedy ||
+                'Follow core watering, drainage, and sunlight guidance for recovery.';
+
+            return `<article class="problem-card"><h4>${problemTitle}</h4><p><strong>Cause:</strong> ${causeText}</p><p class="solution-line"><strong>Solution:</strong> ${solutionText}</p></article>`;
+        })
+        .join('');
+}
+
+function getProblemSolutionBenefits(plantName) {
+    const data = window.PLANT_PROBLEM_SOLUTION_BENEFITS?.[plantName];
+
+    if (data) {
+        return data;
+    }
+
+    return {
+        problems: [
+            {
+                problem: 'General Care Issue',
+                cause: 'Plant-specific issue data is not yet available.',
+                solution: 'Follow the watering, light, and soil guidance shown in this profile.'
+            }
+        ],
+        benefits: ['Benefits section for this plant will be added soon.']
+    };
 }
 
 function getCategory(name) {

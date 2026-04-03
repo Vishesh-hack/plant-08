@@ -23,6 +23,7 @@
                 <a href="index.html">Home</a>
                 <a href="browse.html">Search</a>
                 <a href="explore.html">Explore</a>
+                <button class="bookmarks-open-btn" type="button">Bookmarks</button>
             </nav>
         </header>
         <div class="nav-backdrop" data-nav-backdrop></div>
@@ -37,6 +38,7 @@
                 <p class="hero-category" id="plantCategory">Category</p>
                 <p class="hero-tagline" id="plantOverview">Loading plant information...</p>
                 <a href="stage.html" class="cta-button" id="heroStartGrowingBtn">Start Growing</a>
+                <button class="page-bookmark-btn add-bookmark-btn" type="button">Add Bookmark</button>
                 <div class="scroll-indicator">Scroll to plant profile</div>
             </div>
         </section>
@@ -104,6 +106,24 @@
             </section>
 
             <section class="profile-section">
+                <div class="section-headline small">
+                    <h3>Problems And Solutions</h3>
+                    <p>Quick troubleshooting guide for common plant issues.</p>
+                </div>
+                <div class="problem-solution-grid" id="problemSolutionGrid"></div>
+            </section>
+
+            <section class="profile-section">
+                <div class="section-headline small">
+                    <h3>Benefits</h3>
+                    <p>Health and practical value highlights for this plant.</p>
+                </div>
+                <div class="split-card benefits-card">
+                    <ul id="benefitsList" class="detail-list"></ul>
+                </div>
+            </section>
+
+            <section class="profile-section">
                 <div class="summary-card">
                     <h3>Brief</h3>
                     <p id="briefSummary"></p>
@@ -126,6 +146,7 @@
 
     <script src="JS/guide-data.js"></script>
     <script src="JS/details-data.js"></script>
+    <script src="JS/bookmarks.js"></script>
     <script src="JS/detail.js"></script>
     <script src="JS/nav.js"></script>
 </body>

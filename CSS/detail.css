@@ -386,6 +386,49 @@ body {
     transform: translateY(-50%);
 }
 
+.problem-solution-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.problem-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    box-shadow: var(--card-shadow);
+    padding: 18px;
+}
+
+.problem-card h4 {
+    color: var(--primary-dark);
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.problem-card p {
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 7px;
+}
+
+.problem-card p:last-child {
+    margin-bottom: 0;
+}
+
+.problem-card .solution-line {
+    color: var(--primary-dark);
+}
+
+.problem-card .solution-line strong {
+    color: var(--primary-dark);
+}
+
+.benefits-card {
+    margin-top: 0;
+}
+
 .summary-card {
     padding: 22px;
     background: linear-gradient(140deg, #ffffff, #f4f9ee);

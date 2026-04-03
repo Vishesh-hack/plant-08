@@ -6,16 +6,23 @@ document.addEventListener('DOMContentLoaded', function() {
     const selectPlantBtn = document.getElementById('selectPlantBtn');
     
     let selectedPlantId = null;
+    const setSelectButtonVisibility = (isVisible) => {
+        selectPlantBtn.style.display = isVisible ? 'inline-block' : 'none';
+    };
+
+    // Keep button hidden until a valid plant is selected.
+    setSelectButtonVisibility(false);
 
     // Event listener for input - show suggestions
     plantSearchInput.addEventListener('input', function() {
         const query = this.value.trim().toLowerCase();
+        selectedPlantId = null;
+        selectPlantBtn.disabled = true;
+        setSelectButtonVisibility(false);
         
         if (query.length === 0) {
             searchSuggestions.classList.remove('active');
             searchSuggestions.innerHTML = '';
-            selectPlantBtn.disabled = true;
-            selectedPlantId = null;
             return;
         }
 
@@ -25,8 +32,8 @@ document.addEventListener('DOMContentLoaded', function() {
         );
 
         if (filteredPlants.length === 0) {
-            searchSuggestions.classList.remove('active');
-            searchSuggestions.innerHTML = '<div class="suggestion-item" style="color: #999;">No plants found</div>';
+            searchSuggestions.innerHTML = '<div class="suggestion-item" style="color: #999;">The Plant is not Available yet, it will be Added Soon</div>';
+            searchSuggestions.classList.add('active');
             selectPlantBtn.disabled = true;
             selectedPlantId = null;
             return;
@@ -48,6 +55,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const plantId = suggestionItem.dataset.plantId;
         const plantName = suggestionItem.dataset.plantName;
+        if (!plantId || !plantName) {
+            selectedPlantId = null;
+            selectPlantBtn.disabled = true;
+            setSelectButtonVisibility(false);
+            return;
+        }
 
         // Set the selected plant
         selectedPlantId = plantId;
@@ -56,6 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Hide suggestions and enable button
         searchSuggestions.classList.remove('active');
         selectPlantBtn.disabled = false;
+        setSelectButtonVisibility(true);
 
         // Optional: Store in session for next page
         sessionStorage.setItem('selectedPlantId', plantId);
@@ -91,6 +105,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 sessionStorage.setItem('selectedPlantId', matchedPlant.id);
                 sessionStorage.setItem('selectedPlantName', matchedPlant.name);
                 window.location.href = 'detail.html';
+            } else if (query.length > 0) {
+                searchSuggestions.innerHTML = '<div class="suggestion-item" style="color: #999;">The Plant is not Available yet, it will be Added Soon </div>';
+                searchSuggestions.classList.add('active');
+                selectPlantBtn.disabled = true;
+                selectedPlantId = null;
+                setSelectButtonVisibility(false);
             }
         }
     });

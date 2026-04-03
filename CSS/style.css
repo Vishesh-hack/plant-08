@@ -98,6 +98,167 @@ body {
     width: 100%;
 }
 
+.bookmarks-open-btn {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
+    padding: 7px 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.bookmarks-open-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+}
+
+.scroll-header .bookmarks-open-btn-scroll {
+    margin-left: auto;
+    background: rgba(27, 94, 32, 0.12);
+    border-color: rgba(27, 94, 32, 0.25);
+    color: #1B5E20;
+}
+
+.page-bookmark-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(27, 94, 32, 0.35);
+    background: rgba(255, 255, 255, 0.9);
+    color: #1B5E20;
+    font-weight: 700;
+    font-size: 0.95rem;
+    font-family: 'Manrope', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 14px;
+}
+
+.page-bookmark-btn:hover {
+    background: #e8f5e8;
+    transform: translateY(-1px);
+}
+
+.page-bookmark-btn.added {
+    background: #1B5E20;
+    color: #ffffff;
+    border-color: #1B5E20;
+}
+
+.hero-section .page-bookmark-btn {
+    display: flex;
+    margin: 14px auto 0;
+}
+
+.bookmarks-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2600;
+    padding: 18px;
+}
+
+.bookmarks-overlay.visible {
+    display: flex;
+}
+
+.bookmarks-panel {
+    width: min(560px, 100%);
+    max-height: min(80vh, 680px);
+    overflow: auto;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 18px;
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.25);
+}
+
+.bookmarks-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
+
+.bookmarks-title {
+    color: #1B5E20;
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+.bookmarks-close {
+    border: 1px solid #d9e7d3;
+    background: #f8fff5;
+    color: #1B5E20;
+    border-radius: 10px;
+    width: 36px;
+    height: 36px;
+    font-size: 1.15rem;
+    cursor: pointer;
+}
+
+.bookmarks-list {
+    list-style: none;
+    display: grid;
+    gap: 10px;
+}
+
+.bookmarks-item {
+    border: 1px solid #e1ebdb;
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    background: #fbfef9;
+}
+
+.bookmarks-name {
+    font-weight: 700;
+    color: #1B5E20;
+}
+
+.bookmarks-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.bookmark-link-btn,
+.bookmark-delete-btn {
+    border: 1px solid #d2e3cb;
+    border-radius: 9px;
+    background: #ffffff;
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.bookmark-link-btn {
+    color: #1B5E20;
+}
+
+.bookmark-delete-btn {
+    color: #8c2f2f;
+}
+
+.bookmarks-empty {
+    border: 1px dashed #c7d9bf;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    color: #4f6c43;
+    font-weight: 600;
+}
+
 .nav-toggle {
     display: none;
     align-items: center;
@@ -616,6 +777,16 @@ body {
         background: rgba(255, 255, 255, 0.08);
     }
 
+    .bookmarks-open-btn {
+        width: 100%;
+        border-radius: 10px;
+        text-align: left;
+        padding: 10px 12px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 0;
+        font-size: 1.05rem;
+    }
+
     .nav a::after {
         display: none;
     }
@@ -678,6 +849,25 @@ body {
 
     .feature-icon {
         font-size: 2em;
+    }
+
+    .bookmarks-panel {
+        padding: 14px;
+        border-radius: 12px;
+    }
+
+    .bookmarks-item {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .bookmarks-actions {
+        width: 100%;
+    }
+
+    .bookmark-link-btn,
+    .bookmark-delete-btn {
+        flex: 1;
     }
 }
 

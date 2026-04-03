@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const plantsGrid = document.getElementById('plantsGrid');
     const categoryFilterTop = document.getElementById('categoryFilterTop');
     const categoryFilterScroll = document.getElementById('categoryFilterScroll');
+    const BOOKMARKS_KEY = 'plant08_bookmarks_v1';
 
     const plantIcons = {
         Tomato: '\ud83c\udf45',
@@ -19,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
         Tulip: '\ud83c\udf37',
         Daffodil: '\ud83c\udf3c',
         Thyme: '\ud83e\udeb4',
-        Oregano: '\ud83e\udec2',
+        Oregano: '\ud83c\udf43',
         'Bell Pepper': '\ud83e\uded1',
         Broccoli: '\ud83e\udd66',
         Lavender: '\ud83c\udf38',
@@ -28,8 +29,21 @@ document.addEventListener('DOMContentLoaded', function() {
         Chives: '\ud83e\uddc5'
     };
 
+    const getBookmarkedIds = () => {
+        try {
+            const raw = localStorage.getItem(BOOKMARKS_KEY);
+            if (!raw) return new Set();
+            const parsed = JSON.parse(raw);
+            if (!Array.isArray(parsed)) return new Set();
+            return new Set(parsed.map(item => String(item.id)));
+        } catch (error) {
+            return new Set();
+        }
+    };
+
     function displayPlants(plantsToDisplay) {
         if (!plantsGrid) return;
+        const bookmarkedIds = getBookmarkedIds();
 
         if (plantsToDisplay.length === 0) {
             plantsGrid.innerHTML = `<div class="empty-state" style="grid-column: 1 / -1;">
@@ -41,9 +55,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
         plantsGrid.innerHTML = plantsToDisplay.map(plant => `
             <div class="plant-card" data-plant-id="${plant.id}">
+                ${bookmarkedIds.has(String(plant.id)) ? '<span class="bookmark-badge" title="Bookmarked">★</span>' : ''}
                 <div class="plant-icon">${plantIcons[plant.name] || '\ud83c\udf31'}</div>
                 <div class="plant-info">
                     <div class="plant-name">${plant.name}</div>
+                    <div class="plant-category">${plant.category || 'Other'}</div>
                     <button class="plant-btn" data-id="${plant.id}">
                         Select Plant
                     </button>
