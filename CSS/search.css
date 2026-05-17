@@ -1,0 +1,674 @@
+/* ==================== SEMANTIC SEARCH PAGE STYLES ==================== */
+
+:root {
+    --primary-color: #4CAF50;
+    --secondary-color: #2196F3;
+    --success-color: #8BC34A;
+    --warning-color: #FF9800;
+    --danger-color: #f44336;
+    --dark-gray: #333;
+    --light-gray: #f5f5f5;
+    --border-color: #ddd;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fafafa;
+    color: var(--dark-gray);
+}
+
+/* ==================== HEADER ==================== */
+
+.search-header {
+    background: linear-gradient(135deg, #4CAF50 0%, #2196F3 100%);
+    color: white;
+    padding: 3rem 1rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+}
+
+.search-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    opacity: 0.95;
+}
+
+/* ==================== TABS ==================== */
+
+.search-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #666;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.tab-btn:hover {
+    color: var(--primary-color);
+    background-color: rgba(76, 175, 80, 0.05);
+}
+
+.tab-btn.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==================== SEARCH CARD ==================== */
+
+.search-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+}
+
+.search-card h2 {
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.search-card > p {
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+/* ==================== SEARCH INPUT ==================== */
+
+.search-input-group {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.search-input {
+    flex: 1;
+    padding: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+.search-btn {
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--success-color));
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+}
+
+.search-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
+}
+
+.search-btn:active {
+    transform: translateY(0);
+}
+
+/* ==================== SEARCH EXAMPLES ==================== */
+
+.search-examples {
+    background: var(--light-gray);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.examples-label {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.example-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.chip {
+    background: white;
+    border: 2px solid var(--border-color);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.chip:hover {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* ==================== LOADING & ERROR STATES ==================== */
+
+.loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1rem;
+    gap: 1rem;
+}
+
+.loading.hidden {
+    display: none;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--light-gray);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.error-message {
+    background: #ffebee;
+    color: var(--danger-color);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border-left: 4px solid var(--danger-color);
+}
+
+.error-message.hidden {
+    display: none;
+}
+
+/* ==================== RESULTS ==================== */
+
+.results-container {
+    margin-top: 2rem;
+}
+
+.results-container.hidden {
+    display: none;
+}
+
+.results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.results-header h3 {
+    color: var(--primary-color);
+}
+
+.result-count {
+    background: var(--light-gray);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* ==================== PLANTS GRID ==================== */
+
+.plants-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.plant-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.plant-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.plant-card-image {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, #4CAF50, #2196F3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: white;
+}
+
+.plant-card-content {
+    padding: 1.5rem;
+}
+
+.plant-card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--dark-gray);
+}
+
+.plant-card-type {
+    display: inline-block;
+    background: var(--light-gray);
+    color: var(--primary-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.plant-card-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.plant-card-description {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.plant-card-score {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.score-badge {
+    background: var(--success-color);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.score-badge.low {
+    background: var(--warning-color);
+}
+
+.plant-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.plant-action-btn {
+    flex: 1;
+    padding: 0.5rem;
+    background: var(--light-gray);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.plant-action-btn:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* ==================== GROWTH STAGE SELECTOR ==================== */
+
+.growth-selector {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stage-option {
+    background: white;
+    border: 3px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.stage-option:hover {
+    border-color: var(--primary-color);
+    background: rgba(76, 175, 80, 0.05);
+    transform: translateY(-4px);
+}
+
+.stage-option.active {
+    border-color: var(--primary-color);
+    background: rgba(76, 175, 80, 0.1);
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+.stage-icon {
+    font-size: 3rem;
+}
+
+.stage-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--dark-gray);
+}
+
+.stage-info p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* ==================== GROWTH CONTROLS ==================== */
+
+.growth-controls {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.growth-controls label {
+    font-weight: 600;
+    color: var(--dark-gray);
+}
+
+.growth-controls select {
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.growth-controls select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+/* ==================== EMPTY STATE ==================== */
+
+.empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: #999;
+    font-size: 1.1rem;
+}
+
+.empty-state.hidden {
+    display: none;
+}
+
+/* ==================== MODAL ==================== */
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.modal.active,
+.modal:not(.hidden) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.hidden {
+    display: none !important;
+}
+
+.modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    animation: slideUp 0.3s ease;
+}
+
+.modal-content.modal-large {
+    max-width: 700px;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+    transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+    color: var(--primary-color);
+}
+
+#modal-title {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+#detail-content {
+    line-height: 1.6;
+}
+
+.detail-section {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.detail-section:last-child {
+    border-bottom: none;
+}
+
+.detail-section h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+}
+
+.detail-section p {
+    color: #555;
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 768px) {
+    .search-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .search-header {
+        padding: 2rem 1rem;
+    }
+
+    .search-input-group {
+        flex-direction: column;
+    }
+
+    .search-btn {
+        width: 100%;
+    }
+
+    .search-tabs {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .tab-btn {
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .plants-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+
+    .growth-selector {
+        grid-template-columns: 1fr;
+    }
+
+    .growth-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .growth-controls select {
+        width: 100%;
+    }
+
+    .modal-content {
+        width: 95%;
+        max-height: 90vh;
+    }
+
+    .example-chips {
+        gap: 0.5rem;
+    }
+
+    .chip {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-card {
+        padding: 1.5rem;
+    }
+
+    .plants-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .plant-card-image {
+        height: 150px;
+        font-size: 3rem;
+    }
+
+    .example-chips {
+        flex-direction: column;
+    }
+
+    .chip {
+        width: 100%;
+    }
+
+    .search-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+}

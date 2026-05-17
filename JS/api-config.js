@@ -184,6 +184,123 @@ class PlantAPI {
       return false;
     }
   }
+
+  /**
+   * PHASE 2: Semantic search for plants based on natural language query
+   */
+  async searchSemantic(query, limit = 5) {
+    try {
+      const cacheKey = `semantic_search_${query}_${limit}`;
+      
+      // Check cache
+      if (this.cache.has(cacheKey)) {
+        const cached = this.cache.get(cacheKey);
+        if (Date.now() - cached.timestamp < this.cacheExpiry) {
+          console.log(`📦 [Cache] Semantic search: "${query}"`);
+          return cached.data;
+        }
+      }
+
+      const response = await this.request(`/search/semantic?q=${encodeURIComponent(query)}&limit=${limit}`);
+      
+      // Cache the result
+      if (response && response.success) {
+        this.cache.set(cacheKey, {
+          data: response,
+          timestamp: Date.now()
+        });
+        console.log(`✅ Semantic search returned ${response.results.length} results`);
+      }
+      
+      return response;
+    } catch (error) {
+      console.error('Semantic search error:', error);
+      return { error: error.message, results: [] };
+    }
+  }
+
+  /**
+   * PHASE 2: Get plants similar to a reference plant
+   */
+  async getSimilarPlants(plantId, limit = 5) {
+    try {
+      const cacheKey = `similar_${plantId}_${limit}`;
+      
+      // Check cache
+      if (this.cache.has(cacheKey)) {
+        const cached = this.cache.get(cacheKey);
+        if (Date.now() - cached.timestamp < this.cacheExpiry) {
+          console.log(`📦 [Cache] Similar plants for: ${plantId}`);
+          return cached.data;
+        }
+      }
+
+      const response = await this.request(`/plants/similar/${plantId}?limit=${limit}`);
+      
+      // Cache the result
+      if (response && response.success) {
+        this.cache.set(cacheKey, {
+          data: response,
+          timestamp: Date.now()
+        });
+        console.log(`✅ Found ${response.similar_plants.length} plants similar to ${response.reference_plant}`);
+      }
+      
+      return response;
+    } catch (error) {
+      console.error('Similar plants error:', error);
+      return { error: error.message, similar_plants: [] };
+    }
+  }
+
+  /**
+   * PHASE 2: Get plants filtered by growth stage (seedling/vegetative/mature)
+   */
+  async getPlantsByGrowthStage(stage, limit = 20) {
+    try {
+      // Validate stage
+      const validStages = ['seedling', 'vegetative', 'mature'];
+      if (!validStages.includes(stage.toLowerCase())) {
+        return {
+          error: `Invalid stage. Valid values: ${validStages.join(', ')}`,
+          plants: []
+        };
+      }
+
+      const cacheKey = `growth_stage_${stage}_${limit}`;
+      
+      // Check cache
+      if (this.cache.has(cacheKey)) {
+        const cached = this.cache.get(cacheKey);
+        if (Date.now() - cached.timestamp < this.cacheExpiry) {
+          console.log(`📦 [Cache] Growth stage: ${stage}`);
+          return cached.data;
+        }
+      }
+
+      const response = await this.request(`/plants/by-growth-stage?stage=${stage}&limit=${limit}`);
+      
+      // Cache the result
+      if (response && response.success) {
+        this.cache.set(cacheKey, {
+          data: response,
+          timestamp: Date.now()
+        });
+        
+        const stageLabels = {
+          'seedling': 'fast-growing',
+          'vegetative': 'medium-growth',
+          'mature': 'long-term'
+        };
+        console.log(`✅ Found ${response.count} ${stageLabels[stage]} plants`);
+      }
+      
+      return response;
+    } catch (error) {
+      console.error('Growth stage filter error:', error);
+      return { error: error.message, plants: [] };
+    }
+  }
 }
 
 // ===== GLOBAL API INSTANCE =====
