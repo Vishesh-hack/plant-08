@@ -4,7 +4,7 @@ Backend Integration & Extensive Dataset
 Flask API with CORS, MongoDB integration, and 5 plant management endpoints
 """
 
-from flask import Flask, request, jsonify
+from flask import flask, request, jsonify
 from flask_cors import CORS
 from dotenv import load_dotenv
 import os
