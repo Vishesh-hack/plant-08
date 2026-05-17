@@ -1,15 +1,16 @@
 """
-Plant-08 Backend API - Phase 1
-Backend Integration & Extensive Dataset
-Flask API with CORS, MongoDB integration, and 5 plant management endpoints
+Plant-08 Backend API - Phase 2
+Backend Integration & Extensive Dataset + Semantic Search
+Flask API with CORS, MongoDB integration, and semantic search endpoints
 """
 
-from flask import flask, request, jsonify
+from flask import Flask, request, jsonify
 from flask_cors import CORS
 from dotenv import load_dotenv
 import os
 import json
 from datetime import datetime
+from semantic_search import semantic_search_simple, get_similar_plants, filter_by_growth_stage
 
 # Load environment variables
 load_dotenv()
@@ -231,6 +232,127 @@ def list_plant_types():
         'types': sorted(list(types)),
         'count': len(types)
     }), 200
+
+
+# ==================== PHASE 2: SEMANTIC SEARCH ENDPOINTS ====================
+
+# ENDPOINT 6: Semantic search for plants
+@app.route('/api/search/semantic', methods=['GET', 'POST'])
+def semantic_search():
+    """
+    Semantic search for plants based on natural language query
+    Query params or body: q (query), limit (default=5)
+    Example: /api/search/semantic?q=red fruit full sun
+    """
+    try:
+        # Get query from params or body
+        if request.method == 'POST':
+            data = request.get_json() or {}
+            query = data.get('q', '').strip()
+        else:
+            query = request.args.get('q', '').strip()
+        
+        limit = request.args.get('limit', 5, type=int)
+        
+        if not query:
+            return jsonify({'error': 'Query parameter "q" is required'}), 400
+        
+        if limit < 1 or limit > 20:
+            return jsonify({'error': 'Limit must be between 1 and 20'}), 400
+        
+        # Convert plants dict to list
+        plants_list = list(PLANTS_DATA.values())
+        
+        # Perform semantic search
+        results = semantic_search_simple(query, plants_list, limit)
+        
+        # Format results
+        formatted_results = []
+        for result in results:
+            formatted_results.append({
+                'plant': result['plant'],
+                'score': round(result['score'], 2)
+            })
+        
+        return jsonify({
+            'success': True,
+            'query': query,
+            'results': formatted_results,
+            'count': len(formatted_results)
+        }), 200
+    except Exception as e:
+        return jsonify({'error': str(e), 'status': 500}), 500
+
+
+# ENDPOINT 7: Get similar plants
+@app.route('/api/plants/similar/<plant_id>', methods=['GET'])
+def get_similar(plant_id):
+    """
+    Get plants similar to the specified plant
+    Query params: limit (default=5)
+    """
+    try:
+        limit = request.args.get('limit', 5, type=int)
+        
+        if plant_id not in PLANTS_DATA:
+            return jsonify({'error': f'Plant "{plant_id}" not found'}), 404
+        
+        plants_list = list(PLANTS_DATA.values())
+        results = get_similar_plants(plant_id, plants_list, limit)
+        
+        formatted_results = []
+        for result in results:
+            formatted_results.append({
+                'plant': result['plant'],
+                'similarity_score': round(result['score'], 2)
+            })
+        
+        return jsonify({
+            'success': True,
+            'reference_plant': PLANTS_DATA[plant_id].get('name'),
+            'similar_plants': formatted_results,
+            'count': len(formatted_results)
+        }), 200
+    except Exception as e:
+        return jsonify({'error': str(e), 'status': 500}), 500
+
+
+# ENDPOINT 8: Filter plants by growth stage
+@app.route('/api/plants/by-growth-stage', methods=['GET'])
+def plants_by_growth_stage():
+    """
+    Get plants filtered by growth stage (seedling/vegetative/mature)
+    Query params: stage (required), limit (default=20)
+    """
+    try:
+        stage = request.args.get('stage', '').strip().lower()
+        limit = request.args.get('limit', 20, type=int)
+        
+        valid_stages = ['seedling', 'vegetative', 'mature']
+        if not stage:
+            return jsonify({
+                'error': f'Stage parameter required. Valid values: {", ".join(valid_stages)}'
+            }), 400
+        
+        if stage not in valid_stages:
+            return jsonify({
+                'error': f'Invalid stage "{stage}". Valid values: {", ".join(valid_stages)}'
+            }), 400
+        
+        plants_list = list(PLANTS_DATA.values())
+        results = filter_by_growth_stage(plants_list, stage)
+        
+        # Apply limit
+        results = results[:limit]
+        
+        return jsonify({
+            'success': True,
+            'stage': stage,
+            'plants': results,
+            'count': len(results)
+        }), 200
+    except Exception as e:
+        return jsonify({'error': str(e), 'status': 500}), 500
 
 
 # ==================== APP STARTUP ====================
