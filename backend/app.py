@@ -5,7 +5,7 @@ Flask API with CORS, MongoDB integration, and semantic search endpoints
 """
 
 from flask import Flask, request, jsonify
-from flask_cors import CORS
+from flask_cors import CORS 
 from dotenv import load_dotenv
 import os
 import json
@@ -114,12 +114,12 @@ def search_plants():
         
         results = []
         for plant_id, plant in PLANTS_DATA.items():
-            # Check name match
-            name_match = query and query in plant.get('name', '').lower()
-            # Check type match
-            type_match = plant_type and plant_type == plant.get('type', '').lower()
-            # Add if either condition matches (or both if both provided)
-            if (query and type_match) or (query and name_match) or (type_match and not query):
+            # Check name match (or no name filter provided)
+            name_match = (not query) or (query in plant.get('name', '').lower())
+            # Check type match (or no type filter provided)
+            type_match = (not plant_type) or (plant_type == plant.get('type', '').lower())
+            # Add if all provided filters match
+            if name_match and type_match:
                 results.append(plant)
         
         return jsonify({
