@@ -1,6 +1,10 @@
 let currentPlant = null;
 
 document.addEventListener('DOMContentLoaded', function () {
+    // Show loading UI
+    if (typeof LoadingUI !== 'undefined') {
+        LoadingUI.show();
+    }
     initializePage();
     initializeScrollHeader();
 });
@@ -30,8 +34,18 @@ async function initializePage() {
         currentPlant = apiPlant;
         sessionStorage.setItem('selectedPlantId', plantId);
         sessionStorage.setItem('selectedPlantName', currentPlant.name);
-        document.getElementById('scrollPlantName').textContent = currentPlant.name;
-        populateFromApiPlant(currentPlant);
+        // Clean plant name for display (remove brackets)
+        const cleanName = currentPlant.name.replace(/\s*\(.*?\)\s*/g, '');
+        document.getElementById('scrollPlantName').textContent = cleanName;
+        
+        // Defer rendering to not block animation
+        requestAnimationFrame(() => {
+            populateFromApiPlant(currentPlant);
+            // Hide loading UI after rendering starts
+            if (typeof LoadingUI !== 'undefined') {
+                setTimeout(() => LoadingUI.hide(), 300);
+            }
+        });
         return;
     }
 
@@ -43,9 +57,20 @@ async function initializePage() {
     currentPlant = { ...GUIDE_DATA[plantId], id: plantId };
     sessionStorage.setItem('selectedPlantId', plantId);
     sessionStorage.setItem('selectedPlantName', currentPlant.name);
-    document.getElementById('scrollPlantName').textContent = currentPlant.name;
-    populateHeroSection();
-    populateProfileSections();
+    // Clean plant name for display (remove brackets)
+    const cleanName = currentPlant.name.replace(/\s*\(.*?\)\s*/g, '');
+    document.getElementById('scrollPlantName').textContent = cleanName;
+    
+    // Defer rendering to not block animation
+    requestAnimationFrame(() => {
+        populateHeroSection();
+        populateProfileSections();
+        
+        // Hide loading UI after rendering starts
+        if (typeof LoadingUI !== 'undefined') {
+            setTimeout(() => LoadingUI.hide(), 300);
+        }
+    });
 }
 
 function initializeScrollHeader() {
@@ -67,8 +92,11 @@ function initializeScrollHeader() {
 
 function populateHeroSection() {
     const category = getCategory(currentPlant.name);
+    
+    // Clean plant name (remove brackets)
+    const cleanName = currentPlant.name.replace(/\s*\(.*?\)\s*/g, '');
 
-    document.getElementById('plantName').textContent = currentPlant.name;
+    document.getElementById('plantName').textContent = cleanName;
     document.getElementById('plantCategory').textContent = category;
     document.getElementById('plantOverview').textContent = currentPlant.overview;
 }
@@ -76,8 +104,11 @@ function populateHeroSection() {
 function populateProfileSections() {
     const profile = getProfileForPlant(currentPlant);
     const problemData = getProblemSolutionBenefits(currentPlant.name);
+    
+    // Clean plant name (remove brackets)
+    const cleanName = currentPlant.name.replace(/\s*\(.*?\)\s*/g, '');
 
-    document.getElementById('profileTitle').textContent = `${currentPlant.name} Detailed Profile`;
+    document.getElementById('profileTitle').textContent = `${cleanName} Detailed Profile`;
     document.getElementById('profileSubtitle').textContent = profile.subtitle;
 
     renderQuickFacts(profile.quickFacts);
@@ -117,7 +148,7 @@ function populateFromApiPlant(plant) {
     renderBulletList('useList', profile.uses);
     renderBulletList('riskList', profile.risks);
     renderProblemSolutionCards(problemData.problems);
-    renderBulletList('benefitsList', profile.benefits);
+    renderBulletList('benefitsList', problemData.benefits);
     document.getElementById('briefSummary').textContent = profile.brief;
 }
 

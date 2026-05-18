@@ -2841,5 +2841,305 @@ window.PLANT_PROBLEM_SOLUTION_BENEFITS = {
             'Regrows quickly after harvesting.',
             'Good for small spaces and containers.'
         ]
+    },
+    "Kulthi (Horse gram)": {
+        problems: [
+            { problem: 'Waterlogging Stress', cause: 'Overwatering or poor drainage', solution: 'Ensure good soil drainage and reduce irrigation.' },
+            { problem: 'Leaf Spots', cause: 'Fungal infection in humid conditions', solution: 'Improve air circulation and avoid wet foliage.' },
+            { problem: 'Pod Borers', cause: 'Insect attack in pods', solution: 'Use neem spray or natural pest control.' }
+        ],
+        benefits: [
+            'Highly nutritious pulse rich in protein and fiber.',
+            'Improves soil fertility through nitrogen fixation.',
+            'Drought-tolerant crop requiring minimal inputs.',
+            'Used for both grain and livestock fodder.',
+            'Adapts well to poor soils.',
+            'Low maintenance and cost-effective farming.'
+        ]
+    },
+    "Peanut (Groundnut)": {
+        problems: [
+            { problem: 'Poor Pod Development', cause: 'Lack of calcium or moisture at pegging', solution: 'Apply gypsum and maintain soil moisture at flowering.' },
+            { problem: 'Leaf Spot Disease', cause: 'Fungal infection', solution: 'Spray fungicide and improve drainage.' },
+            { problem: 'Pod Borer Attack', cause: 'Insect damage', solution: 'Use neem oil or organic pest management.' }
+        ],
+        benefits: [
+            'Rich in protein, healthy fats, and minerals.',
+            'Excellent source of vitamin E and antioxidants.',
+            'Oil used for cooking and cosmetics.',
+            'Improves soil health through nitrogen fixation.',
+            'Byproducts used for animal feed.',
+            'Versatile crop with multiple uses.'
+        ]
+    },
+    "Tur (Pigeon pea)": {
+        problems: [
+            { problem: 'Pod Borer Infestation', cause: 'Insect attack on developing pods', solution: 'Monitor regularly and use targeted organic sprays.' },
+            { problem: 'Wilt Disease', cause: 'Fungal pathogen in soil', solution: 'Use resistant varieties and crop rotation.' },
+            { problem: 'Waterlogging Damage', cause: 'Excess soil moisture', solution: 'Improve field drainage and avoid overwatering.' }
+        ],
+        benefits: [
+            'Staple pulse crop providing complete nutrition.',
+            'High in protein and dietary fiber.',
+            'Enriches soil through nitrogen fixation.',
+            'Tolerates semi-arid conditions well.',
+            'Long storage life and good market value.',
+            'Used fresh, dried, and as flour in cooking.'
+        ]
+    },
+    "Bajra (Pearl millet)": {
+        problems: [
+            { problem: 'Downy Mildew', cause: 'Fungal disease in moist conditions', solution: 'Use resistant varieties and maintain proper spacing.' },
+            { problem: 'Shoot Fly Attack', cause: 'Insect damage to seedlings', solution: 'Practice crop rotation and use organic pesticides.' },
+            { problem: 'Poor Germination', cause: 'Waterlogging or seed quality', solution: 'Ensure good drainage and use quality seeds.' }
+        ],
+        benefits: [
+            'Highly drought-resistant cereal.',
+            'Rich in fiber, minerals, and B vitamins.',
+            'Perfect for semi-arid and arid regions.',
+            'Traditional grain for roti and porridge.',
+            'Improves soil structure.',
+            'Requires minimal water and fertilizer.'
+        ]
+    },
+    Cotton: {
+        problems: [
+            { problem: 'Bollworm Infestation', cause: 'Major pest attacking buds and bolls', solution: 'Regular monitoring and integrated pest management.' },
+            { problem: 'Boll Rot', cause: 'Fungal disease in high humidity', solution: 'Improve air circulation and avoid overwatering.' },
+            { problem: 'Sucking Pests', cause: 'Whiteflies and jassids damage', solution: 'Use neem spray and biological control.' }
+        ],
+        benefits: [
+            'Primary fiber source for textile industry.',
+            'Oil extracted from seeds used in cooking.',
+            'High economic value crop.',
+            'Byproducts used for animal feed.',
+            'Supports rural economy and employment.',
+            'Versatile use in multiple industries.'
+        ]
+    },
+    Rice: {
+        problems: [
+            { problem: 'Stem Borer Damage', cause: 'Insect larvae feeding inside stems', solution: 'Use resistant varieties and proper water management.' },
+            { problem: 'Blast Disease', cause: 'Fungal infection at heading stage', solution: 'Spray fungicide and ensure balanced nitrogen.' },
+            { problem: 'Sheath Blight', cause: 'Fungal disease in high humidity', solution: 'Improve drainage and reduce nitrogen excess.' }
+        ],
+        benefits: [
+            'World\'s primary staple food source.',
+            'Complete protein with all amino acids.',
+            'Rich in B vitamins and minerals.',
+            'Easily digestible and versatile in cooking.',
+            'High yield and economic returns.',
+            'Used in various food products and industries.'
+        ]
+    },
+    Wheat: {
+        problems: [
+            { problem: 'Rust Diseases', cause: 'Fungal infection in cool, moist weather', solution: 'Use resistant varieties and spray fungicide early.' },
+            { problem: 'Aphid Infestation', cause: 'Pest attack at heading stage', solution: 'Monitor and spray organic pesticides if needed.' },
+            { problem: 'Terminal Heat Stress', cause: 'High temperature at grain fill', solution: 'Sow early and choose heat-tolerant varieties.' }
+        ],
+        benefits: [
+            'Major staple cereal feeding billions globally.',
+            'Complete protein with gluten for bread-making.',
+            'Rich in fiber, B vitamins, and minerals.',
+            'Versatile in cooking (chapati, bread, pasta).',
+            'Long storage life with stable market.',
+            'High yield and economic value.'
+        ]
+    },
+    Maize: {
+        problems: [
+            { problem: 'Stem Borer Infestation', cause: 'Insect larvae tunnel into stems', solution: 'Monitor and use integrated pest management.' },
+            { problem: 'Leaf Blight', cause: 'Fungal disease in humid conditions', solution: 'Ensure good drainage and spray fungicide.' },
+            { problem: 'Pollen Sterility', cause: 'Moisture stress at tasseling', solution: 'Maintain soil moisture at critical growth stages.' }
+        ],
+        benefits: [
+            'Versatile crop for food, feed, and industry.',
+            'Rich in carbohydrates and essential nutrients.',
+            'High yielding with good market demand.',
+            'Used for corn oil, meal, and starch.',
+            'Animal feed and industrial uses.',
+            'Grows well in diverse climates.'
+        ]
+    },
+    Sugarcane: {
+        problems: [
+            { problem: 'Red Rot Disease', cause: 'Fungal pathogen affecting internodes', solution: 'Use disease-free seed cane and proper rotation.' },
+            { problem: 'Borer Infestation', cause: 'Insect damage reducing yield', solution: 'Monitor fields and apply organic pesticides.' },
+            { problem: 'Lodging', cause: 'Heavy rain or wind after growth', solution: 'Support plants and ensure proper spacing.' }
+        ],
+        benefits: [
+            'Major source of sugar and sweetener globally.',
+            'Produces biofuel alternative energy.',
+            'Byproducts used for animal feed and paper.',
+            'Creates employment in farming and mills.',
+            'High economic returns for farmers.',
+            'Bagasse used for renewable energy and products.'
+        ]
+    },
+    Soybean: {
+        problems: [
+            { problem: 'Rust Disease', cause: 'Fungal infection on leaves', solution: 'Use resistant varieties and spray fungicide.' },
+            { problem: 'Pod Borer Attack', cause: 'Insect damage to developing pods', solution: 'Monitor and use integrated pest management.' },
+            { problem: 'Waterlogging Stress', cause: 'Poor drainage or heavy rain', solution: 'Ensure good soil drainage before planting.' }
+        ],
+        benefits: [
+            'Complete plant-based protein source.',
+            'Rich in healthy oils and micronutrients.',
+            'Enriches soil through nitrogen fixation.',
+            'Used for oil, meal, and food products.',
+            'High protein content for animal feed.',
+            'Versatile crop with global market demand.'
+        ]
+    },
+    "Chickpea (Gram)": {
+        problems: [
+            { problem: 'Pod Borer Damage', cause: 'Insect larvae inside pods', solution: 'Monitor and spray organic pesticides.' },
+            { problem: 'Wilt Disease', cause: 'Fungal pathogen in soil', solution: 'Use disease-free seed and crop rotation.' },
+            { problem: 'Waterlogging Damage', cause: 'Poor drainage or excess rain', solution: 'Plant in well-drained fields.' }
+        ],
+        benefits: [
+            'Excellent plant-based protein source.',
+            'Rich in fiber and essential minerals.',
+            'Used for dal, besan, and snacks.',
+            'Improves soil fertility naturally.',
+            'Low water requirement, drought tolerant.',
+            'High nutritional and economic value.'
+        ]
+    },
+    Lentil: {
+        problems: [
+            { problem: 'Wilt Infection', cause: 'Fungal pathogen in soil', solution: 'Use healthy seed and crop rotation.' },
+            { problem: 'Aphid Infestation', cause: 'Pest attack on plants', solution: 'Monitor and spray organic pesticides if needed.' },
+            { problem: 'Poor Germination', cause: 'Low soil moisture or quality seed', solution: 'Use certified seed and maintain soil moisture.' }
+        ],
+        benefits: [
+            'Nutritious pulse with high protein content.',
+            'Rich in iron, fiber, and B vitamins.',
+            'Easily digestible and versatile in cooking.',
+            'Fixes nitrogen, improving soil health.',
+            'Low input requirements, low maintenance.',
+            'Long storage life and good market value.'
+        ]
+    },
+    Mustard: {
+        problems: [
+            { problem: 'Aphid Outbreak', cause: 'Major pest at flowering stage', solution: 'Monitor regularly and spray neem oil.' },
+            { problem: 'Alternaria Blight', cause: 'Fungal disease in wet weather', solution: 'Ensure good drainage and spray fungicide.' },
+            { problem: 'Poor Pod Set', cause: 'Weather stress or nutrient deficiency', solution: 'Maintain soil fertility and proper irrigation.' }
+        ],
+        benefits: [
+            'Rich source of edible oil for cooking.',
+            'Greens used as nutritious leafy vegetable.',
+            'Spice and condiment (mustard powder).',
+            'Quick-growing crop with high market demand.',
+            'Low water requirement.',
+            'Improves soil structure naturally.'
+        ]
+    },
+    Potato: {
+        problems: [
+            { problem: 'Late Blight', cause: 'Fungal disease in cool, moist weather', solution: 'Spray fungicide and improve air circulation.' },
+            { problem: 'Cutworm Damage', cause: 'Pest attack on tubers', solution: 'Use biological control and field sanitation.' },
+            { problem: 'Poor Tuber Formation', cause: 'Heat stress or nutrient deficiency', solution: 'Maintain cool conditions and balanced nutrition.' }
+        ],
+        benefits: [
+            'Staple food with high carbohydrate content.',
+            'Rich in potassium and vitamin C.',
+            'Versatile in cooking (boiled, fried, mashed).',
+            'High yield potential and economic returns.',
+            'Stores well for extended periods.',
+            'Used in chips, starch, and industrial products.'
+        ]
+    },
+    Onion: {
+        problems: [
+            { problem: 'Thrips Infestation', cause: 'Pest damage at bulb enlargement', solution: 'Monitor and spray organic pesticides.' },
+            { problem: 'Purple Blotch', cause: 'Fungal disease in humid weather', solution: 'Improve drainage and air circulation.' },
+            { problem: 'Bolting', cause: 'Premature flower stalk development', solution: 'Use bolt-resistant varieties and timely planting.' }
+        ],
+        benefits: [
+            'Essential vegetable in daily cooking.',
+            'Rich in antioxidants and vitamin C.',
+            'Antimicrobial and anti-inflammatory properties.',
+            'Long storage life with good market value.',
+            'Improves flavor in multiple cuisines.',
+            'Used in medicine and traditional remedies.'
+        ]
+    },
+    Garlic: {
+        problems: [
+            { problem: 'Thrips Attack', cause: 'Pest infestation on leaves', solution: 'Monitor and spray organic pesticides.' },
+            { problem: 'White Rot Disease', cause: 'Fungal pathogen affecting bulb', solution: 'Use disease-free cloves and crop rotation.' },
+            { problem: 'Poor Clove Development', cause: 'Inadequate cooling or nutrition', solution: 'Ensure proper chilling and balanced fertilizer.' }
+        ],
+        benefits: [
+            'Spice with powerful medicinal properties.',
+            'Rich in allicin with antibacterial effects.',
+            'Boosts immunity and cardiovascular health.',
+            'Used in cooking and traditional medicine.',
+            'Long storage capability.',
+            'Growing health-food market demand.'
+        ]
+    },
+    Ginger: {
+        problems: [
+            { problem: 'Rhizome Rot', cause: 'Waterlogging or fungal infection', solution: 'Ensure good drainage and avoid overwatering.' },
+            { problem: 'Shoot Borer Damage', cause: 'Insect larvae tunnel into rhizomes', solution: 'Use biological control and field sanitation.' },
+            { problem: 'Poor Rhizome Development', cause: 'Lack of organic matter or moisture', solution: 'Add organic matter and maintain soil moisture.' }
+        ],
+        benefits: [
+            'Medicinal spice with anti-inflammatory effects.',
+            'Used for digestive health and nausea relief.',
+            'Antioxidant and immune-boosting properties.',
+            'Popular in tea, cooking, and traditional medicine.',
+            'Premium spice with high market value.',
+            'Growing demand in health and wellness sector.'
+        ]
+    },
+    Turmeric: {
+        problems: [
+            { problem: 'Rhizome Rot', cause: 'Fungal infection in waterlogged soil', solution: 'Ensure good drainage and proper spacing.' },
+            { problem: 'Leaf Blotch', cause: 'Fungal disease in humid conditions', solution: 'Improve air circulation and spray fungicide.' },
+            { problem: 'Poor Rhizome Yield', cause: 'Nutrient deficiency', solution: 'Add organic matter and balanced fertilizer.' }
+        ],
+        benefits: [
+            'Powerful anti-inflammatory medicinal spice.',
+            'Turmeric compound effective in pain relief.',
+            'Used in cooking, medicine, and cosmetics.',
+            'Natural color and dye for textiles.',
+            'Premium market value and global demand.',
+            'Growing popularity in health supplement industry.'
+        ]
+    },
+    "Brinjal (Eggplant)": {
+        problems: [
+            { problem: 'Shoot and Fruit Borer', cause: 'Major pest causing holes in fruits', solution: 'Monitor regularly and use integrated pest management.' },
+            { problem: 'Fusarium Wilt', cause: 'Fungal pathogen in soil', solution: 'Use resistant varieties and crop rotation.' },
+            { problem: 'Yellow Mite Damage', cause: 'Mite infestation on leaves', solution: 'Spray sulfur or miticide if severe.' }
+        ],
+        benefits: [
+            'Low-calorie vegetable rich in fiber.',
+            'Contains beneficial antioxidants and phenols.',
+            'Essential vegetable in Indian cuisine.',
+            'Versatile for curries, roasting, and frying.',
+            'Improves cholesterol levels and digestion.',
+            'Grows well in warm climates with good yields.'
+        ]
+    },
+    "Okra (Lady finger)": {
+        problems: [
+            { problem: 'Yellow Vein Mosaic Virus', cause: 'Virus transmitted by whiteflies', solution: 'Use disease-free seed and control whiteflies.' },
+            { problem: 'Jassid Infestation', cause: 'Pest damage on leaves and pods', solution: 'Monitor and spray organic pesticides.' },
+            { problem: 'Fruit Borer Attack', cause: 'Insect damage to developing pods', solution: 'Use integrated pest management.' }
+        ],
+        benefits: [
+            'Nutritious vegetable with low calories.',
+            'Rich in vitamins, minerals, and antioxidants.',
+            'High mucilage content aids digestion.',
+            'Quick-growing crop with frequent harvests.',
+            'Used in curries and stir-fries.',
+            'Ideal for home gardens and commercial cultivation.'
+        ]
     }
 };

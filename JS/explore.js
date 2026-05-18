@@ -1,53 +1,15 @@
 // ===== Explore Page Functionality =====
 
 document.addEventListener('DOMContentLoaded', async function() {
+    // Show loading UI
+    if (typeof LoadingUI !== 'undefined') {
+        LoadingUI.show();
+    }
+
     const plantsGrid = document.getElementById('plantsGrid');
     const categoryFilterTop = document.getElementById('categoryFilterTop');
     const categoryFilterScroll = document.getElementById('categoryFilterScroll');
     const BOOKMARKS_KEY = 'plant08_bookmarks_v1';
-
-    const plantIcons = {
-        Tomato: '\ud83c\udf45',
-        Basil: '\ud83c\udf3f',
-        Lettuce: '\ud83e\udd6c',
-        Rose: '\ud83c\udf39',
-        Sunflower: '\ud83c\udf3b',
-        Mint: '\u2618\ufe0f',
-        Parsley: '\ud83e\udd6c',
-        Spinach: '\ud83e\udd6c',
-        Carrot: '\ud83e\udd55',
-        Cucumber: '\ud83e\udd52',
-        Tulip: '\ud83c\udf37',
-        Daffodil: '\ud83c\udf3c',
-        Thyme: '\ud83e\udeb4',
-        Oregano: '\ud83c\udf43',
-        'Bell Pepper': '\ud83e\uded1',
-        Broccoli: '\ud83e\udd66',
-        Lavender: '\ud83c\udf38',
-        Daisy: '\ud83c\udff5\ufe0f',
-        Sage: '\ud83c\udf43',
-        Chives: '\ud83e\uddc5',
-        "Kulthi (Horse gram)": '\ud83e\uddc4',
-        "Peanut (Groundnut)": '\ud83e\udd5c',
-        "Tur (Pigeon pea)": '\ud83e\uddc6',
-        "Bajra (Pearl millet)": '\ud83c\udf3e',
-        Cotton: '\ud83e\uddf5',
-        Rice: '\ud83c\udf3e',
-        Wheat: '\ud83c\udf3e',
-        Maize: '\ud83c\udf3d',
-        Sugarcane: '\ud83c\udf6f',
-        Soybean: '\ud83e\uddc6',
-        "Chickpea (Gram)": '\ud83e\uddc6',
-        Lentil: '\ud83e\uddc6',
-        Mustard: '\ud83c\udf3f',
-        Potato: '\ud83e\udd54',
-        Onion: '\ud83e\uddc5',
-        Garlic: '\ud83e\uddc4',
-        Ginger: '\ud83e\uddc1',
-        Turmeric: '\ud83e\uddc1',
-        "Brinjal (Eggplant)": '\ud83c\udf46',
-        "Okra (Lady finger)": '\ud83e\uddc5'
-    };
 
     const getBookmarkedIds = () => {
         try {
@@ -73,20 +35,44 @@ document.addEventListener('DOMContentLoaded', async function() {
             return;
         }
 
-        plantsGrid.innerHTML = plantsToDisplay.map(plant => `
-            <div class="plant-card" data-plant-id="${plant.id}">
-                ${bookmarkedIds.has(String(plant.id)) ? '<span class="bookmark-badge" title="Bookmarked">★</span>' : ''}
-                <div class="plant-icon">${plantIcons[plant.name] || '\ud83c\udf31'}</div>
+        // Use document fragment for better performance
+        const fragment = document.createDocumentFragment();
+        
+        plantsToDisplay.forEach(plant => {
+            const imagePath = typeof getPlantImagePath !== 'undefined' 
+                ? getPlantImagePath(plant.name) 
+                : 'Pics/default-plant.svg';
+            
+            const card = document.createElement('div');
+            card.className = 'plant-card';
+            card.dataset.plantId = plant.id;
+            
+            const bookmarkBadge = bookmarkedIds.has(String(plant.id)) 
+                ? '<span class="bookmark-badge" title="Bookmarked">★</span>' 
+                : '';
+            
+            card.innerHTML = `
+                ${bookmarkBadge}
+                <div class="plant-image">
+                    <img src="${imagePath}" alt="${plant.name}" onerror="this.src='Pics/default-plant.svg'">
+                </div>
                 <div class="plant-info">
-                    <div class="plant-name">${plant.name}</div>
+                    <div class="plant-name">${plant.name.replace(/\s*\(.*?\)\s*/g, '')}</div>
                     <div class="plant-category">${plant.category || 'Other'}</div>
                     <button class="plant-btn" data-id="${plant.id}">
                         Select Plant
                     </button>
                 </div>
-            </div>
-        `).join('');
+            `;
+            
+            fragment.appendChild(card);
+        });
 
+        // Clear and append all at once
+        plantsGrid.innerHTML = '';
+        plantsGrid.appendChild(fragment);
+
+        // Add event listeners after all elements are added
         document.querySelectorAll('.plant-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 const plantId = this.dataset.id;
@@ -99,8 +85,8 @@ document.addEventListener('DOMContentLoaded', async function() {
             });
         });
 
-        document.querySelectorAll('.plant-icon').forEach(icon => {
-            icon.addEventListener('click', function() {
+        document.querySelectorAll('.plant-image').forEach(image => {
+            image.addEventListener('click', function() {
                 const plantCard = this.closest('.plant-card');
                 const plantId = plantCard.dataset.plantId;
                 const plantName = plantCard.querySelector('.plant-name').textContent;
@@ -214,15 +200,30 @@ document.addEventListener('DOMContentLoaded', async function() {
         });
     }
 
+    // Display local plants first (non-blocking with requestAnimationFrame)
     if (basePlants.length > 0) {
-        displayPlants(basePlants);
+        requestAnimationFrame(() => {
+            displayPlants(basePlants);
+        });
     }
 
+    // Load API data asynchronously
     const mergedPlants = await loadPlantsData();
     if (mergedPlants.length > 0) {
         basePlants = mergedPlants;
         const activeFilter = categoryFilterTop?.value || categoryFilterScroll?.value || '';
-        syncAndFilter(activeFilter, 'api');
+        // Use requestAnimationFrame to defer rendering
+        requestAnimationFrame(() => {
+            syncAndFilter(activeFilter, 'api');
+        });
+    }
+
+    // Hide loading UI after a minimum display time to ensure smooth transition
+    if (typeof LoadingUI !== 'undefined') {
+        // Wait at least 500ms for smooth perception
+        setTimeout(() => {
+            LoadingUI.hide();
+        }, 500);
     }
 
     const header = document.querySelector('.header');

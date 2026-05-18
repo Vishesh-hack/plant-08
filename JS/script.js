@@ -1,6 +1,11 @@
 // ===== Homepage Search Functionality =====
 
 document.addEventListener('DOMContentLoaded', async function() {
+    // Show loading UI
+    if (typeof LoadingUI !== 'undefined') {
+        LoadingUI.show();
+    }
+
     const plantSearchInput = document.getElementById('plantSearch');
     const searchSuggestions = document.getElementById('searchSuggestions');
     const selectPlantBtn = document.getElementById('selectPlantBtn');
@@ -83,6 +88,11 @@ document.addEventListener('DOMContentLoaded', async function() {
     const mergedPlants = await loadPlantsData();
     if (mergedPlants.length > 0) {
         plantsCache = mergedPlants;
+    }
+
+    // Hide loading UI
+    if (typeof LoadingUI !== 'undefined') {
+        LoadingUI.hide();
     }
 
     // Event listener for input - show suggestions

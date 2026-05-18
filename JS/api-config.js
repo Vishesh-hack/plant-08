@@ -305,6 +305,7 @@ class PlantAPI {
 
 // ===== GLOBAL API INSTANCE =====
 const plantAPI = new PlantAPI();
+window.plantAPI = plantAPI; // Expose to window for other scripts
 
 // ===== INITIALIZE ON PAGE LOAD =====
 document.addEventListener('DOMContentLoaded', async function() {

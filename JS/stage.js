@@ -1,6 +1,11 @@
 // ===== Stage Selection Page Functionality =====
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Show loading UI
+    if (typeof LoadingUI !== 'undefined') {
+        LoadingUI.show();
+    }
+
     const stageCards = document.querySelectorAll('.stage-card');
     const selectedPlantName = document.getElementById('selectedPlantName');
     const plantNameSpan = document.getElementById('plantNameSpan');
@@ -15,13 +20,19 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
     
-    // Display plant name
-    selectedPlantName.textContent = plantName;
-    plantNameSpan.textContent = plantName;
+    // Clean plant name (remove brackets like "(Horse gram)")
+    const cleanPlantName = plantName.replace(/\s*\(.*?\)\s*/g, '');
     
-    // Set scroll header plant name
-    const scrollPlantName = document.getElementById('scrollPlantName');
-    scrollPlantName.textContent = plantName;
+    // Defer rendering to not block animation
+    requestAnimationFrame(() => {
+        // Display plant name
+        selectedPlantName.textContent = cleanPlantName;
+        plantNameSpan.textContent = cleanPlantName;
+        
+        // Set scroll header plant name
+        const scrollPlantName = document.getElementById('scrollPlantName');
+        scrollPlantName.textContent = cleanPlantName;
+    });
     
     let selectedStage = null;
     
@@ -72,4 +83,11 @@ document.addEventListener('DOMContentLoaded', function() {
             scrollHeader.classList.remove('visible');
         }
     });
+
+    // Hide loading UI with minimum delay for smooth animation
+    if (typeof LoadingUI !== 'undefined') {
+        setTimeout(() => {
+            LoadingUI.hide();
+        }, 500);
+    }
 });

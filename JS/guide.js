@@ -1,6 +1,11 @@
 // ===== Guide Page Functionality =====
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Show loading UI
+    if (typeof LoadingUI !== 'undefined') {
+        LoadingUI.show();
+    }
+
     // Get plant and stage from URL params
     const urlParams = new URLSearchParams(window.location.search);
     const plantId = urlParams.get('plant');
@@ -13,96 +18,112 @@ document.addEventListener('DOMContentLoaded', function() {
     const finalPlantId = plantId || sessionPlantId;
     const finalStage = stage || sessionStage;
     
-    // Find plant data
-    const plant = PLANTS.find(p => p.id.toString() === finalPlantId);
+    // Check if guide data exists
+    if (!GUIDE_DATA || !GUIDE_DATA[finalPlantId]) {
+        window.location.href = 'index.html';
+        return;
+    }
     
-    if (!plant || !GUIDE_DATA[finalPlantId] || !finalStage) {
+    if (!finalStage) {
         window.location.href = 'index.html';
         return;
     }
     
     const guideData = GUIDE_DATA[finalPlantId];
+    const plantName = guideData.name;
+    
+    // Clean plant name (remove brackets)
+    const cleanPlantName = plantName.replace(/\s*\(.*?\)\s*/g, '');
+    
     const stageData = guideData.stages[finalStage];
+    if (!stageData) {
+        window.location.href = 'index.html';
+        return;
+    }
+    
     const stageName = finalStage.charAt(0).toUpperCase() + finalStage.slice(1);
     
-    // Set page title and headers
-    const plantTitle = document.getElementById('plantTitle');
-    const stageSubtitle = document.getElementById('stageSubtitle');
-    if (plantTitle) {
-        plantTitle.textContent = plant.name;
-    }
-    if (stageSubtitle) {
-        stageSubtitle.textContent = `Care guide for the ${stageName} stage`;
-    }
-    
-    // Populate care sections
-    populateCareSection('soilInfo', stageData.soil);
-    populateCareSection('waterInfo', stageData.water);
-    populateCareSection('sunlightInfo', stageData.sunlight);
-    populateCareSection('environmentInfo', stageData.environment);
-    populateCareSection('temperatureInfo', stageData.temperature);
-    populateCareSection('pestInfo', stageData.pest);
+    // Defer rendering to not block animation
+    requestAnimationFrame(() => {
+        // Set page title and headers
+        const plantTitle = document.getElementById('plantTitle');
+        const stageSubtitle = document.getElementById('stageSubtitle');
+        if (plantTitle) {
+            plantTitle.textContent = cleanPlantName;
+        }
+        if (stageSubtitle) {
+            stageSubtitle.textContent = `Care guide for the ${stageName} stage`;
+        }
+        
+        // Populate care sections
+        populateCareSection('soilInfo', stageData.soil);
+        populateCareSection('waterInfo', stageData.water);
+        populateCareSection('sunlightInfo', stageData.sunlight);
+        populateCareSection('environmentInfo', stageData.environment);
+        populateCareSection('temperatureInfo', stageData.temperature);
+        populateCareSection('pestInfo', stageData.pest);
 
-    // Add hover expansion behavior for care cards
-    const careGrid = document.querySelector('.care-grid');
-    const careCards = Array.from(document.querySelectorAll('.care-card'));
+        // Add hover expansion behavior for care cards
+        const careGrid = document.querySelector('.care-grid');
+        const careCards = Array.from(document.querySelectorAll('.care-card'));
 
-    if (careGrid && careCards.length > 0) {
-        const setActiveCard = (activeCard) => {
-            careGrid.classList.add('is-interactive');
+        if (careGrid && careCards.length > 0) {
+            const setActiveCard = (activeCard) => {
+                careGrid.classList.add('is-interactive');
+                careCards.forEach((card) => {
+                    const isActive = card === activeCard;
+                    card.classList.toggle('active', isActive);
+                    card.classList.toggle('collapsed', !isActive);
+                });
+            };
+
+            const clearActiveCard = () => {
+                careGrid.classList.remove('is-interactive');
+                careCards.forEach((card) => {
+                    card.classList.remove('active', 'collapsed');
+                });
+            };
+
+            const isCardActive = (card) => card.classList.contains('active');
+
             careCards.forEach((card) => {
-                const isActive = card === activeCard;
-                card.classList.toggle('active', isActive);
-                card.classList.toggle('collapsed', !isActive);
+                card.addEventListener('click', () => {
+                    if (isCardActive(card)) {
+                        clearActiveCard();
+                    } else {
+                        setActiveCard(card);
+                    }
+                });
             });
-        };
 
-        const clearActiveCard = () => {
-            careGrid.classList.remove('is-interactive');
-            careCards.forEach((card) => {
-                card.classList.remove('active', 'collapsed');
-            });
-        };
-
-        const isCardActive = (card) => card.classList.contains('active');
-
-        careCards.forEach((card) => {
-            card.addEventListener('click', () => {
-                if (isCardActive(card)) {
+            document.addEventListener('click', (event) => {
+                if (!careGrid.contains(event.target)) {
                     clearActiveCard();
-                } else {
-                    setActiveCard(card);
                 }
             });
-        });
-
-        document.addEventListener('click', (event) => {
-            if (!careGrid.contains(event.target)) {
-                clearActiveCard();
-            }
-        });
-    }
-    
-    // Add tips
-    const tips = PLANT_TIPS[finalPlantId]?.general || [];
-    const tipsContent = document.getElementById('tipsContent');
-    if (tips.length > 0) {
-        tipsContent.innerHTML = tips.map(tip => `<div class="tip-item">${tip}</div>`).join('');
-    } else {
-        tipsContent.innerHTML = '<div class="tip-item">Check back for more tips!</div>';
-    }
-    
-    // Update stage button functionality
-    const stageBackLink = document.querySelector('a[href="stage.html"]');
-    if (stageBackLink) {
-        stageBackLink.href = `stage.html?plant=${finalPlantId}`;
-    }
-    
-    // Set scroll header plant name
-    const scrollPlantName = document.getElementById('scrollPlantName');
-    if (scrollPlantName) {
-        scrollPlantName.textContent = plant.name;
-    }
+        }
+        
+        // Add tips
+        const tips = PLANT_TIPS[finalPlantId]?.general || [];
+        const tipsContent = document.getElementById('tipsContent');
+        if (tipsContent && tips.length > 0) {
+            tipsContent.innerHTML = tips.map(tip => `<div class="tip-item">${tip}</div>`).join('');
+        } else if (tipsContent) {
+            tipsContent.innerHTML = '<div class="tip-item">Check back for more tips!</div>';
+        }
+        
+        // Update stage button functionality
+        const stageBackLink = document.querySelector('a[href="stage.html"]');
+        if (stageBackLink) {
+            stageBackLink.href = `stage.html?plant=${finalPlantId}`;
+        }
+        
+        // Set scroll header plant name
+        const scrollPlantName = document.getElementById('scrollPlantName');
+        if (scrollPlantName) {
+            scrollPlantName.textContent = cleanPlantName;
+        }
+    });
     
     // Scroll header functionality
     const header = document.querySelector('.header');
@@ -119,6 +140,13 @@ document.addEventListener('DOMContentLoaded', function() {
             scrollHeader.classList.remove('visible');
         }
     });
+
+    // Hide loading UI with minimum delay for smooth animation
+    if (typeof LoadingUI !== 'undefined') {
+        setTimeout(() => {
+            LoadingUI.hide();
+        }, 500);
+    }
 });
 
 // Helper function to populate care sections
