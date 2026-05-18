@@ -5,11 +5,37 @@ document.addEventListener('DOMContentLoaded', function () {
     initializeScrollHeader();
 });
 
-function initializePage() {
+async function initializePage() {
     const params = new URLSearchParams(window.location.search);
     const plantId = params.get('plant') || sessionStorage.getItem('selectedPlantId');
 
-    if (!plantId || !GUIDE_DATA[plantId]) {
+    if (!plantId) {
+        window.location.href = 'explore.html';
+        return;
+    }
+
+    let apiPlant = null;
+    try {
+        if (window.plantAPI?.getPlantById) {
+            const response = await plantAPI.getPlantById(plantId);
+            if (response && response.plant) {
+                apiPlant = response.plant;
+            }
+        }
+    } catch (error) {
+        console.warn('API plant load failed, using local data.', error);
+    }
+
+    if (apiPlant) {
+        currentPlant = apiPlant;
+        sessionStorage.setItem('selectedPlantId', plantId);
+        sessionStorage.setItem('selectedPlantName', currentPlant.name);
+        document.getElementById('scrollPlantName').textContent = currentPlant.name;
+        populateFromApiPlant(currentPlant);
+        return;
+    }
+
+    if (!GUIDE_DATA[plantId]) {
         window.location.href = 'explore.html';
         return;
     }
@@ -17,9 +43,7 @@ function initializePage() {
     currentPlant = { ...GUIDE_DATA[plantId], id: plantId };
     sessionStorage.setItem('selectedPlantId', plantId);
     sessionStorage.setItem('selectedPlantName', currentPlant.name);
-
     document.getElementById('scrollPlantName').textContent = currentPlant.name;
-
     populateHeroSection();
     populateProfileSections();
 }
@@ -69,6 +93,118 @@ function populateProfileSections() {
     renderProblemSolutionCards(problemData.problems);
     renderBulletList('benefitsList', problemData.benefits);
     document.getElementById('briefSummary').textContent = profile.brief;
+}
+
+function populateFromApiPlant(plant) {
+    const profile = window.DETAILS_DATA?.[plant.name] || buildProfileFromApi(plant);
+    const problemData = getProblemSolutionBenefits(plant.name);
+
+    document.getElementById('plantName').textContent = plant.name;
+    document.getElementById('plantCategory').textContent = plant.category || plant.type || 'Other';
+    document.getElementById('plantOverview').textContent = plant.description || 'Plant details are being expanded.';
+
+    document.getElementById('profileTitle').textContent = `${plant.name} Detailed Profile`;
+    document.getElementById('profileSubtitle').textContent = profile.subtitle;
+
+    renderQuickFacts(profile.quickFacts);
+    renderParagraphs('introContent', profile.intro);
+    document.getElementById('distributionGlobal').textContent = profile.distributionGlobal;
+    renderChipList('distributionIndia', profile.indiaStates);
+    renderConditions(profile.conditions);
+    renderSeasons(profile.seasons);
+    renderHabits(profile.habits);
+    renderBulletList('varietyList', profile.varieties);
+    renderBulletList('useList', profile.uses);
+    renderBulletList('riskList', profile.risks);
+    renderProblemSolutionCards(problemData.problems);
+    renderBulletList('benefitsList', profile.benefits);
+    document.getElementById('briefSummary').textContent = profile.brief;
+}
+
+function buildProfileFromApi(plant) {
+    const details = plant.details || {};
+    const quickFacts = [
+        { label: 'Scientific Name', value: plant.scientificName || 'To be added' },
+        { label: 'Family', value: details.family || 'To be added' },
+        { label: 'Local Names', value: (details.localNames || []).join(', ') || 'To be added' },
+        { label: 'Category', value: plant.category || plant.type || 'Other' },
+        { label: 'Growth Habit', value: details.growthHabit || 'To be added' },
+        { label: 'Maturity (days)', value: plant.maturityDays || 'To be added' }
+    ];
+
+    const intro = [
+        plant.description || 'Extended description will be added soon.',
+        details.notes || 'Additional cultivation notes will be expanded as data grows.',
+        details.uses ? `Primary uses: ${details.uses}.` : 'Uses and benefits are being expanded.'
+    ];
+
+    const conditions = [
+        {
+            title: 'Soil And Water',
+            items: [
+                { label: 'Soil', value: plant.soil || 'To be added' },
+                { label: 'Soil pH', value: details.soilPH || 'To be added' },
+                { label: 'Water', value: plant.water || 'To be added' }
+            ]
+        },
+        {
+            title: 'Climate And Light',
+            items: [
+                { label: 'Sunlight', value: plant.sunlight || 'To be added' },
+                { label: 'Temperature', value: plant.temperature || 'To be added' },
+                { label: 'Rainfall', value: details.rainfall || 'To be added' }
+            ]
+        },
+        {
+            title: 'Spacing',
+            items: [
+                { label: 'Row Spacing', value: details.rowSpacing || 'To be added' },
+                { label: 'Plant Spacing', value: details.plantSpacing || 'To be added' },
+                { label: 'Spacing Summary', value: plant.spacing || 'To be added' }
+            ]
+        }
+    ];
+
+    const seasons = [
+        {
+            name: 'Primary Season',
+            sowing: details.sowingTime || 'To be added',
+            transplanting: 'Not applicable',
+            note: details.harvestTime ? `Harvest window: ${details.harvestTime}.` : 'Harvest timing to be added.'
+        }
+    ];
+
+    const habits = [
+        {
+            title: details.growthHabit || 'Growth Habit',
+            description: `Height: ${details.plantHeight || 'N/A'}; Spread: ${details.plantSpread || 'N/A'}.`
+        }
+    ];
+
+    const splitToList = (value) =>
+        value ? value.split(',').map((item) => item.trim()).filter(Boolean) : ['To be added'];
+
+    return {
+        subtitle: `Expanded plant profile with India-specific guidance for ${plant.name}.`,
+        quickFacts,
+        intro,
+        distributionGlobal: details.climate
+            ? `Grown across climates: ${details.climate}.`
+            : 'Grown widely in India with regional variation.',
+        indiaStates: details.regionsIndia && details.regionsIndia.length > 0 ? details.regionsIndia : ['India'],
+        conditions,
+        seasons,
+        habits,
+        varieties: splitToList(details.varieties),
+        uses: splitToList(details.uses),
+        risks: [details.pests || 'Pests info pending', details.diseases || 'Disease info pending'],
+        benefits: [
+            details.edibleParts ? `Edible parts: ${details.edibleParts}.` : 'Edible parts info pending.',
+            details.storage ? `Storage: ${details.storage}.` : 'Storage guidance pending.',
+            details.irrigation ? `Irrigation: ${details.irrigation}.` : 'Irrigation guidance pending.'
+        ],
+        brief: details.notes || plant.description || 'Expanded summary will be added.'
+    };
 }
 
 function getProfileForPlant(plant) {

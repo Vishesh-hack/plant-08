@@ -5,10 +5,13 @@ Flask API with CORS, MongoDB integration, and semantic search endpoints
 """
 
 from flask import Flask, request, jsonify
-from flask_cors import CORS 
+from flask_cors import CORS
 from dotenv import load_dotenv
+from pymongo import MongoClient
+from pymongo.errors import PyMongoError
 import os
 import json
+import re
 from datetime import datetime
 from semantic_search import semantic_search_simple, get_similar_plants, filter_by_growth_stage
 
@@ -24,20 +27,82 @@ CORS(app, resources={r"/api/*": {"origins": "*"}})
 # Configuration
 app.config['JSON_SORT_KEYS'] = False
 
-# ==================== PLANT DATA (In-Memory for Phase 1) ====================
-# In production, this will be replaced with MongoDB
+# ==================== PLANT DATA (MongoDB + Fallback JSON) ====================
 PLANTS_DATA = {}
+MONGO_CLIENT = None
+MONGO_DB = None
+PLANTS_COLLECTION = None
+MONGO_AVAILABLE = False
 
-def load_plant_data():
-    """Load plant data from JSON file"""
+def load_plants_from_file():
+    """Load plant data from JSON file into memory for fallback or seeding."""
     global PLANTS_DATA
     try:
         with open('data/plants.json', 'r', encoding='utf-8') as f:
             PLANTS_DATA = json.load(f)
-        print(f"✅ Loaded {len(PLANTS_DATA)} plants from database")
+        print(f"✅ Loaded {len(PLANTS_DATA)} plants from local seed data")
     except FileNotFoundError:
-        print("❌ plants.json not found. Starting with empty database.")
+        print("❌ data/plants.json not found. Starting with empty dataset.")
         PLANTS_DATA = {}
+
+def init_mongo():
+    """Initialize MongoDB connection using environment configuration."""
+    global MONGO_CLIENT, MONGO_DB, PLANTS_COLLECTION, MONGO_AVAILABLE
+    mongo_uri = os.getenv('MONGODB_URI')
+    db_name = os.getenv('DB_NAME', 'plant08')
+    collection_name = os.getenv('PLANTS_COLLECTION', 'plants')
+
+    if not mongo_uri:
+        print("⚠️  MONGODB_URI not set. Falling back to local JSON data.")
+        MONGO_AVAILABLE = False
+        return
+
+    try:
+        MONGO_CLIENT = MongoClient(mongo_uri, serverSelectionTimeoutMS=5000)
+        MONGO_CLIENT.admin.command('ping')
+        MONGO_DB = MONGO_CLIENT[db_name]
+        PLANTS_COLLECTION = MONGO_DB[collection_name]
+        PLANTS_COLLECTION.create_index('id', unique=True)
+        MONGO_AVAILABLE = True
+        print("✅ Connected to MongoDB")
+    except PyMongoError as error:
+        print(f"❌ MongoDB connection failed: {error}")
+        MONGO_AVAILABLE = False
+
+def seed_mongo_if_empty():
+    """Seed MongoDB collection if empty using local JSON data."""
+    if not MONGO_AVAILABLE or PLANTS_COLLECTION is None:
+        return
+
+    try:
+        existing_count = PLANTS_COLLECTION.count_documents({})
+        if existing_count > 0:
+            print(f"✅ MongoDB already has {existing_count} plants")
+            return
+
+        plants_list = list(PLANTS_DATA.values())
+        if not plants_list:
+            print("⚠️  No local plants available for seeding.")
+            return
+
+        for plant in plants_list:
+            PLANTS_COLLECTION.update_one({'id': plant['id']}, {'$set': plant}, upsert=True)
+
+        print(f"✅ Seeded MongoDB with {len(plants_list)} plants")
+    except PyMongoError as error:
+        print(f"❌ Failed to seed MongoDB: {error}")
+
+def fetch_all_plants():
+    """Fetch all plants from MongoDB or fallback JSON."""
+    if MONGO_AVAILABLE and PLANTS_COLLECTION is not None:
+        return list(PLANTS_COLLECTION.find({}, {'_id': 0}))
+    return list(PLANTS_DATA.values())
+
+def fetch_plant_by_id(plant_id):
+    """Fetch a single plant by ID from MongoDB or fallback JSON."""
+    if MONGO_AVAILABLE and PLANTS_COLLECTION is not None:
+        return PLANTS_COLLECTION.find_one({'id': plant_id}, {'_id': 0})
+    return PLANTS_DATA.get(plant_id)
 
 # ==================== ERROR HANDLERS ====================
 @app.errorhandler(404)
@@ -52,10 +117,14 @@ def server_error(error):
 @app.route('/health', methods=['GET'])
 def health():
     """Health check endpoint for monitoring"""
+    if MONGO_AVAILABLE and PLANTS_COLLECTION is not None:
+        plants_count = PLANTS_COLLECTION.count_documents({})
+    else:
+        plants_count = len(PLANTS_DATA)
     return jsonify({
         'status': 'healthy',
         'timestamp': datetime.now().isoformat(),
-        'plants_count': len(PLANTS_DATA)
+        'plants_count': plants_count
     }), 200
 
 # ==================== API ENDPOINTS ====================
@@ -75,14 +144,20 @@ def get_all_plants():
         if page < 1 or limit < 1 or limit > 100:
             return jsonify({'error': 'Invalid pagination parameters'}), 400
         
-        # Get all plants as list
-        plants_list = list(PLANTS_DATA.values())
-        total = len(plants_list)
-        
-        # Paginate
-        start = (page - 1) * limit
-        end = start + limit
-        paginated = plants_list[start:end]
+        if MONGO_AVAILABLE and PLANTS_COLLECTION is not None:
+            total = PLANTS_COLLECTION.count_documents({})
+            paginated = list(
+                PLANTS_COLLECTION.find({}, {'_id': 0})
+                .sort('name', 1)
+                .skip((page - 1) * limit)
+                .limit(limit)
+            )
+        else:
+            plants_list = list(PLANTS_DATA.values())
+            total = len(plants_list)
+            start = (page - 1) * limit
+            end = start + limit
+            paginated = plants_list[start:end]
         
         return jsonify({
             'success': True,
@@ -112,15 +187,20 @@ def search_plants():
         if not query and not plant_type:
             return jsonify({'error': 'Search query (q) or type parameter required'}), 400
         
-        results = []
-        for plant_id, plant in PLANTS_DATA.items():
-            # Check name match (or no name filter provided)
-            name_match = (not query) or (query in plant.get('name', '').lower())
-            # Check type match (or no type filter provided)
-            type_match = (not plant_type) or (plant_type == plant.get('type', '').lower())
-            # Add if all provided filters match
-            if name_match and type_match:
-                results.append(plant)
+        if MONGO_AVAILABLE and PLANTS_COLLECTION is not None:
+            mongo_query = {}
+            if query:
+                mongo_query['name'] = {'$regex': re.escape(query), '$options': 'i'}
+            if plant_type:
+                mongo_query['type'] = {'$regex': f'^{re.escape(plant_type)}$', '$options': 'i'}
+            results = list(PLANTS_COLLECTION.find(mongo_query, {'_id': 0}).sort('name', 1))
+        else:
+            results = []
+            for plant_id, plant in PLANTS_DATA.items():
+                name_match = (not query) or (query in plant.get('name', '').lower())
+                type_match = (not plant_type) or (plant_type == plant.get('type', '').lower())
+                if name_match and type_match:
+                    results.append(plant)
         
         return jsonify({
             'success': True,
@@ -139,7 +219,7 @@ def get_plant_by_id(plant_id):
     Get detailed information for a single plant by ID
     """
     try:
-        plant = PLANTS_DATA.get(plant_id)
+        plant = fetch_plant_by_id(plant_id)
         
         if not plant:
             return jsonify({'error': f'Plant with ID "{plant_id}" not found', 'status': 404}), 404
@@ -166,12 +246,30 @@ def get_plants_by_type():
             return jsonify({'error': 'Type parameter required'}), 400
         
         # List of valid types
-        valid_types = ['herb', 'vegetable', 'fruit', 'flower', 'indoor', 'succulent']
+        valid_types = [
+            'herb',
+            'vegetable',
+            'fruit',
+            'flower',
+            'indoor',
+            'succulent',
+            'grain',
+            'legume',
+            'fiber',
+            'spice',
+            'oilseed',
+            'cash'
+        ]
         if plant_type not in valid_types:
             return jsonify({'error': f'Invalid type. Valid types: {", ".join(valid_types)}'}), 400
-        
-        results = [plant for plant in PLANTS_DATA.values() 
-                   if plant.get('type', '').lower() == plant_type]
+        if MONGO_AVAILABLE and PLANTS_COLLECTION is not None:
+            results = list(
+                PLANTS_COLLECTION.find({'type': {'$regex': f'^{re.escape(plant_type)}$', '$options': 'i'}}, {'_id': 0})
+                .sort('name', 1)
+            )
+        else:
+            results = [plant for plant in PLANTS_DATA.values()
+                       if plant.get('type', '').lower() == plant_type]
         
         return jsonify({
             'success': True,
@@ -190,7 +288,7 @@ def get_plant_guides(plant_id):
     Get care guides for a specific plant at different growth stages
     """
     try:
-        plant = PLANTS_DATA.get(plant_id)
+        plant = fetch_plant_by_id(plant_id)
         
         if not plant:
             return jsonify({'error': f'Plant "{plant_id}" not found', 'status': 404}), 404
@@ -214,8 +312,12 @@ def get_plant_guides(plant_id):
 @app.route('/api/admin/plants/count', methods=['GET'])
 def count_plants():
     """Get total count of plants in database"""
+    if MONGO_AVAILABLE and PLANTS_COLLECTION is not None:
+        total_plants = PLANTS_COLLECTION.count_documents({})
+    else:
+        total_plants = len(PLANTS_DATA)
     return jsonify({
-        'total_plants': len(PLANTS_DATA),
+        'total_plants': total_plants,
         'timestamp': datetime.now().isoformat()
     }), 200
 
@@ -223,13 +325,18 @@ def count_plants():
 @app.route('/api/admin/plants/list-types', methods=['GET'])
 def list_plant_types():
     """Get all unique plant types"""
-    types = set()
-    for plant in PLANTS_DATA.values():
-        plant_type = plant.get('type', 'unknown').lower()
-        types.add(plant_type)
+    if MONGO_AVAILABLE and PLANTS_COLLECTION is not None:
+        types = PLANTS_COLLECTION.distinct('type')
+        types = sorted([t.lower() for t in types if t])
+    else:
+        types = set()
+        for plant in PLANTS_DATA.values():
+            plant_type = plant.get('type', 'unknown').lower()
+            types.add(plant_type)
+        types = sorted(list(types))
     
     return jsonify({
-        'types': sorted(list(types)),
+        'types': types,
         'count': len(types)
     }), 200
 
@@ -261,7 +368,7 @@ def semantic_search():
             return jsonify({'error': 'Limit must be between 1 and 20'}), 400
         
         # Convert plants dict to list
-        plants_list = list(PLANTS_DATA.values())
+        plants_list = fetch_all_plants()
         
         # Perform semantic search
         results = semantic_search_simple(query, plants_list, limit)
@@ -294,10 +401,11 @@ def get_similar(plant_id):
     try:
         limit = request.args.get('limit', 5, type=int)
         
-        if plant_id not in PLANTS_DATA:
+        reference_plant = fetch_plant_by_id(plant_id)
+        if not reference_plant:
             return jsonify({'error': f'Plant "{plant_id}" not found'}), 404
-        
-        plants_list = list(PLANTS_DATA.values())
+
+        plants_list = fetch_all_plants()
         results = get_similar_plants(plant_id, plants_list, limit)
         
         formatted_results = []
@@ -309,7 +417,7 @@ def get_similar(plant_id):
         
         return jsonify({
             'success': True,
-            'reference_plant': PLANTS_DATA[plant_id].get('name'),
+            'reference_plant': reference_plant.get('name'),
             'similar_plants': formatted_results,
             'count': len(formatted_results)
         }), 200
@@ -339,7 +447,7 @@ def plants_by_growth_stage():
                 'error': f'Invalid stage "{stage}". Valid values: {", ".join(valid_stages)}'
             }), 400
         
-        plants_list = list(PLANTS_DATA.values())
+        plants_list = fetch_all_plants()
         results = filter_by_growth_stage(plants_list, stage)
         
         # Apply limit
@@ -372,8 +480,12 @@ def after_request(response):
 
 
 if __name__ == '__main__':
-    # Load plant data on startup
-    load_plant_data()
+    # Load plant data from file (for seeding and fallback)
+    load_plants_from_file()
+
+    # Initialize MongoDB and seed if needed
+    init_mongo()
+    seed_mongo_if_empty()
     
     # Get port from environment or default to 5000
     port = int(os.getenv('PORT', 5000))
@@ -382,6 +494,10 @@ if __name__ == '__main__':
     print(f"\n🌱 Plant-08 Backend API Starting...")
     print(f"📍 Running on http://localhost:{port}")
     print(f"🔧 Debug mode: {debug}")
-    print(f"📚 Loaded {len(PLANTS_DATA)} plants\n")
+    if MONGO_AVAILABLE and PLANTS_COLLECTION is not None:
+        mongo_count = PLANTS_COLLECTION.count_documents({})
+        print(f"📚 MongoDB plants: {mongo_count}\n")
+    else:
+        print(f"📚 Loaded {len(PLANTS_DATA)} plants (local fallback)\n")
     
     app.run(host='0.0.0.0', port=port, debug=debug)

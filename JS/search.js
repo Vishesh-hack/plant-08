@@ -318,9 +318,15 @@ function createPlantCard(plant, score, source) {
         </div>
     `;
 
+    const goToDetail = () => {
+        sessionStorage.setItem('selectedPlantId', plant.id);
+        sessionStorage.setItem('selectedPlantName', plant.name);
+        window.location.href = `detail.html?plant=${encodeURIComponent(plant.id)}`;
+    };
+
     // Add event listeners
     card.querySelector('.view-btn').addEventListener('click', () => {
-        showPlantDetail(plant);
+        goToDetail();
     });
 
     card.querySelector('.similar-btn').addEventListener('click', () => {

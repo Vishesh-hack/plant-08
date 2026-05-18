@@ -1617,6 +1617,887 @@ window.DETAILS_DATA = {
         ],
         brief:
             'Chives thrive with rich, damp soil and frequent snipping; divide crowded clumps and pinch flowers for continual leaf supply.'
+    },
+    "Kulthi (Horse gram)": {
+        subtitle: 'Drought-tolerant pulse grown in dry regions for grain, fodder, and soil improvement.',
+        quickFacts: [
+            { label: 'Scientific Name', value: 'Macrotyloma uniflorum' },
+            { label: 'Common Name (India)', value: 'Kulthi / Kollu' },
+            { label: 'Type', value: 'Pulse legume' },
+            { label: 'Maturity', value: '80-150 days' }
+        ],
+        intro: [
+            'Kulthi is a hardy legume that tolerates poor soils and low rainfall.',
+            'It is valued for grain, fodder, and nitrogen fixation in dryland farming.',
+            'Warm weather and good drainage support healthy pod fill.'
+        ],
+        distributionGlobal: 'Grown across South Asia in dry farming belts.',
+        indiaStates: ['Karnataka', 'Tamil Nadu', 'Maharashtra', 'Madhya Pradesh'],
+        conditions: [
+            {
+                title: 'Soil Requirements',
+                items: [
+                    { label: 'Soil Type', value: 'Light to medium, well-drained soils.' },
+                    { label: 'pH', value: '6.0 to 7.0.' },
+                    { label: 'Moisture', value: 'Low; drought tolerant.' }
+                ]
+            },
+            {
+                title: 'Climate And Light',
+                items: [
+                    { label: 'Temperature', value: '20 C to 35 C.' },
+                    { label: 'Sunlight', value: 'Full sun.' },
+                    { label: 'Rainfall', value: '400 to 800 mm.' }
+                ]
+            }
+        ],
+        seasons: [
+            { name: 'Kharif', sowing: 'August to November', transplanting: 'Direct sowing', note: 'Main sowing window in dry regions.' }
+        ],
+        habits: [
+            { title: 'Climbing Legume', description: 'Short, spreading growth with rhizome base.' }
+        ],
+        varieties: ['Local dryland varieties adapted to low rainfall.'],
+        uses: ['Pulse grain', 'Fodder', 'Soil improvement'],
+        risks: ['Waterlogging', 'Leaf spots in humid spells', 'Pod borers late season'],
+        brief: 'Kulthi is ideal for low-input dry farming with early weeding and good drainage.'
+    },
+    "Peanut (Groundnut)": {
+        subtitle: 'Oilseed legume with underground pods, grown widely across India.',
+        quickFacts: [
+            { label: 'Scientific Name', value: 'Arachis hypogaea' },
+            { label: 'Common Name (India)', value: 'Moongphali' },
+            { label: 'Type', value: 'Oilseed legume' },
+            { label: 'Maturity', value: '120-150 days' }
+        ],
+        intro: [
+            'Groundnut flowers above ground but pods develop underground after pegging.',
+            'Loose, well-drained soil and moderate moisture are crucial at pegging stage.',
+            'Curing after harvest improves storage and quality.'
+        ],
+        distributionGlobal: 'Grown across tropical and subtropical regions for oil and food.',
+        indiaStates: ['Gujarat', 'Andhra Pradesh', 'Tamil Nadu', 'Karnataka'],
+        conditions: [
+            {
+                title: 'Soil Requirements',
+                items: [
+                    { label: 'Soil Type', value: 'Sandy loam or loam with good drainage.' },
+                    { label: 'pH', value: '5.5 to 7.0.' },
+                    { label: 'Moisture', value: 'Moderate; avoid waterlogging.' }
+                ]
+            },
+            {
+                title: 'Climate And Light',
+                items: [
+                    { label: 'Temperature', value: '20 C to 30 C.' },
+                    { label: 'Sunlight', value: 'Full sun.' },
+                    { label: 'Rainfall', value: '400 to 500 mm.' }
+                ]
+            }
+        ],
+        seasons: [
+            { name: 'Kharif', sowing: 'June to July', transplanting: 'Direct sowing', note: 'Sow with monsoon onset.' }
+        ],
+        habits: [
+            { title: 'Geocarpic Habit', description: 'Pods develop below soil after pegging.' }
+        ],
+        varieties: ['Runner, bunch, and Spanish types by region.'],
+        uses: ['Oil', 'Roasted nuts', 'Peanut butter'],
+        risks: ['Leaf spot', 'Rust', 'Pod borer'],
+        brief: 'Maintain loose soil for pegging and irrigate at flowering for good pod fill.'
+    },
+    "Tur (Pigeon pea)": {
+        subtitle: 'Staple pulse with deep roots and high resilience in semi-arid regions.',
+        quickFacts: [
+            { label: 'Scientific Name', value: 'Cajanus cajan' },
+            { label: 'Common Name (India)', value: 'Tur / Arhar / Toor' },
+            { label: 'Type', value: 'Pulse legume' },
+            { label: 'Maturity', value: '130-240 days' }
+        ],
+        intro: [
+            'Tur is a long-duration legume used for dal and fodder.',
+            'Early weed control and pest protection improve yield.',
+            'Flowering to pod fill is the most water-sensitive phase.'
+        ],
+        distributionGlobal: 'Cultivated across tropical regions of Asia and Africa.',
+        indiaStates: ['Maharashtra', 'Karnataka', 'Madhya Pradesh', 'Uttar Pradesh'],
+        conditions: [
+            {
+                title: 'Soil Requirements',
+                items: [
+                    { label: 'Soil Type', value: 'Well-drained loam or clay loam.' },
+                    { label: 'pH', value: '6.0 to 7.0.' },
+                    { label: 'Moisture', value: 'Moderate; avoid waterlogging.' }
+                ]
+            },
+            {
+                title: 'Climate And Light',
+                items: [
+                    { label: 'Temperature', value: '20 C to 35 C.' },
+                    { label: 'Sunlight', value: 'Full sun.' },
+                    { label: 'Rainfall', value: '600 to 1000 mm.' }
+                ]
+            }
+        ],
+        seasons: [
+            { name: 'Kharif', sowing: 'July', transplanting: 'Direct sowing', note: 'Sow with first good rains.' }
+        ],
+        habits: [
+            { title: 'Shrubby Legume', description: 'Tall, branching plants with deep roots.' }
+        ],
+        varieties: ['Short, medium, and long duration types by region.'],
+        uses: ['Dal', 'Fodder', 'Soil improvement'],
+        risks: ['Pod borer', 'Wilt', 'Waterlogging'],
+        brief: 'Tur needs deep soil, early weed control, and pod protection for stable yields.'
+    },
+    "Bajra (Pearl millet)": {
+        subtitle: 'Heat- and drought-tolerant millet suited to arid and semi-arid regions.',
+        quickFacts: [
+            { label: 'Scientific Name', value: 'Pennisetum glaucum' },
+            { label: 'Common Name (India)', value: 'Bajra' },
+            { label: 'Type', value: 'Cereal grain' },
+            { label: 'Maturity', value: '70-90 days' }
+        ],
+        intro: [
+            'Bajra is one of the most drought-tolerant cereals and thrives in hot climates.',
+            'Timely sowing and early weed control improve grain size and yield.',
+            'It grows well under low-input conditions.'
+        ],
+        distributionGlobal: 'Grown in dryland belts across Asia and Africa.',
+        indiaStates: ['Rajasthan', 'Gujarat', 'Haryana', 'Maharashtra'],
+        conditions: [
+            {
+                title: 'Soil Requirements',
+                items: [
+                    { label: 'Soil Type', value: 'Well-drained sandy loam.' },
+                    { label: 'pH', value: '6.0 to 7.0.' },
+                    { label: 'Moisture', value: 'Low; drought tolerant.' }
+                ]
+            },
+            {
+                title: 'Climate And Light',
+                items: [
+                    { label: 'Temperature', value: '25 C to 40 C.' },
+                    { label: 'Sunlight', value: 'Full sun.' },
+                    { label: 'Rainfall', value: '400 to 600 mm.' }
+                ]
+            }
+        ],
+        seasons: [
+            { name: 'Kharif', sowing: 'June to July', transplanting: 'Direct sowing', note: 'Sow with monsoon onset.' }
+        ],
+        habits: [
+            { title: 'Annual Grass', description: 'Tillering crop with grain heads.' }
+        ],
+        varieties: ['Local and hybrid types with 70-90 day duration.'],
+        uses: ['Roti', 'Porridge', 'Fodder'],
+        risks: ['Downy mildew', 'Shoot fly'],
+        brief: 'Bajra performs best in heat with early weeding and timely nitrogen splits.'
+    },
+    Cotton: {
+        subtitle: 'Fiber crop grown in warm regions with long frost-free seasons.',
+        quickFacts: [
+            { label: 'Scientific Name', value: 'Gossypium spp.' },
+            { label: 'Common Name (India)', value: 'Kapas' },
+            { label: 'Type', value: 'Fiber crop' },
+            { label: 'Maturity', value: '150-180 days' }
+        ],
+        intro: [
+            'Cotton is a long-duration crop requiring good sunlight and pest monitoring.',
+            'It grows best on deep, well-drained soils with good moisture retention.',
+            'Flowering to boll formation is the most critical phase.'
+        ],
+        distributionGlobal: 'Cultivated across tropical and subtropical regions for textile fiber.',
+        indiaStates: ['Maharashtra', 'Gujarat', 'Telangana', 'Punjab'],
+        conditions: [
+            {
+                title: 'Soil Requirements',
+                items: [
+                    { label: 'Soil Type', value: 'Deep loam or clay loam.' },
+                    { label: 'pH', value: '6.5 to 7.5.' },
+                    { label: 'Moisture', value: 'Moderate to high at flowering.' }
+                ]
+            },
+            {
+                title: 'Climate And Light',
+                items: [
+                    { label: 'Temperature', value: '20 C to 35 C.' },
+                    { label: 'Sunlight', value: 'Full sun.' },
+                    { label: 'Rainfall', value: '700 to 1200 mm.' }
+                ]
+            }
+        ],
+        seasons: [
+            { name: 'Kharif', sowing: 'June to July', transplanting: 'Direct sowing', note: 'Irrigated cotton can be earlier.' }
+        ],
+        habits: [
+            { title: 'Shrubby Crop', description: 'Bushy plants bearing bolls for fiber.' }
+        ],
+        varieties: ['Bt hybrids and region-specific varieties.'],
+        uses: ['Textile fiber', 'Oilseed byproduct'],
+        risks: ['Bollworms', 'Sucking pests', 'Boll rot'],
+        brief: 'Cotton needs a long warm season, balanced nutrition, and pest management.'
+    },
+    Rice: {
+        subtitle: 'Staple cereal grown under flooded or irrigated conditions across India.',
+        quickFacts: [
+            { label: 'Scientific Name', value: 'Oryza sativa' },
+            { label: 'Common Name (India)', value: 'Dhan / Chawal' },
+            { label: 'Type', value: 'Cereal grain' },
+            { label: 'Maturity', value: '110-140 days' }
+        ],
+        intro: [
+            'Rice is cultivated in kharif and rabi seasons with varied water regimes.',
+            'Transplanted or direct-sown systems are used based on irrigation.',
+            'Pest and disease monitoring is vital in humid climates.'
+        ],
+        distributionGlobal: 'Grown widely across Asia and humid regions worldwide.',
+        indiaStates: ['West Bengal', 'Punjab', 'Andhra Pradesh', 'Bihar'],
+        conditions: [
+            {
+                title: 'Soil Requirements',
+                items: [
+                    { label: 'Soil Type', value: 'Clay loam to silty loam.' },
+                    { label: 'pH', value: '5.5 to 7.0.' },
+                    { label: 'Moisture', value: 'Standing water or saturated soil.' }
+                ]
+            },
+            {
+                title: 'Climate And Light',
+                items: [
+                    { label: 'Temperature', value: '20 C to 35 C.' },
+                    { label: 'Sunlight', value: 'Full sun.' },
+                    { label: 'Rainfall', value: '1000 to 2000 mm.' }
+                ]
+            }
+        ],
+        seasons: [
+            { name: 'Kharif', sowing: 'June to July', transplanting: 'July to August', note: 'Main season in most states.' }
+        ],
+        habits: [
+            { title: 'Annual Grass', description: 'Tillering crop with panicles.' }
+        ],
+        varieties: ['Local and high-yielding varieties by region.'],
+        uses: ['Staple food', 'Rice flour', 'Bran'],
+        risks: ['Stem borer', 'Blast', 'Sheath blight'],
+        brief: 'Rice needs consistent moisture and timely fertilizer splits.'
+    },
+    Wheat: {
+        subtitle: 'Major rabi cereal with cool-season growth and high grain demand.',
+        quickFacts: [
+            { label: 'Scientific Name', value: 'Triticum aestivum' },
+            { label: 'Common Name (India)', value: 'Gehun' },
+            { label: 'Type', value: 'Cereal grain' },
+            { label: 'Maturity', value: '120-140 days' }
+        ],
+        intro: [
+            'Wheat is a cool-season crop requiring timely sowing for best yield.',
+            'It needs irrigation at tillering and grain fill stages.',
+            'Clean seedbeds and weed control improve stand and grain size.'
+        ],
+        distributionGlobal: 'Grown worldwide across temperate regions.',
+        indiaStates: ['Punjab', 'Haryana', 'Uttar Pradesh', 'Madhya Pradesh'],
+        conditions: [
+            {
+                title: 'Soil Requirements',
+                items: [
+                    { label: 'Soil Type', value: 'Well-drained loam.' },
+                    { label: 'pH', value: '6.0 to 7.5.' },
+                    { label: 'Moisture', value: 'Moderate; avoid waterlogging.' }
+                ]
+            },
+            {
+                title: 'Climate And Light',
+                items: [
+                    { label: 'Temperature', value: '15 C to 25 C.' },
+                    { label: 'Sunlight', value: 'Full sun.' },
+                    { label: 'Rainfall', value: '500 to 800 mm.' }
+                ]
+            }
+        ],
+        seasons: [
+            { name: 'Rabi', sowing: 'November to December', transplanting: 'Direct sowing', note: 'Timely sowing boosts yield.' }
+        ],
+        habits: [
+            { title: 'Annual Grass', description: 'Upright stems with grain heads.' }
+        ],
+        varieties: ['HD and PBW series varieties by zone.'],
+        uses: ['Flour', 'Bread', 'Chapati'],
+        risks: ['Rusts', 'Aphids', 'Terminal heat'],
+        brief: 'Wheat performs best in cool seasons with timely irrigation and clean fields.'
+    },
+    Maize: {
+        subtitle: 'Versatile cereal grown for food, feed, and industrial use.',
+        quickFacts: [
+            { label: 'Scientific Name', value: 'Zea mays' },
+            { label: 'Common Name (India)', value: 'Makka' },
+            { label: 'Type', value: 'Cereal grain' },
+            { label: 'Maturity', value: '90-120 days' }
+        ],
+        intro: [
+            'Maize is grown in both kharif and rabi seasons with wide adaptability.',
+            'It is sensitive to moisture stress at tasseling and silking.',
+            'Good spacing and fertilizer splits improve yields.'
+        ],
+        distributionGlobal: 'Grown worldwide across tropical and temperate zones.',
+        indiaStates: ['Karnataka', 'Madhya Pradesh', 'Bihar', 'Rajasthan'],
+        conditions: [
+            {
+                title: 'Soil Requirements',
+                items: [
+                    { label: 'Soil Type', value: 'Well-drained loam.' },
+                    { label: 'pH', value: '6.0 to 7.5.' },
+                    { label: 'Moisture', value: 'Moderate; avoid drought at tasseling.' }
+                ]
+            },
+            {
+                title: 'Climate And Light',
+                items: [
+                    { label: 'Temperature', value: '18 C to 30 C.' },
+                    { label: 'Sunlight', value: 'Full sun.' },
+                    { label: 'Rainfall', value: '500 to 800 mm.' }
+                ]
+            }
+        ],
+        seasons: [
+            { name: 'Kharif', sowing: 'June to July', transplanting: 'Direct sowing', note: 'Primary season in many states.' }
+        ],
+        habits: [
+            { title: 'Tall Annual Grass', description: 'Strong stems with cobs and tassels.' }
+        ],
+        varieties: ['Hybrid and composite types by zone.'],
+        uses: ['Food grain', 'Feed', 'Starch'],
+        risks: ['Stem borer', 'Leaf blight'],
+        brief: 'Maize needs timely sowing, nutrition, and moisture at flowering.'
+    },
+    Sugarcane: {
+        subtitle: 'Long-duration cash crop for sugar and jaggery production.',
+        quickFacts: [
+            { label: 'Scientific Name', value: 'Saccharum officinarum' },
+            { label: 'Common Name (India)', value: 'Ganna' },
+            { label: 'Type', value: 'Cash crop' },
+            { label: 'Maturity', value: '10-12 months' }
+        ],
+        intro: [
+            'Sugarcane is planted as setts and needs steady irrigation.',
+            'Earthing up and weed control support cane growth.',
+            'Harvest timing influences sugar recovery.'
+        ],
+        distributionGlobal: 'Grown in tropical and subtropical belts worldwide.',
+        indiaStates: ['Uttar Pradesh', 'Maharashtra', 'Karnataka', 'Bihar'],
+        conditions: [
+            {
+                title: 'Soil Requirements',
+                items: [
+                    { label: 'Soil Type', value: 'Deep loam with good moisture holding.' },
+                    { label: 'pH', value: '6.5 to 7.5.' },
+                    { label: 'Moisture', value: 'High; regular irrigation.' }
+                ]
+            },
+            {
+                title: 'Climate And Light',
+                items: [
+                    { label: 'Temperature', value: '20 C to 32 C.' },
+                    { label: 'Sunlight', value: 'Full sun.' },
+                    { label: 'Rainfall', value: '750 to 1200 mm.' }
+                ]
+            }
+        ],
+        seasons: [
+            { name: 'Planting', sowing: 'February-March or September-October', transplanting: 'Sett planting', note: 'Long duration crop.' }
+        ],
+        habits: [
+            { title: 'Perennial Grass', description: 'Tall canes with high juice content.' }
+        ],
+        varieties: ['Early and mid-late varieties by region.'],
+        uses: ['Sugar', 'Jaggery', 'Ethanol'],
+        risks: ['Red rot', 'Borer', 'Lodging'],
+        brief: 'Sugarcane needs fertile soil, steady irrigation, and timely harvesting.'
+    },
+    Soybean: {
+        subtitle: 'Oilseed legume grown in central India for oil and protein meal.',
+        quickFacts: [
+            { label: 'Scientific Name', value: 'Glycine max' },
+            { label: 'Common Name (India)', value: 'Soya' },
+            { label: 'Type', value: 'Oilseed legume' },
+            { label: 'Maturity', value: '90-110 days' }
+        ],
+        intro: [
+            'Soybean is a major kharif crop with good nitrogen fixation.',
+            'It responds to timely sowing and early weed control.',
+            'Moderate moisture and drainage reduce disease pressure.'
+        ],
+        distributionGlobal: 'Grown globally for oil and protein meal.',
+        indiaStates: ['Madhya Pradesh', 'Maharashtra', 'Rajasthan'],
+        conditions: [
+            {
+                title: 'Soil Requirements',
+                items: [
+                    { label: 'Soil Type', value: 'Well-drained loam.' },
+                    { label: 'pH', value: '6.0 to 7.0.' },
+                    { label: 'Moisture', value: 'Moderate; avoid waterlogging.' }
+                ]
+            },
+            {
+                title: 'Climate And Light',
+                items: [
+                    { label: 'Temperature', value: '20 C to 30 C.' },
+                    { label: 'Sunlight', value: 'Full sun.' },
+                    { label: 'Rainfall', value: '600 to 1000 mm.' }
+                ]
+            }
+        ],
+        seasons: [
+            { name: 'Kharif', sowing: 'June to July', transplanting: 'Direct sowing', note: 'Main season crop.' }
+        ],
+        habits: [
+            { title: 'Annual Legume', description: 'Bushy plant with oil-rich seeds.' }
+        ],
+        varieties: ['JS and NRC series varieties.'],
+        uses: ['Oil', 'Protein meal', 'Food products'],
+        risks: ['Rust', 'Pod borer'],
+        brief: 'Soybean needs timely sowing, weed control, and moisture at flowering.'
+    },
+    "Chickpea (Gram)": {
+        subtitle: 'Rabi pulse crop valued for dal and besan flour.',
+        quickFacts: [
+            { label: 'Scientific Name', value: 'Cicer arietinum' },
+            { label: 'Common Name (India)', value: 'Chana' },
+            { label: 'Type', value: 'Pulse legume' },
+            { label: 'Maturity', value: '100-120 days' }
+        ],
+        intro: [
+            'Chickpea thrives in cool, dry winters and needs well-drained soil.',
+            'It is mostly rainfed with one irrigation if needed.',
+            'Pest protection during pod formation improves yields.'
+        ],
+        distributionGlobal: 'Grown across dry temperate regions worldwide.',
+        indiaStates: ['Madhya Pradesh', 'Rajasthan', 'Uttar Pradesh'],
+        conditions: [
+            {
+                title: 'Soil Requirements',
+                items: [
+                    { label: 'Soil Type', value: 'Well-drained loam.' },
+                    { label: 'pH', value: '6.0 to 7.5.' },
+                    { label: 'Moisture', value: 'Low to moderate.' }
+                ]
+            },
+            {
+                title: 'Climate And Light',
+                items: [
+                    { label: 'Temperature', value: '15 C to 25 C.' },
+                    { label: 'Sunlight', value: 'Full sun.' },
+                    { label: 'Rainfall', value: '400 to 600 mm.' }
+                ]
+            }
+        ],
+        seasons: [
+            { name: 'Rabi', sowing: 'October to November', transplanting: 'Direct sowing', note: 'Main season crop.' }
+        ],
+        habits: [
+            { title: 'Bushy Legume', description: 'Short plants with pods and deep roots.' }
+        ],
+        varieties: ['Desi and kabuli types.'],
+        uses: ['Dal', 'Besan flour', 'Snacks'],
+        risks: ['Pod borer', 'Wilt'],
+        brief: 'Chickpea performs best with cool weather and drained soil.'
+    },
+    Lentil: {
+        subtitle: 'Cool-season pulse grown in rabi for dal and soups.',
+        quickFacts: [
+            { label: 'Scientific Name', value: 'Lens culinaris' },
+            { label: 'Common Name (India)', value: 'Masoor' },
+            { label: 'Type', value: 'Pulse legume' },
+            { label: 'Maturity', value: '100-120 days' }
+        ],
+        intro: [
+            'Lentil is a hardy rabi crop suited to cool, dry conditions.',
+            'It needs good seedbed preparation and early weed control.',
+            'Mostly rainfed with one irrigation if needed.'
+        ],
+        distributionGlobal: 'Cultivated in cool temperate regions worldwide.',
+        indiaStates: ['Uttar Pradesh', 'Madhya Pradesh', 'Bihar'],
+        conditions: [
+            {
+                title: 'Soil Requirements',
+                items: [
+                    { label: 'Soil Type', value: 'Well-drained loam.' },
+                    { label: 'pH', value: '6.0 to 7.5.' },
+                    { label: 'Moisture', value: 'Low to moderate.' }
+                ]
+            },
+            {
+                title: 'Climate And Light',
+                items: [
+                    { label: 'Temperature', value: '15 C to 25 C.' },
+                    { label: 'Sunlight', value: 'Full sun.' },
+                    { label: 'Rainfall', value: '300 to 500 mm.' }
+                ]
+            }
+        ],
+        seasons: [
+            { name: 'Rabi', sowing: 'October to November', transplanting: 'Direct sowing', note: 'Harvest in March.' }
+        ],
+        habits: [
+            { title: 'Short Legume', description: 'Low-growing plant with small pods.' }
+        ],
+        varieties: ['Local and improved masoor lines.'],
+        uses: ['Dal', 'Soups', 'Flour'],
+        risks: ['Wilt', 'Aphids'],
+        brief: 'Lentil is low-input and reliable in cool, dry winters.'
+    },
+    Mustard: {
+        subtitle: 'Rabi oilseed crop grown for edible oil and leafy greens.',
+        quickFacts: [
+            { label: 'Scientific Name', value: 'Brassica juncea' },
+            { label: 'Common Name (India)', value: 'Sarson' },
+            { label: 'Type', value: 'Oilseed' },
+            { label: 'Maturity', value: '110-130 days' }
+        ],
+        intro: [
+            'Mustard is a cool-season oilseed with short duration and strong market demand.',
+            'It requires timely sowing and good pest control for aphids.',
+            'Greens are also consumed as a vegetable.'
+        ],
+        distributionGlobal: 'Grown in temperate regions for oil and greens.',
+        indiaStates: ['Rajasthan', 'Haryana', 'Uttar Pradesh'],
+        conditions: [
+            {
+                title: 'Soil Requirements',
+                items: [
+                    { label: 'Soil Type', value: 'Well-drained loam.' },
+                    { label: 'pH', value: '6.0 to 7.5.' },
+                    { label: 'Moisture', value: 'Low to moderate.' }
+                ]
+            },
+            {
+                title: 'Climate And Light',
+                items: [
+                    { label: 'Temperature', value: '10 C to 25 C.' },
+                    { label: 'Sunlight', value: 'Full sun.' },
+                    { label: 'Rainfall', value: '400 to 600 mm.' }
+                ]
+            }
+        ],
+        seasons: [
+            { name: 'Rabi', sowing: 'October to November', transplanting: 'Direct sowing', note: 'Harvest February to March.' }
+        ],
+        habits: [
+            { title: 'Erect Brassica', description: 'Upright plant with yellow flowers and pods.' }
+        ],
+        varieties: ['Local and hybrid sarson types.'],
+        uses: ['Edible oil', 'Mustard greens', 'Condiments'],
+        risks: ['Aphids', 'Alternaria blight'],
+        brief: 'Mustard grows fast in cool weather; sow on time and manage aphids.'
+    },
+    Potato: {
+        subtitle: 'Cool-season tuber crop widely grown across India.',
+        quickFacts: [
+            { label: 'Scientific Name', value: 'Solanum tuberosum' },
+            { label: 'Common Name (India)', value: 'Aloo' },
+            { label: 'Type', value: 'Tuber vegetable' },
+            { label: 'Maturity', value: '80-100 days' }
+        ],
+        intro: [
+            'Potato requires cool weather, loose soil, and steady moisture for tuber formation.',
+            'Seed tubers are planted in ridges and earthed up as plants grow.',
+            'Late blight protection is critical in humid spells.'
+        ],
+        distributionGlobal: 'Grown worldwide in temperate and cool-season regions.',
+        indiaStates: ['Uttar Pradesh', 'West Bengal', 'Bihar'],
+        conditions: [
+            {
+                title: 'Soil Requirements',
+                items: [
+                    { label: 'Soil Type', value: 'Loose, well-drained loam.' },
+                    { label: 'pH', value: '5.5 to 6.5.' },
+                    { label: 'Moisture', value: 'Consistent moisture at tuber bulking.' }
+                ]
+            },
+            {
+                title: 'Climate And Light',
+                items: [
+                    { label: 'Temperature', value: '15 C to 25 C.' },
+                    { label: 'Sunlight', value: 'Full sun.' },
+                    { label: 'Rainfall', value: '500 to 700 mm.' }
+                ]
+            }
+        ],
+        seasons: [
+            { name: 'Rabi', sowing: 'October to November', transplanting: 'Seed tubers', note: 'Harvest after tops dry.' }
+        ],
+        habits: [
+            { title: 'Tuber Crop', description: 'Underground tubers form along stolons.' }
+        ],
+        varieties: ['Kufri series varieties by region.'],
+        uses: ['Food', 'Processing', 'Chips'],
+        risks: ['Late blight', 'Cutworms'],
+        brief: 'Potato needs cool weather, ridging, and disease management for healthy tubers.'
+    },
+    Onion: {
+        subtitle: 'Bulb vegetable grown in rabi and kharif seasons with high market demand.',
+        quickFacts: [
+            { label: 'Scientific Name', value: 'Allium cepa' },
+            { label: 'Common Name (India)', value: 'Pyaz' },
+            { label: 'Type', value: 'Bulb vegetable' },
+            { label: 'Maturity', value: '110-130 days' }
+        ],
+        intro: [
+            'Onion needs well-drained soils and steady moisture during bulb enlargement.',
+            'Nursery raising and transplanting are common in many regions.',
+            'Curing after harvest improves storage life.'
+        ],
+        distributionGlobal: 'Grown worldwide in temperate and subtropical regions.',
+        indiaStates: ['Maharashtra', 'Karnataka', 'Gujarat'],
+        conditions: [
+            {
+                title: 'Soil Requirements',
+                items: [
+                    { label: 'Soil Type', value: 'Well-drained loam.' },
+                    { label: 'pH', value: '6.0 to 7.0.' },
+                    { label: 'Moisture', value: 'Moderate; avoid waterlogging.' }
+                ]
+            },
+            {
+                title: 'Climate And Light',
+                items: [
+                    { label: 'Temperature', value: '13 C to 25 C.' },
+                    { label: 'Sunlight', value: 'Full sun.' },
+                    { label: 'Rainfall', value: '600 to 800 mm.' }
+                ]
+            }
+        ],
+        seasons: [
+            { name: 'Rabi', sowing: 'October to November', transplanting: '6-8 week seedlings', note: 'Long storage crop.' }
+        ],
+        habits: [
+            { title: 'Bulb Crop', description: 'Layered bulb with hollow leaves.' }
+        ],
+        varieties: ['N-53, Bhima series, and local types.'],
+        uses: ['Cooking', 'Storage', 'Processing'],
+        risks: ['Thrips', 'Purple blotch'],
+        brief: 'Onion needs steady moisture and proper curing for storage.'
+    },
+    Garlic: {
+        subtitle: 'Cool-season bulb crop valued for flavor and medicinal use.',
+        quickFacts: [
+            { label: 'Scientific Name', value: 'Allium sativum' },
+            { label: 'Common Name (India)', value: 'Lahsun' },
+            { label: 'Type', value: 'Bulb spice' },
+            { label: 'Maturity', value: '120-150 days' }
+        ],
+        intro: [
+            'Garlic is planted as cloves in cool months and needs good drainage.',
+            'Regular irrigation supports bulb sizing; reduce water near harvest.',
+            'Curing is essential for storage and quality.'
+        ],
+        distributionGlobal: 'Cultivated worldwide in cool to mild climates.',
+        indiaStates: ['Madhya Pradesh', 'Rajasthan', 'Gujarat'],
+        conditions: [
+            {
+                title: 'Soil Requirements',
+                items: [
+                    { label: 'Soil Type', value: 'Well-drained loam.' },
+                    { label: 'pH', value: '6.0 to 7.0.' },
+                    { label: 'Moisture', value: 'Moderate; avoid wet soil.' }
+                ]
+            },
+            {
+                title: 'Climate And Light',
+                items: [
+                    { label: 'Temperature', value: '12 C to 25 C.' },
+                    { label: 'Sunlight', value: 'Full sun.' },
+                    { label: 'Rainfall', value: '500 to 700 mm.' }
+                ]
+            }
+        ],
+        seasons: [
+            { name: 'Rabi', sowing: 'October to November', transplanting: 'Clove planting', note: 'Harvest in March-April.' }
+        ],
+        habits: [
+            { title: 'Bulb Crop', description: 'Multiple cloves form a composite bulb.' }
+        ],
+        varieties: ['Yamuna Safed, Yamuna Safed-3, local types.'],
+        uses: ['Spice', 'Medicinal use'],
+        risks: ['Thrips', 'White rot'],
+        brief: 'Garlic needs cool weather, good drainage, and curing for long storage.'
+    },
+    Ginger: {
+        subtitle: 'Warm-season rhizome crop grown for spice and medicinal use.',
+        quickFacts: [
+            { label: 'Scientific Name', value: 'Zingiber officinale' },
+            { label: 'Common Name (India)', value: 'Adrak' },
+            { label: 'Type', value: 'Rhizome spice' },
+            { label: 'Maturity', value: '8-9 months' }
+        ],
+        intro: [
+            'Ginger is planted from rhizomes and prefers warm, humid conditions.',
+            'Mulching helps conserve moisture and suppress weeds.',
+            'Harvest timing depends on fresh or dry ginger needs.'
+        ],
+        distributionGlobal: 'Grown in tropical regions of Asia.',
+        indiaStates: ['Kerala', 'Karnataka', 'Assam'],
+        conditions: [
+            {
+                title: 'Soil Requirements',
+                items: [
+                    { label: 'Soil Type', value: 'Loose, well-drained loam.' },
+                    { label: 'pH', value: '5.5 to 6.5.' },
+                    { label: 'Moisture', value: 'Evenly moist soil.' }
+                ]
+            },
+            {
+                title: 'Climate And Light',
+                items: [
+                    { label: 'Temperature', value: '20 C to 30 C.' },
+                    { label: 'Sunlight', value: 'Partial sun.' },
+                    { label: 'Rainfall', value: '1500 to 3000 mm.' }
+                ]
+            }
+        ],
+        seasons: [
+            { name: 'Kharif', sowing: 'April to May', transplanting: 'Rhizome planting', note: 'Harvest after 8-9 months.' }
+        ],
+        habits: [
+            { title: 'Rhizome Crop', description: 'Underground rhizomes with leafy shoots.' }
+        ],
+        varieties: ['Rio-de-Janeiro, Nadia, Varada and local types.'],
+        uses: ['Spice', 'Medicinal use', 'Tea'],
+        risks: ['Rhizome rot', 'Shoot borer'],
+        brief: 'Ginger needs warm, moist soil with good drainage and mulching.'
+    },
+    Turmeric: {
+        subtitle: 'Rhizome crop valued for spice, color, and medicinal use.',
+        quickFacts: [
+            { label: 'Scientific Name', value: 'Curcuma longa' },
+            { label: 'Common Name (India)', value: 'Haldi' },
+            { label: 'Type', value: 'Rhizome spice' },
+            { label: 'Maturity', value: '8-9 months' }
+        ],
+        intro: [
+            'Turmeric is planted from rhizomes and thrives in warm, humid climates.',
+            'It requires good drainage, organic matter, and steady moisture.',
+            'Harvest when leaves yellow and rhizomes mature.'
+        ],
+        distributionGlobal: 'Grown in tropical Asia and warm regions worldwide.',
+        indiaStates: ['Telangana', 'Maharashtra', 'Tamil Nadu'],
+        conditions: [
+            {
+                title: 'Soil Requirements',
+                items: [
+                    { label: 'Soil Type', value: 'Well-drained loam.' },
+                    { label: 'pH', value: '5.5 to 6.8.' },
+                    { label: 'Moisture', value: 'Evenly moist soil.' }
+                ]
+            },
+            {
+                title: 'Climate And Light',
+                items: [
+                    { label: 'Temperature', value: '20 C to 30 C.' },
+                    { label: 'Sunlight', value: 'Partial sun.' },
+                    { label: 'Rainfall', value: '1200 to 2000 mm.' }
+                ]
+            }
+        ],
+        seasons: [
+            { name: 'Kharif', sowing: 'April to May', transplanting: 'Rhizome planting', note: 'Harvest after 8-9 months.' }
+        ],
+        habits: [
+            { title: 'Rhizome Crop', description: 'Clumps of rhizomes with tall leaves.' }
+        ],
+        varieties: ['Prabha, Prathibha, Krishna and local types.'],
+        uses: ['Spice', 'Dye', 'Medicinal use'],
+        risks: ['Rhizome rot', 'Leaf blotch'],
+        brief: 'Turmeric needs warm, humid conditions and well-drained soils with organic matter.'
+    },
+    "Brinjal (Eggplant)": {
+        subtitle: 'Warm-season vegetable widely used in Indian curries and roasts.',
+        quickFacts: [
+            { label: 'Scientific Name', value: 'Solanum melongena' },
+            { label: 'Common Name (India)', value: 'Baingan' },
+            { label: 'Type', value: 'Vegetable' },
+            { label: 'Maturity', value: '90-120 days' }
+        ],
+        intro: [
+            'Brinjal thrives in warm weather with steady irrigation.',
+            'It responds well to compost and needs pest protection from shoot borers.',
+            'Frequent harvesting encourages continued fruiting.'
+        ],
+        distributionGlobal: 'Grown widely in tropical and subtropical regions.',
+        indiaStates: ['West Bengal', 'Bihar', 'Karnataka'],
+        conditions: [
+            {
+                title: 'Soil Requirements',
+                items: [
+                    { label: 'Soil Type', value: 'Well-drained loam.' },
+                    { label: 'pH', value: '5.5 to 6.6.' },
+                    { label: 'Moisture', value: 'Moderate; avoid drought.' }
+                ]
+            },
+            {
+                title: 'Climate And Light',
+                items: [
+                    { label: 'Temperature', value: '22 C to 32 C.' },
+                    { label: 'Sunlight', value: 'Full sun.' },
+                    { label: 'Rainfall', value: '600 to 800 mm.' }
+                ]
+            }
+        ],
+        seasons: [
+            { name: 'Kharif', sowing: 'June to July', transplanting: '4-5 week seedlings', note: 'Main season in many states.' }
+        ],
+        habits: [
+            { title: 'Perennial Grown As Annual', description: 'Bushy plant with frequent fruiting.' }
+        ],
+        varieties: ['Long green, purple round, and striped types.'],
+        uses: ['Curries', 'Roasting', 'Pickles'],
+        risks: ['Shoot and fruit borer', 'Wilt'],
+        brief: 'Brinjal needs warm weather, steady moisture, and pest control for healthy fruits.'
+    },
+    "Okra (Lady finger)": {
+        subtitle: 'Fast-growing warm-season vegetable producing tender pods.',
+        quickFacts: [
+            { label: 'Scientific Name', value: 'Abelmoschus esculentus' },
+            { label: 'Common Name (India)', value: 'Bhindi' },
+            { label: 'Type', value: 'Vegetable' },
+            { label: 'Maturity', value: '50-65 days' }
+        ],
+        intro: [
+            'Okra is a quick crop for warm climates with frequent harvests.',
+            'It needs regular irrigation and early weed control for best yields.',
+            'Harvest pods young for tenderness.'
+        ],
+        distributionGlobal: 'Grown widely in tropical and subtropical regions.',
+        indiaStates: ['Uttar Pradesh', 'Bihar', 'Gujarat'],
+        conditions: [
+            {
+                title: 'Soil Requirements',
+                items: [
+                    { label: 'Soil Type', value: 'Well-drained loam.' },
+                    { label: 'pH', value: '6.0 to 7.5.' },
+                    { label: 'Moisture', value: 'Moderate; avoid drought.' }
+                ]
+            },
+            {
+                title: 'Climate And Light',
+                items: [
+                    { label: 'Temperature', value: '22 C to 35 C.' },
+                    { label: 'Sunlight', value: 'Full sun.' },
+                    { label: 'Rainfall', value: '500 to 800 mm.' }
+                ]
+            }
+        ],
+        seasons: [
+            { name: 'Spring', sowing: 'February to March', transplanting: 'Direct sowing', note: 'Fast harvest in warm zones.' },
+            { name: 'Kharif', sowing: 'June to July', transplanting: 'Direct sowing', note: 'Main monsoon crop.' }
+        ],
+        habits: [
+            { title: 'Annual Crop', description: 'Upright plant with frequent pod picking.' }
+        ],
+        varieties: ['Arka Anamika, Parbhani Kranti, local types.'],
+        uses: ['Vegetable', 'Curries', 'Stir-fries'],
+        risks: ['Yellow vein mosaic', 'Jassids', 'Fruit borer'],
+        brief: 'Okra grows fast in warmth; harvest tender pods often and manage pests early.'
     }
 };
 
