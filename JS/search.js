@@ -132,6 +132,11 @@ async function performSemanticSearch() {
 }
 
 function displaySemanticResults(results) {
+    // Pause loading animation during rendering for better performance
+    if (typeof LoadingUI !== 'undefined') {
+        LoadingUI.pause();
+    }
+
     const grid = document.getElementById('semantic-results-grid');
     const container = document.getElementById('semantic-results');
     const count = document.getElementById('results-count');
@@ -152,6 +157,11 @@ function displaySemanticResults(results) {
 
     // Show results container
     container.classList.remove('hidden');
+
+    // Resume loading animation after rendering
+    if (typeof LoadingUI !== 'undefined') {
+        LoadingUI.resume();
+    }
 }
 
 function showSemanticLoading() {
@@ -212,6 +222,11 @@ async function performGrowthStageSearch() {
 }
 
 function displayGrowthResults(data) {
+    // Pause loading animation during rendering for better performance
+    if (typeof LoadingUI !== 'undefined') {
+        LoadingUI.pause();
+    }
+
     const grid = document.getElementById('growth-results-grid');
     const container = document.getElementById('growth-results');
     const count = document.getElementById('growth-count');
@@ -239,6 +254,11 @@ function displayGrowthResults(data) {
 
     // Show results container
     container.classList.remove('hidden');
+
+    // Resume loading animation after rendering
+    if (typeof LoadingUI !== 'undefined') {
+        LoadingUI.resume();
+    }
 }
 
 function showGrowthLoading() {
@@ -272,16 +292,10 @@ function createPlantCard(plant, score, source) {
     const card = document.createElement('div');
     card.className = 'plant-card';
 
-    // Get emoji based on type
-    const typeEmojis = {
-        'herb': '🌿',
-        'vegetable': '🥬',
-        'fruit': '🍎',
-        'flower': '🌸',
-        'indoor': '🏠',
-        'succulent': '🌵'
-    };
-    const emoji = typeEmojis[plant.type] || '🌱';
+    // Get plant image path
+    const imagePath = typeof getPlantImagePath !== 'undefined' 
+        ? getPlantImagePath(plant.name) 
+        : 'Pics/default-plant.svg';
 
     // Build card HTML
     let scoreHtml = '';
@@ -296,7 +310,9 @@ function createPlantCard(plant, score, source) {
     }
 
     card.innerHTML = `
-        <div class="plant-card-image">${emoji}</div>
+        <div class="plant-card-image">
+            <img data-src="${imagePath}" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23f0f0f0' width='100' height='100'/%3E%3C/svg%3E" alt="${plant.name}" class="lazy-img" onerror="this.src='Pics/default-plant.svg'">
+        </div>
         <div class="plant-card-content">
             <h3 class="plant-card-title">${plant.name}</h3>
             <span class="plant-card-type">${plant.type}</span>
@@ -332,6 +348,26 @@ function createPlantCard(plant, score, source) {
     card.querySelector('.similar-btn').addEventListener('click', () => {
         showSimilarPlants(plant.id, plant.name);
     });
+
+    // Initialize lazy loading for this image
+    const img = card.querySelector('.lazy-img');
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.src = entry.target.dataset.src;
+                    entry.target.classList.remove('lazy-img');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            rootMargin: '50px'
+        });
+        imageObserver.observe(img);
+    } else {
+        // Fallback
+        img.src = img.dataset.src;
+    }
 
     return card;
 }

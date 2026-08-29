@@ -5,7 +5,7 @@ const LoadingUI = (() => {
     name: "Loading",
     tag: "Plant-08 Data",
     rotate: true,
-    particleCount: 40,  // Reduced from 88 for better performance
+    particleCount: 40,  // Back to original
     trailSpan: 0.39,
     durationMs: 4700,
     rotationDurationMs: 30000,
@@ -32,7 +32,7 @@ const LoadingUI = (() => {
   let animationFrameId = null;
   let startedAt = null;
   let lastFrameTime = 0;
-  const FRAME_RATE_MS = 1000 / 30;  // Reduce to 30fps instead of 60fps
+  const FRAME_RATE_MS = 1000 / 30;  // Back to 30fps
 
   function normalizeProgress(progress) {
     return ((progress % 1) + 1) % 1;
@@ -49,10 +49,10 @@ const LoadingUI = (() => {
     return -((time % config.rotationDurationMs) / config.rotationDurationMs) * 360;
   }
 
-  function buildPath(detailScale, steps = 240) {  // Reduced from 480 steps
+  function buildPath(detailScale, steps = 240) {  // Back to 240 steps
     return Array.from({ length: steps + 1 }, (_, index) => {
       const point = config.point(index / steps, detailScale, config);
-      return `${index === 0 ? 'M' : 'L'} ${point.x.toFixed(1)} ${point.y.toFixed(1)}`;  // Reduced precision
+      return `${index === 0 ? 'M' : 'L'} ${point.x.toFixed(1)} ${point.y.toFixed(1)}`;  // Back to 1 decimal
     }).join(' ');
   }
 
@@ -178,9 +178,24 @@ const LoadingUI = (() => {
     }
   }
 
+  function pause() {
+    if (animationFrameId) {
+      cancelAnimationFrame(animationFrameId);
+      animationFrameId = null;
+    }
+  }
+
+  function resume() {
+    if (loadingOverlay && !loadingOverlay.classList.contains('hidden')) {
+      animationFrameId = requestAnimationFrame(render);
+    }
+  }
+
   return {
     show,
     hide,
+    pause,
+    resume,
     init: initializeLoadingUI,
   };
 })();

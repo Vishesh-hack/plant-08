@@ -25,6 +25,12 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     function displayPlants(plantsToDisplay) {
         if (!plantsGrid) return;
+        
+        // Pause loading animation during rendering for better performance
+        if (typeof LoadingUI !== 'undefined') {
+            LoadingUI.pause();
+        }
+
         const bookmarkedIds = getBookmarkedIds();
 
         if (plantsToDisplay.length === 0) {
@@ -54,7 +60,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             card.innerHTML = `
                 ${bookmarkBadge}
                 <div class="plant-image">
-                    <img src="${imagePath}" alt="${plant.name}" onerror="this.src='Pics/default-plant.svg'">
+                    <img data-src="${imagePath}" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23f0f0f0' width='100' height='100'/%3E%3C/svg%3E" alt="${plant.name}" class="lazy-img" onerror="this.src='Pics/default-plant.svg'">
                 </div>
                 <div class="plant-info">
                     <div class="plant-name">${plant.name.replace(/\s*\(.*?\)\s*/g, '')}</div>
@@ -71,6 +77,37 @@ document.addEventListener('DOMContentLoaded', async function() {
         // Clear and append all at once
         plantsGrid.innerHTML = '';
         plantsGrid.appendChild(fragment);
+
+        // Initialize lazy loading for images
+        const lazyImages = plantsGrid.querySelectorAll('.lazy-img');
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy-img');
+                        observer.unobserve(img);
+                    }
+                });
+            }, {
+                rootMargin: '50px'  // Start loading 50px before image enters viewport
+            });
+
+            lazyImages.forEach(img => {
+                imageObserver.observe(img);
+            });
+        } else {
+            // Fallback for browsers without IntersectionObserver
+            lazyImages.forEach(img => {
+                img.src = img.dataset.src;
+            });
+        }
+
+        // Resume loading animation after rendering complete
+        if (typeof LoadingUI !== 'undefined') {
+            LoadingUI.resume();
+        }
 
         // Add event listeners after all elements are added
         document.querySelectorAll('.plant-btn').forEach(btn => {

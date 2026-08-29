@@ -45,6 +45,8 @@
   overflow: visible;
   backface-visibility: hidden;
   perspective: 1000px;
+  shape-rendering: crispEdges;
+  image-rendering: optimizeSpeed;
 }
 
 .loading-meta {
