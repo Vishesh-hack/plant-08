@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Search - plant.08</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/search.css">
+    <link rel="stylesheet" href="CSS/loading.css">
+    <link rel="icon" href="plant-08_logo-removebg-preview.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <div class="leaf-icon">🌿</div>
+                <h1>plant-08</h1>
+            </div>
+            <button class="nav-toggle" type="button" aria-label="Open navigation" aria-controls="primaryNav" aria-expanded="false">
+                <span class="nav-toggle-bar"></span>
+            </button>
+            <nav class="nav" id="primaryNav">
+                <a href="index.html">Home</a>
+                <a href="browse.html">Search</a>
+                <a href="explore.html">Explore</a>
+                <button class="bookmarks-open-btn" type="button">Bookmarks</button>
+            </nav>
+        </header>
+        <div class="nav-backdrop" data-nav-backdrop></div>
+
+        <!-- Scroll Header -->
+        <header class="scroll-header">
+            <div class="scroll-left">Smart Search</div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+        <!-- Header -->
+        <section class="search-header">
+            <h1>🔍 Natural Language Plant Discovery</h1>
+            <p class="subtitle">Find plants using natural language. Discover similar plants. Filter by growth speed.</p>
+        </section>
+
+        <!-- Search Tabs -->
+        <div class="search-tabs">
+            <button class="tab-btn active" data-tab="semantic">Semantic Search</button>
+            <button class="tab-btn" data-tab="growth">Growth Stage</button>
+        </div>
+
+        <!-- TAB 1: SEMANTIC SEARCH -->
+        <section class="tab-content active" id="semantic-tab">
+            <div class="search-card">
+                <h2>📝 Natural Language Search</h2>
+                <p>Describe the plant you're looking for in your own words.</p>
+                
+                <div class="search-input-group">
+                    <input 
+                        type="text" 
+                        id="semantic-input" 
+                        class="search-input" 
+                        placeholder="e.g., red fruiting plant full sun, easy indoor low light, fast growing herb..."
+                        autocomplete="off"
+                    >
+                    <button id="semantic-btn" class="search-btn">🔍 Search</button>
+                </div>
+
+                <!-- Search Examples -->
+                <div class="search-examples">
+                    <p class="examples-label">Try these searches:</p>
+                    <div class="example-chips">
+                        <button class="chip" data-search="red fruiting vegetable">Red Fruiting Vegetable</button>
+                        <button class="chip" data-search="dry spot herb">Dry Spot Herb</button>
+                        <button class="chip" data-search="easy indoor low light">Easy Indoor</button>
+                        <button class="chip" data-search="fast growing">Fast Growing</button>
+                    </div>
+                </div>
+
+                <!-- Loading State -->
+                <div id="semantic-loading" class="loading hidden">
+                    <div class="spinner"></div>
+                    <p>Searching plants...</p>
+                </div>
+
+                <!-- Error Message -->
+                <div id="semantic-error" class="error-message hidden"></div>
+
+                <!-- Results Container -->
+                <div id="semantic-results" class="results-container hidden">
+                    <div class="results-header">
+                        <h3>Search Results</h3>
+                        <span id="results-count" class="result-count">0 found</span>
+                    </div>
+                    <div id="semantic-results-grid" class="plants-grid"></div>
+                </div>
+
+                <!-- No Results -->
+                <div id="semantic-empty" class="empty-state hidden">
+                    <p>🤔 No plants found. Try different keywords!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 2: GROWTH STAGE FILTER -->
+        <section class="tab-content" id="growth-tab">
+            <div class="search-card">
+                <h2>⏱️ Find Plants by Growth Speed</h2>
+                <p>Filter plants based on how quickly they mature.</p>
+
+                <!-- Growth Stage Selector -->
+                <div class="growth-selector">
+                    <div class="stage-option active" data-stage="seedling">
+                        <div class="stage-icon">🌱</div>
+                        <div class="stage-info">
+                            <h3>Quick Harvest</h3>
+                            <p>20-30 days</p>
+                        </div>
+                    </div>
+                    <div class="stage-option" data-stage="vegetative">
+                        <div class="stage-icon">🌿</div>
+                        <div class="stage-info">
+                            <h3>Medium Growth</h3>
+                            <p>30-90 days</p>
+                        </div>
+                    </div>
+                    <div class="stage-option" data-stage="mature">
+                        <div class="stage-icon">🌳</div>
+                        <div class="stage-info">
+                            <h3>Long Term</h3>
+                            <p>90+ days</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Limit Selector -->
+                <div class="growth-controls">
+                    <label for="growth-limit">Show plants:</label>
+                    <select id="growth-limit">
+                        <option value="10">10 plants</option>
+                        <option value="20" selected>20 plants</option>
+                        <option value="30">30 plants</option>
+                    </select>
+                    <button id="growth-btn" class="search-btn">Load Plants</button>
+                </div>
+
+                <!-- Loading State -->
+                <div id="growth-loading" class="loading hidden">
+                    <div class="spinner"></div>
+                    <p>Loading plants...</p>
+                </div>
+
+                <!-- Error Message -->
+                <div id="growth-error" class="error-message hidden"></div>
+
+                <!-- Results Container -->
+                <div id="growth-results" class="results-container hidden">
+                    <div class="results-header">
+                        <h3 id="growth-stage-title">Plants</h3>
+                        <span id="growth-count" class="result-count">0 found</span>
+                    </div>
+                    <div id="growth-results-grid" class="plants-grid"></div>
+                </div>
+
+                <!-- No Results -->
+                <div id="growth-empty" class="empty-state hidden">
+                    <p>📭 No plants found at this stage.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SIMILAR PLANTS MODAL (shown when clicking a plant) -->
+        <div id="similar-modal" class="modal hidden">
+            <div class="modal-content">
+                <button class="modal-close">&times;</button>
+                <h2 id="modal-title">Similar Plants</h2>
+                <div id="similar-loading" class="loading hidden">
+                    <div class="spinner"></div>
+                    <p>Loading similar plants...</p>
+                </div>
+                <div id="similar-results-grid" class="plants-grid"></div>
+            </div>
+        </div>
+
+        <!-- Plant Detail Modal -->
+        <div id="detail-modal" class="modal hidden">
+            <div class="modal-content modal-large">
+                <button class="modal-close">&times;</button>
+                <div id="detail-content"></div>
+            </div>
+        </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="JS/loading.js"></script>
+    <script src="Pics/plant-images-map.js"></script>
+    <script src="JS/api-config.js"></script>
+    <script src="JS/nav.js"></script>
+    <script src="JS/search.js"></script>
+    <script src="JS/bookmarks.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <!-- Background -->
+  <rect width="300" height="300" fill="#f8fff5"/>
+  
+  <!-- Pot -->
+  <rect x="95" y="180" width="110" height="80" fill="#D2B48C" stroke="#8B7355" stroke-width="2" rx="5"/>
+  <path d="M 90 180 Q 85 170 95 165 L 205 165 Q 215 170 210 180" fill="#CD853F" stroke="#8B7355" stroke-width="2"/>
+  
+  <!-- Soil -->
+  <ellipse cx="150" cy="180" rx="50" ry="15" fill="#A0826D"/>
+  
+  <!-- Stem -->
+  <path d="M 150 180 Q 145 140 148 100 Q 150 60 155 20" stroke="#2D5016" stroke-width="8" fill="none" stroke-linecap="round"/>
+  
+  <!-- Left Leaf 1 -->
+  <ellipse cx="120" cy="120" rx="35" ry="15" fill="#4CAF50" stroke="#2D5016" stroke-width="2" transform="rotate(-45 120 120)"/>
+  
+  <!-- Right Leaf 1 -->
+  <ellipse cx="180" cy="120" rx="35" ry="15" fill="#66BB6A" stroke="#2D5016" stroke-width="2" transform="rotate(45 180 120)"/>
+  
+  <!-- Left Leaf 2 -->
+  <ellipse cx="110" cy="80" rx="35" ry="15" fill="#4CAF50" stroke="#2D5016" stroke-width="2" transform="rotate(-50 110 80)"/>
+  
+  <!-- Right Leaf 2 -->
+  <ellipse cx="190" cy="80" rx="35" ry="15" fill="#66BB6A" stroke="#2D5016" stroke-width="2" transform="rotate(50 190 80)"/>
+  
+  <!-- Top Leaves -->
+  <ellipse cx="145" cy="30" rx="25" ry="20" fill="#81C784" stroke="#2D5016" stroke-width="2" transform="rotate(-30 145 30)"/>
+  <ellipse cx="155" cy="30" rx="25" ry="20" fill="#81C784" stroke="#2D5016" stroke-width="2" transform="rotate(30 155 30)"/>
+  
+  <!-- Text -->
+  <text x="150" y="270" font-family="Arial, sans-serif" font-size="16" fill="#558B2F" text-anchor="middle" font-weight="bold">
+    Plant Image
+  </text>
+</svg>

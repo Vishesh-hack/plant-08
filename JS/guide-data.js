@@ -955,8 +955,935 @@ const PLANT_TIPS = {
             "💡 Tip: Deadhead spent flowers to preserve bulb energy.",
             "💡 Tip: Leave leaves in place until fully withered."
         ]
+    },
+    "kulthi-001": { // Kulthi (Horse gram)
+        "name": "Kulthi (Horse gram)",
+        "overview": "Kulthi is a drought-tolerant pulse legume grown for grain and fodder in dry regions. It improves soil fertility through nitrogen fixation.",
+        "stages": {
+            "seed": {
+                "soil": "Light to medium well-drained soils; avoid waterlogging.",
+                "water": "Sow in moist soil; keep lightly moist until germination.",
+                "sunlight": "Full sun (6-8 hours daily minimum).",
+                "environment": "Warm, dry climate is ideal. Provides good air circulation.",
+                "temperature": "Maintain 20-25°C for germination.",
+                "pest": "Monitor for early pest activity; generally hardy at this stage."
+            },
+            "seedling": {
+                "soil": "Keep soil aerated; avoid waterlogging.",
+                "water": "Water lightly as needed; drought tolerant.",
+                "sunlight": "Provide full sun exposure.",
+                "environment": "Ensure good air circulation between plants.",
+                "temperature": "Tolerates 15-35°C well.",
+                "pest": "Watch for early leaf damage; usually not an issue at this stage."
+            },
+            "vegetative": {
+                "soil": "Light, well-drained soil; add organic matter if available.",
+                "water": "Weed at 25-30 days; avoid waterlogging and keep soil aerated.",
+                "sunlight": "Full sun for strong plant development.",
+                "environment": "Ensure good spacing between plants.",
+                "temperature": "Thrives in warm conditions.",
+                "pest": "Monitor for leaf spots; improve drainage if issues appear."
+            },
+            "mature": {
+                "soil": "Well-drained soil to prevent pod rot.",
+                "water": "Maintain moderate moisture at pod-fill stage if rainfall is low.",
+                "sunlight": "Full sun ensures proper pod development.",
+                "environment": "Support plants if needed; ensure air flow.",
+                "temperature": "Warm, dry conditions aid pod maturation.",
+                "pest": "Harvest when 70-80% pods are dry and seeds rattle in pods."
+            }
+        }
+    },
+    "peanut-001": { // Peanut (Groundnut)
+        "name": "Peanut (Groundnut)",
+        "overview": "Peanut is an important oilseed legume with underground pods. It requires careful moisture management during the pegging stage.",
+        "stages": {
+            "seed": {
+                "soil": "Well-drained sandy loam; prepare fine tilth.",
+                "water": "Sow 4-5 cm deep in moist soil; avoid waterlogging.",
+                "sunlight": "Full sun (6-8 hours daily).",
+                "environment": "Warm climate; good air circulation essential.",
+                "temperature": "Maintain 25-30°C for best germination.",
+                "pest": "Generally secure at this stage; monitor for soil-borne pests."
+            },
+            "seedling": {
+                "soil": "Keep soil aerated and well-drained.",
+                "water": "Water moderately; ensure consistent moisture.",
+                "sunlight": "Full sun exposure for strong growth.",
+                "environment": "Protect from waterlogging.",
+                "temperature": "Prefers warm conditions (20-30°C).",
+                "pest": "Monitor for early seedling pests."
+            },
+            "vegetative": {
+                "soil": "Light, well-draining soil with organic matter.",
+                "water": "Weed at 20 and 35 days; earth up lightly for peg entry.",
+                "sunlight": "Full sun ensures vigorous growth.",
+                "environment": "Good spacing allows for peg penetration into soil.",
+                "temperature": "Warm, sunny conditions ideal.",
+                "pest": "Watch for leaf spots and early pest damage."
+            },
+            "mature": {
+                "soil": "Well-drained soil is critical for pod development.",
+                "water": "Critical irrigation at flowering, pegging, and pod fill stages.",
+                "sunlight": "Full sun for pod maturation.",
+                "environment": "Loose soil allows pegs to penetrate and develop pods.",
+                "temperature": "Harvest when 70-80% pods mature and shells turn brown.",
+                "pest": "Monitor for pod borers; manage moisture to prevent diseases."
+            }
+        }
+    },
+    "pigeonpea-001": { // Tur (Pigeon pea)
+        "name": "Tur (Pigeon pea)",
+        "overview": "Tur is a staple pulse crop that enriches soil through nitrogen fixation. It's semi-arid adapted and valuable for rotational farming.",
+        "stages": {
+            "seed": {
+                "soil": "Well-drained loam to clay loam; prepare fine seedbed.",
+                "water": "Sow directly in moist soil; keep soil lightly moist.",
+                "sunlight": "Full sun (6-8 hours daily).",
+                "environment": "Warm climate; adequate spacing between seeds.",
+                "temperature": "Maintain 25-30°C for germination.",
+                "pest": "Monitor for early pests; generally hardy."
+            },
+            "seedling": {
+                "soil": "Keep soil well-aerated; avoid waterlogging.",
+                "water": "Water moderately; tur tolerates some drought.",
+                "sunlight": "Full sun exposure essential.",
+                "environment": "Ensure good air circulation.",
+                "temperature": "Adapts to 15-35°C temperature range.",
+                "pest": "Watch for early pest activity; usually minimal."
+            },
+            "vegetative": {
+                "soil": "Well-drained soil; can tolerate poor soils.",
+                "water": "Early weeding (25-30 days) is critical; avoid excess moisture.",
+                "sunlight": "Full sun for strong plant structure.",
+                "environment": "Good spacing prevents disease.",
+                "temperature": "Thrives in warm conditions.",
+                "pest": "Monitor for pod borers; wilt disease can occur in wet soil."
+            },
+            "mature": {
+                "soil": "Well-drained soil to prevent root diseases.",
+                "water": "Irrigation not usually needed except in severe drought.",
+                "sunlight": "Full sun aids pod maturation.",
+                "environment": "Harvest when pods turn brown and rattle.",
+                "temperature": "Pod fill in warm, dry conditions optimal.",
+                "pest": "Harvest when 70-80% pods are mature; store dry to prevent pests."
+            }
+        }
+    },
+    "bajra-001": { // Bajra (Pearl millet)
+        "name": "Bajra (Pearl millet)",
+        "overview": "Bajra is a drought-resistant coarse cereal ideal for semi-arid regions. It requires minimal inputs and is highly nutritious.",
+        "stages": {
+            "seed": {
+                "soil": "Light, well-drained soil suitable for millet.",
+                "water": "Sow on moist soil; keep lightly moist until germination.",
+                "sunlight": "Full sun (6-8 hours daily).",
+                "environment": "Warm conditions essential; ensure adequate spacing.",
+                "temperature": "Maintain 25-30°C for germination.",
+                "pest": "Monitor for seed-borne pests."
+            },
+            "seedling": {
+                "soil": "Keep soil well-drained; thin seedlings if needed.",
+                "water": "Water lightly as needed; bajra is drought tolerant.",
+                "sunlight": "Full sun exposure critical.",
+                "environment": "Ensure good air flow between seedlings.",
+                "temperature": "Tolerates heat well (20-35°C).",
+                "pest": "Watch for early leaf damage."
+            },
+            "vegetative": {
+                "soil": "Light to medium soils; can tolerate poor soil.",
+                "water": "Early weed control at 25-30 days is essential.",
+                "sunlight": "Full sun for vigorous growth.",
+                "environment": "Good spacing allows for air circulation.",
+                "temperature": "Warm climate optimal.",
+                "pest": "Monitor for shoot fly attack; use resistant varieties."
+            },
+            "mature": {
+                "soil": "Well-drained soil for grain quality.",
+                "water": "Minimal irrigation needed; extremely drought tolerant.",
+                "sunlight": "Full sun throughout growth.",
+                "environment": "Harvest when panicles turn brown and grain is hard.",
+                "temperature": "Dry grain harvest when ready.",
+                "pest": "Store dry grain in ventilated containers to prevent moisture damage."
+            }
+        }
+    },
+    "cotton-001": { // Cotton
+        "name": "Cotton",
+        "overview": "Cotton is a major fiber crop requiring careful pest management and regular monitoring. It's water-intensive during key growth stages.",
+        "stages": {
+            "seed": {
+                "soil": "Well-prepared, well-drained soil with organic matter.",
+                "water": "Sow in moist soil; ensure good drainage.",
+                "sunlight": "Full sun (8+ hours daily).",
+                "environment": "Warm climate essential; good air circulation.",
+                "temperature": "Maintain 20-25°C for germination.",
+                "pest": "Monitor for soil pathogens; use treated seeds."
+            },
+            "seedling": {
+                "soil": "Ensure soil remains well-aerated.",
+                "water": "Water regularly; avoid waterlogging.",
+                "sunlight": "Full sun exposure crucial.",
+                "environment": "Provide support as plants grow.",
+                "temperature": "Thrives in warm conditions (20-30°C).",
+                "pest": "Watch for seedling pests; spray if necessary."
+            },
+            "vegetative": {
+                "soil": "Well-drained fertile soil; add compost if available.",
+                "water": "Maintain consistent moisture; critical at flowering.",
+                "sunlight": "Full sun for flowering.",
+                "environment": "Remove lower leaves to improve air circulation.",
+                "temperature": "Warm, dry conditions aid growth.",
+                "pest": "Monitor closely for bollworms, jassids, and whiteflies."
+            },
+            "mature": {
+                "soil": "Well-drained soil prevents boll rot.",
+                "water": "Irrigation during boll development is critical.",
+                "sunlight": "Full sun for boll maturation.",
+                "environment": "Ensure good airflow through canopy.",
+                "temperature": "Harvest bolls when 80-90% open and lint is white.",
+                "pest": "Regular monitoring and integrated pest management essential."
+            }
+        }
+    },
+    "rice-001": { // Rice
+        "name": "Rice",
+        "overview": "Rice is the world's primary staple grain. It requires flooded paddies and careful water management throughout its growth cycle.",
+        "stages": {
+            "seed": {
+                "soil": "Prepare fine seedbed in nursery beds.",
+                "water": "Soak seeds 24 hours; maintain moist seedbed.",
+                "sunlight": "Full sun for nursery beds.",
+                "environment": "Protected nursery conditions optimal.",
+                "temperature": "Maintain 25-30°C for germination.",
+                "pest": "Monitor for nursery pests; use treated seeds if available."
+            },
+            "seedling": {
+                "soil": "Keep nursery soil moist; transplant at 30-45 days.",
+                "water": "Maintain consistent moisture in nursery.",
+                "sunlight": "Full sun for healthy seedling growth.",
+                "environment": "Adequate spacing in nursery beds.",
+                "temperature": "Warm conditions ideal (25-30°C).",
+                "pest": "Watch for nursery diseases; manage water carefully."
+            },
+            "vegetative": {
+                "soil": "Transplant to main field with flooded paddies.",
+                "water": "Maintain 5-10 cm water depth throughout season.",
+                "sunlight": "Full sun exposure in main field.",
+                "environment": "Ensure proper water management.",
+                "temperature": "Warm season crop; prefers 25-30°C.",
+                "pest": "Monitor for stem borers and leaf spots."
+            },
+            "mature": {
+                "soil": "Drain paddies 15-20 days before harvest.",
+                "water": "Gradually reduce water level before harvest.",
+                "sunlight": "Full sun aids grain filling.",
+                "environment": "Harvest when grains turn golden brown.",
+                "temperature": "Maturity in warm, dry conditions optimal.",
+                "pest": "Harvest when 80-90% grains are mature and hard."
+            }
+        }
+    },
+    "wheat-001": { // Wheat
+        "name": "Wheat",
+        "overview": "Wheat is a staple rabi crop requiring cool season conditions. It's the foundation for many global cuisines.",
+        "stages": {
+            "seed": {
+                "soil": "Well-prepared soil with good fertility.",
+                "water": "Sow in moist soil; water lightly.",
+                "sunlight": "Full sun (6-8 hours daily).",
+                "environment": "Cool season crop; plant in rabi.",
+                "temperature": "Cool conditions (10-20°C) optimal for germination.",
+                "pest": "Monitor for seed-borne pathogens."
+            },
+            "seedling": {
+                "soil": "Ensure good soil contact for germination.",
+                "water": "Water regularly until established.",
+                "sunlight": "Full sun exposure necessary.",
+                "environment": "Adequate spacing between plants.",
+                "temperature": "Cool season conditions ideal.",
+                "pest": "Watch for early seedling pests."
+            },
+            "vegetative": {
+                "soil": "Well-fertilized soil for shoot growth.",
+                "water": "Regular watering during winter rains; irrigate if needed.",
+                "sunlight": "Full sun for strong plant structure.",
+                "environment": "Good air circulation prevents disease.",
+                "temperature": "Cool conditions (5-25°C) ideal.",
+                "pest": "Monitor for wheat rust and aphids."
+            },
+            "mature": {
+                "soil": "Well-drained soil prevents lodging.",
+                "water": "Irrigation at grain-fill stage critical.",
+                "sunlight": "Full sun for grain development.",
+                "environment": "Harvest when grains turn golden.",
+                "temperature": "Warm, dry conditions aid ripening.",
+                "pest": "Harvest when moisture content is 12-14%."
+            }
+        }
+    },
+    "maize-001": { // Maize
+        "name": "Maize",
+        "overview": "Maize is a versatile crop used for food, feed, and industry. It requires good soil fertility and consistent moisture.",
+        "stages": {
+            "seed": {
+                "soil": "Well-prepared, fertile soil with organic matter.",
+                "water": "Sow 4-5 cm deep in moist soil.",
+                "sunlight": "Full sun (6-8 hours daily).",
+                "environment": "Warm season crop; ensure good drainage.",
+                "temperature": "Maintain 20-25°C for germination.",
+                "pest": "Monitor for seed-borne pests and soil pathogens."
+            },
+            "seedling": {
+                "soil": "Keep soil well-aerated and moist.",
+                "water": "Water regularly until established.",
+                "sunlight": "Full sun exposure critical.",
+                "environment": "Thin seedlings to proper spacing.",
+                "temperature": "Warm conditions ideal (20-30°C).",
+                "pest": "Watch for early pests; spray if necessary."
+            },
+            "vegetative": {
+                "soil": "Fertile soil; add nitrogen as needed.",
+                "water": "Maintain consistent moisture; crucial during flowering.",
+                "sunlight": "Full sun for strong plant growth.",
+                "environment": "Remove lower leaves for air circulation.",
+                "temperature": "Warm, sunny conditions optimal.",
+                "pest": "Monitor for stem borers; timely spray if needed."
+            },
+            "mature": {
+                "soil": "Well-drained soil prevents root rot.",
+                "water": "Critical irrigation at tasseling and grain-fill.",
+                "sunlight": "Full sun for grain development.",
+                "environment": "Support plants to prevent lodging.",
+                "temperature": "Harvest when silks dry and kernels are hard.",
+                "pest": "Monitor moisture stress; harvest when cobs are solid."
+            }
+        }
+    },
+    "sugarcane-001": { // Sugarcane
+        "name": "Sugarcane",
+        "overview": "Sugarcane is a long-season cash crop requiring heavy inputs and extensive water management.",
+        "stages": {
+            "seed": {
+                "soil": "Well-prepared, fertile soil with organic matter.",
+                "water": "Plant setts in moist soil; ensure good drainage.",
+                "sunlight": "Full sun (8+ hours daily).",
+                "environment": "Warm climate; long growing season.",
+                "temperature": "Maintain 20-25°C for sprouting.",
+                "pest": "Use disease-free setts; monitor for pests."
+            },
+            "seedling": {
+                "soil": "Ensure soil remains well-aerated.",
+                "water": "Water regularly; sugarcane needs consistent moisture.",
+                "sunlight": "Full sun exposure essential.",
+                "environment": "Adequate spacing for plant development.",
+                "temperature": "Warm conditions (20-30°C) optimal.",
+                "pest": "Monitor for early pests; manage disease risk."
+            },
+            "vegetative": {
+                "soil": "Fertile soil; add nutrients as required.",
+                "water": "Heavy irrigation throughout growing season.",
+                "sunlight": "Full sun for canopy development.",
+                "environment": "Good spacing; manage weeds carefully.",
+                "temperature": "Warm season; long growth period needed.",
+                "pest": "Monitor for major pests; lodging can be an issue."
+            },
+            "mature": {
+                "soil": "Well-maintained soil for final growth push.",
+                "water": "Continue irrigation until harvest.",
+                "sunlight": "Full sun throughout maturity.",
+                "environment": "Harvest mature stalks when sugar content peaks.",
+                "temperature": "Cool winter months can concentrate sugars.",
+                "pest": "Harvest before ratooning; manage pest pressure."
+            }
+        }
+    },
+    "soybean-001": { // Soybean
+        "name": "Soybean",
+        "overview": "Soybean is a high-protein oilseed legume that improves soil fertility. It's increasingly important globally.",
+        "stages": {
+            "seed": {
+                "soil": "Well-drained soil with good organic matter.",
+                "water": "Sow in moist soil; maintain moderate moisture.",
+                "sunlight": "Full sun (6-8 hours daily).",
+                "environment": "Warm climate essential.",
+                "temperature": "Maintain 20-25°C for germination.",
+                "pest": "Use quality seed; monitor for soil pathogens."
+            },
+            "seedling": {
+                "soil": "Keep soil aerated and well-drained.",
+                "water": "Water regularly; avoid waterlogging.",
+                "sunlight": "Full sun exposure critical.",
+                "environment": "Adequate spacing between plants.",
+                "temperature": "Warm conditions ideal (20-30°C).",
+                "pest": "Watch for seedling pests and diseases."
+            },
+            "vegetative": {
+                "soil": "Well-drained, fertile soil optimal.",
+                "water": "Maintain consistent moisture; weed regularly.",
+                "sunlight": "Full sun for flowering and pod development.",
+                "environment": "Good air circulation prevents disease.",
+                "temperature": "Warm season crop.",
+                "pest": "Monitor for rust disease and pod damage."
+            },
+            "mature": {
+                "soil": "Well-drained soil for pod maturation.",
+                "water": "Irrigation during pod-fill critical.",
+                "sunlight": "Full sun for quality grain.",
+                "environment": "Harvest when pods turn brown and rattle.",
+                "temperature": "Dry conditions aid maturity.",
+                "pest": "Harvest when moisture content reaches 13-14%."
+            }
+        }
+    },
+    "chickpea-001": { // Chickpea (Gram)
+        "name": "Chickpea (Gram)",
+        "overview": "Chickpea is a rabi pulse crop providing excellent nutrition and soil benefits through nitrogen fixation.",
+        "stages": {
+            "seed": {
+                "soil": "Well-drained loam; prepare fine seedbed.",
+                "water": "Sow in moist soil; keep lightly moist.",
+                "sunlight": "Full sun (6-8 hours daily).",
+                "environment": "Cool season crop; good air flow.",
+                "temperature": "Cool conditions (15-20°C) for germination.",
+                "pest": "Monitor for early pests."
+            },
+            "seedling": {
+                "soil": "Ensure good soil aeration.",
+                "water": "Water lightly; chickpea tolerates some dryness.",
+                "sunlight": "Full sun exposure necessary.",
+                "environment": "Adequate spacing between plants.",
+                "temperature": "Cool season optimal.",
+                "pest": "Watch for early pest activity."
+            },
+            "vegetative": {
+                "soil": "Well-drained soil; avoid waterlogging.",
+                "water": "Weed at 25-30 days; early weeding crucial.",
+                "sunlight": "Full sun for flowering.",
+                "environment": "Good spacing and air flow.",
+                "temperature": "Cool rabi season ideal.",
+                "pest": "Monitor for pod borers and wilt disease."
+            },
+            "mature": {
+                "soil": "Well-drained soil for pod maturation.",
+                "water": "Minimal irrigation; rainfed crop mostly.",
+                "sunlight": "Full sun throughout maturity.",
+                "environment": "Harvest when pods turn brown.",
+                "temperature": "Dry conditions for pod ripening.",
+                "pest": "Harvest when 70-80% pods are mature."
+            }
+        }
+    },
+    "lentil-001": { // Lentil
+        "name": "Lentil",
+        "overview": "Lentil is a cool-season pulse crop providing complete nutrition and improving soil structure.",
+        "stages": {
+            "seed": {
+                "soil": "Well-drained loam; prepare fine seedbed.",
+                "water": "Sow directly; keep soil lightly moist.",
+                "sunlight": "Full sun (6-8 hours daily).",
+                "environment": "Cool season crop; good drainage.",
+                "temperature": "Cool conditions (10-15°C) for germination.",
+                "pest": "Monitor for early seed-borne pests."
+            },
+            "seedling": {
+                "soil": "Keep soil aerated; avoid waterlogging.",
+                "water": "Water lightly as needed.",
+                "sunlight": "Full sun exposure essential.",
+                "environment": "Adequate spacing between plants.",
+                "temperature": "Cool rabi conditions ideal.",
+                "pest": "Watch for early pest activity."
+            },
+            "vegetative": {
+                "soil": "Well-drained, low-fertility soil okay.",
+                "water": "Early weed control critical; keep soil moist but not wet.",
+                "sunlight": "Full sun for flowering.",
+                "environment": "Good spacing prevents disease.",
+                "temperature": "Cool season optimal.",
+                "pest": "Monitor for wilt and aphids."
+            },
+            "mature": {
+                "soil": "Well-drained soil for pod maturation.",
+                "water": "Harvest when pods turn golden brown.",
+                "sunlight": "Full sun for grain quality.",
+                "environment": "Harvest timing crucial for grain size.",
+                "temperature": "Cool, dry conditions ideal.",
+                "pest": "Harvest when 70-80% pods mature."
+            }
+        }
+    },
+    "mustard-001": { // Mustard
+        "name": "Mustard",
+        "overview": "Mustard is a rabi oilseed providing edible oil and leafy greens. It's quick-growing and resilient.",
+        "stages": {
+            "seed": {
+                "soil": "Well-prepared, fertile soil.",
+                "water": "Sow in moist soil; keep lightly moist.",
+                "sunlight": "Full sun (6-8 hours daily).",
+                "environment": "Cool season crop; good drainage.",
+                "temperature": "Cool conditions (10-20°C) for germination.",
+                "pest": "Monitor for seed-borne pests."
+            },
+            "seedling": {
+                "soil": "Keep soil aerated and moist.",
+                "water": "Water regularly until established.",
+                "sunlight": "Full sun exposure necessary.",
+                "environment": "Thin seedlings to proper spacing.",
+                "temperature": "Cool season conditions.",
+                "pest": "Watch for early pests."
+            },
+            "vegetative": {
+                "soil": "Fertile soil for leaf growth.",
+                "water": "Regular watering; early weed control essential.",
+                "sunlight": "Full sun for plant vigor.",
+                "environment": "Good spacing and air flow.",
+                "temperature": "Cool, moist conditions ideal.",
+                "pest": "Monitor for aphids and leaf spots."
+            },
+            "mature": {
+                "soil": "Well-drained soil for seed pod development.",
+                "water": "Minimal irrigation; mostly rainfed.",
+                "sunlight": "Full sun for seed pod maturity.",
+                "environment": "Harvest when pods turn brown.",
+                "temperature": "Dry conditions aid ripening.",
+                "pest": "Harvest when seed pods are mature and brown."
+            }
+        }
+    },
+    "potato-001": { // Potato
+        "name": "Potato",
+        "overview": "Potato is a cool-season tuber crop providing high yields. It requires careful management of water and nutrients.",
+        "stages": {
+            "seed": {
+                "soil": "Well-drained, fertile soil with organic matter.",
+                "water": "Plant seed potatoes in moist soil.",
+                "sunlight": "Full sun (6+ hours daily).",
+                "environment": "Cool season crop; good drainage essential.",
+                "temperature": "Cool conditions (15-20°C) for sprouting.",
+                "pest": "Use disease-free certified seed potatoes."
+            },
+            "seedling": {
+                "soil": "Keep soil aerated and moist.",
+                "water": "Water regularly for root establishment.",
+                "sunlight": "Full sun exposure necessary.",
+                "environment": "Adequate spacing between seed pieces.",
+                "temperature": "Cool to moderate conditions.",
+                "pest": "Monitor for seedling pests."
+            },
+            "vegetative": {
+                "soil": "Loose, fertile soil for tuber development.",
+                "water": "Maintain consistent moisture; critical during tuber enlargement.",
+                "sunlight": "Full sun for canopy development.",
+                "environment": "Earth up regularly to cover tubers.",
+                "temperature": "Cool conditions (15-25°C) ideal.",
+                "pest": "Monitor for late blight and early blight."
+            },
+            "mature": {
+                "soil": "Well-drained soil for harvest quality.",
+                "water": "Reduce irrigation gradually before harvest.",
+                "sunlight": "Full sun aids tuber maturation.",
+                "environment": "Harvest when skin sets and foliage dies.",
+                "temperature": "Cool harvest conditions optimal.",
+                "pest": "Cure potatoes after harvest to harden skin."
+            }
+        }
+    },
+    "onion-001": { // Onion
+        "name": "Onion",
+        "overview": "Onion is a rabi crop providing good market value. It requires careful water management and weed control.",
+        "stages": {
+            "seed": {
+                "soil": "Well-prepared, fertile soil.",
+                "water": "Sow in moist seedbed; maintain moisture.",
+                "sunlight": "Full sun for healthy seedlings.",
+                "environment": "Cool season; protected nursery beds.",
+                "temperature": "Cool conditions (15-20°C) for germination.",
+                "pest": "Monitor for nursery pests."
+            },
+            "seedling": {
+                "soil": "Keep nursery soil moist; transplant at 6-8 weeks.",
+                "water": "Maintain consistent moisture in nursery.",
+                "sunlight": "Full sun for green foliage.",
+                "environment": "Adequate seedling density.",
+                "temperature": "Cool conditions optimal.",
+                "pest": "Watch for nursery diseases."
+            },
+            "vegetative": {
+                "soil": "Transplant to main field with fertile soil.",
+                "water": "Maintain consistent moisture; weed regularly.",
+                "sunlight": "Full sun for bulb development.",
+                "environment": "Good spacing for air circulation.",
+                "temperature": "Cool to moderate conditions.",
+                "pest": "Monitor for thrips and diseases."
+            },
+            "mature": {
+                "soil": "Well-drained soil for bulb maturation.",
+                "water": "Reduce water gradually before harvest.",
+                "sunlight": "Full sun throughout growth.",
+                "environment": "Harvest when tops fall and bulbs are mature.",
+                "temperature": "Warm, dry conditions aid maturity.",
+                "pest": "Cure harvested bulbs in warm, dry conditions."
+            }
+        }
+    },
+    "garlic-001": { // Garlic
+        "name": "Garlic",
+        "overview": "Garlic is a specialized rabi crop with high medicinal and culinary value. It requires proper chilling for clove development.",
+        "stages": {
+            "seed": {
+                "soil": "Well-prepared, fertile soil with good drainage.",
+                "water": "Plant cloves in moist soil; ensure drainage.",
+                "sunlight": "Full sun (6+ hours daily).",
+                "environment": "Cool season crop; well-drained beds.",
+                "temperature": "Cool conditions (10-15°C) for sprouting.",
+                "pest": "Use healthy, disease-free cloves."
+            },
+            "seedling": {
+                "soil": "Keep soil moist and aerated.",
+                "water": "Water regularly for root establishment.",
+                "sunlight": "Full sun exposure necessary.",
+                "environment": "Adequate spacing between cloves.",
+                "temperature": "Cool season conditions.",
+                "pest": "Monitor for early pests."
+            },
+            "vegetative": {
+                "soil": "Fertile soil with organic matter.",
+                "water": "Maintain consistent moisture; early weeding crucial.",
+                "sunlight": "Full sun for foliage growth.",
+                "environment": "Good spacing and air flow.",
+                "temperature": "Proper cooling essential for clove development.",
+                "pest": "Monitor for thrips and foliar diseases."
+            },
+            "mature": {
+                "soil": "Well-drained soil for bulb maturation.",
+                "water": "Reduce irrigation before harvest.",
+                "sunlight": "Full sun throughout growth.",
+                "environment": "Harvest when leaves yellow and dry.",
+                "temperature": "Cool to warm transition aids ripening.",
+                "pest": "Cure bulbs in warm, dry place before storage."
+            }
+        }
+    },
+    "ginger-001": { // Ginger
+        "name": "Ginger",
+        "overview": "Ginger is a tropical rhizome crop requiring warm, moist conditions and shade. It has significant medicinal value.",
+        "stages": {
+            "seed": {
+                "soil": "Well-prepared, fertile soil with organic matter.",
+                "water": "Plant rhizomes in moist soil; ensure drainage.",
+                "sunlight": "Partial shade preferred; 50% shade ideal.",
+                "environment": "Warm, humid conditions essential.",
+                "temperature": "Warm conditions (20-25°C) for sprouting.",
+                "pest": "Use disease-free, high-quality seed rhizomes."
+            },
+            "seedling": {
+                "soil": "Keep soil moist and well-aerated.",
+                "water": "Water regularly; ginger needs consistent moisture.",
+                "sunlight": "Dappled shade or 50% shade optimal.",
+                "environment": "Humid conditions support growth.",
+                "temperature": "Warm, tropical conditions (20-30°C).",
+                "pest": "Monitor for early pests and diseases."
+            },
+            "vegetative": {
+                "soil": "Fertile soil with high organic matter.",
+                "water": "Maintain high moisture; mulch heavily.",
+                "sunlight": "Partial shade; protect from direct sun.",
+                "environment": "Good drainage despite high moisture needs.",
+                "temperature": "Warm, humid conditions ideal.",
+                "pest": "Monitor for rhizome rot and leaf spots."
+            },
+            "mature": {
+                "soil": "Well-drained soil for rhizome development.",
+                "water": "Maintain moisture but allow slight drying before harvest.",
+                "sunlight": "Light shade during maturation.",
+                "environment": "Harvest after 8-10 months when leaves dry.",
+                "temperature": "Warm conditions throughout growth.",
+                "pest": "Cure rhizomes in dry place after harvest."
+            }
+        }
+    },
+    "turmeric-001": { // Turmeric
+        "name": "Turmeric",
+        "overview": "Turmeric is a tropical rhizome spice with significant medicinal and commercial value. It requires warm, moist conditions.",
+        "stages": {
+            "seed": {
+                "soil": "Well-prepared, fertile soil rich in organic matter.",
+                "water": "Plant rhizomes in moist soil; ensure drainage.",
+                "sunlight": "Partial shade preferred; 30-50% shade.",
+                "environment": "Warm, humid conditions essential.",
+                "temperature": "Warm conditions (20-25°C) for sprouting.",
+                "pest": "Use healthy, certified seed rhizomes."
+            },
+            "seedling": {
+                "soil": "Keep soil moist and rich in organic matter.",
+                "water": "Water regularly; turmeric prefers moist conditions.",
+                "sunlight": "Dappled shade or partial shade optimal.",
+                "environment": "Humid conditions support shoot growth.",
+                "temperature": "Warm, tropical conditions (25-30°C).",
+                "pest": "Monitor for early pests and diseases."
+            },
+            "vegetative": {
+                "soil": "Very fertile soil with high organic matter.",
+                "water": "Maintain consistent moisture; mulch heavily.",
+                "sunlight": "Partial shade; protect from intense sun.",
+                "environment": "Good drainage despite high moisture.",
+                "temperature": "Warm, humid conditions ideal.",
+                "pest": "Monitor for leaf blotch and rhizome diseases."
+            },
+            "mature": {
+                "soil": "Well-drained soil for rhizome development.",
+                "water": "Reduce moisture slightly before harvest.",
+                "sunlight": "Light shade during maturation.",
+                "environment": "Harvest after 7-10 months when leaves dry.",
+                "temperature": "Consistent warm conditions throughout.",
+                "pest": "Harvest, clean, and dry rhizomes properly."
+            }
+        }
+    },
+    "brinjal-001": { // Brinjal (Eggplant)
+        "name": "Brinjal (Eggplant)",
+        "overview": "Brinjal is a warm-season vegetable requiring consistent care and pest management for good fruit production.",
+        "stages": {
+            "seed": {
+                "soil": "Well-prepared seedbed with organic matter.",
+                "water": "Sow seeds in moist soil; maintain moisture.",
+                "sunlight": "Full sun for healthy seedlings.",
+                "environment": "Warm conditions; protected nursery beds.",
+                "temperature": "Warm conditions (25-30°C) for germination.",
+                "pest": "Monitor for nursery pests."
+            },
+            "seedling": {
+                "soil": "Keep nursery soil moist; transplant at 6-8 weeks.",
+                "water": "Maintain consistent moisture.",
+                "sunlight": "Full sun for strong seedling growth.",
+                "environment": "Adequate space in nursery beds.",
+                "temperature": "Warm season; maintain warmth.",
+                "pest": "Watch for seedling pests and diseases."
+            },
+            "vegetative": {
+                "soil": "Transplant to field with fertile, well-drained soil.",
+                "water": "Maintain consistent moisture; weed regularly.",
+                "sunlight": "Full sun for vigorous growth.",
+                "environment": "Good spacing for air circulation.",
+                "temperature": "Warm season (20-30°C) optimal.",
+                "pest": "Monitor for shoot borers and leaf spots."
+            },
+            "mature": {
+                "soil": "Well-drained soil for fruit development.",
+                "water": "Maintain consistent moisture throughout fruiting.",
+                "sunlight": "Full sun for quality fruit.",
+                "environment": "Support plants; remove lower leaves.",
+                "temperature": "Warm conditions for continued fruiting.",
+                "pest": "Harvest fruits at 60-70 days; control pests regularly."
+            }
+        }
+    },
+    "okra-001": { // Okra (Lady finger)
+        "name": "Okra (Lady finger)",
+        "overview": "Okra is a warm-season vegetable with quick-growing, high-yielding potential when managed well.",
+        "stages": {
+            "seed": {
+                "soil": "Well-drained, fertile soil.",
+                "water": "Soak seeds 24 hours; sow in moist soil.",
+                "sunlight": "Full sun (6-8 hours daily).",
+                "environment": "Warm season crop; direct sowing common.",
+                "temperature": "Warm conditions (25-35°C) for germination.",
+                "pest": "Monitor for early pests."
+            },
+            "seedling": {
+                "soil": "Keep soil moist and well-aerated.",
+                "water": "Water regularly until established.",
+                "sunlight": "Full sun exposure essential.",
+                "environment": "Thin seedlings to proper spacing.",
+                "temperature": "Warm conditions (25-30°C) optimal.",
+                "pest": "Watch for seedling pests."
+            },
+            "vegetative": {
+                "soil": "Fertile soil; add nutrients as needed.",
+                "water": "Maintain consistent moisture; weed regularly.",
+                "sunlight": "Full sun for vigorous growth.",
+                "environment": "Good spacing for air circulation.",
+                "temperature": "Warm season throughout.",
+                "pest": "Monitor for whiteflies and yellow vein mosaic."
+            },
+            "mature": {
+                "soil": "Well-drained soil for continuous fruiting.",
+                "water": "Maintain consistent moisture throughout.",
+                "sunlight": "Full sun for continuous pod production.",
+                "environment": "Harvest pods frequently for tenderness.",
+                "temperature": "Warm conditions sustain fruiting.",
+                "pest": "Harvest every 2-3 days for tender, quality pods."
+            }
+        }
     }
 };
+
+// ===== Plant Tips for new plants =====
+const PLANT_TIPS_NEW = {
+    "kulthi-001": {
+        "general": [
+            "💡 Tip: Kulthi tolerates poor soils better than most pulses.",
+            "💡 Tip: Early weeding at 25-30 days is crucial for good yields.",
+            "💡 Tip: Minimal inputs needed - an ideal low-cost crop.",
+            "💡 Tip: Harvest when pods turn brown and seeds rattle inside."
+        ]
+    },
+    "peanut-001": {
+        "general": [
+            "💡 Tip: Earth up the soil lightly when flowers begin to fall.",
+            "💡 Tip: Moisture at flowering and pegging is critical for pod development.",
+            "💡 Tip: Gypsum application helps prevent aflatoxin contamination.",
+            "💡 Tip: Dry harvested pods before storage to prevent fungal growth."
+        ]
+    },
+    "pigeonpea-001": {
+        "general": [
+            "💡 Tip: Tur enriches soil through nitrogen fixation; ideal for crop rotation.",
+            "💡 Tip: Early weeding is essential; late weeding reduces yields.",
+            "💡 Tip: Can be intercropped with cereals or grown as sole crop.",
+            "💡 Tip: Harvest pods when 70-80% mature for best grain quality."
+        ]
+    },
+    "bajra-001": {
+        "general": [
+            "💡 Tip: Bajra is extremely drought-tolerant - ideal for low-rainfall areas.",
+            "💡 Tip: Thin seedlings early to ensure proper spacing.",
+            "💡 Tip: Harvest grain when panicles turn brown and grain is hard.",
+            "💡 Tip: Use as green fodder if grain yield is poor."
+        ]
+    },
+    "cotton-001": {
+        "general": [
+            "💡 Tip: Monitor cotton regularly for pests - early detection is key.",
+            "💡 Tip: Balanced nutrition prevents many physiological disorders.",
+            "💡 Tip: Remove lower leaves to reduce pest hiding spaces.",
+            "💡 Tip: Harvest bolls when they crack open naturally."
+        ]
+    },
+    "rice-001": {
+        "general": [
+            "💡 Tip: Maintain 5-10 cm water depth throughout growth for maximum yield.",
+            "💡 Tip: Drain paddies 15-20 days before harvest for easier harvesting.",
+            "💡 Tip: Use quality seeds and treated nursery practices.",
+            "💡 Tip: Harvest when 80-90% grains turn golden brown."
+        ]
+    },
+    "wheat-001": {
+        "general": [
+            "💡 Tip: Wheat is sensitive to waterlogging - ensure good drainage.",
+            "💡 Tip: Irrigation at flowering and grain-fill stages is critical.",
+            "💡 Tip: Monitor for rust diseases in humid conditions.",
+            "💡 Tip: Harvest when grain moisture reaches 12-14% for best quality."
+        ]
+    },
+    "maize-001": {
+        "general": [
+            "💡 Tip: Maize needs consistent moisture - mulch to retain water.",
+            "💡 Tip: Nitrogen fertilizer is crucial for high yields.",
+            "💡 Tip: Support plants in windy conditions to prevent lodging.",
+            "💡 Tip: Harvest cobs when kernels are hard and silks turn brown."
+        ]
+    },
+    "sugarcane-001": {
+        "general": [
+            "💡 Tip: Sugarcane is a long-season crop requiring patience and planning.",
+            "💡 Tip: Use disease-free setts to prevent major diseases.",
+            "💡 Tip: Heavy irrigation throughout growth is mandatory.",
+            "💡 Tip: Harvest at optimal sugar content for best returns."
+        ]
+    },
+    "soybean-001": {
+        "general": [
+            "💡 Tip: Soybean enriches soil with nitrogen - excellent for rotation.",
+            "💡 Tip: Avoid waterlogging; soybean is sensitive to wet conditions.",
+            "💡 Tip: Harvest when pods turn brown and rattle.",
+            "💡 Tip: Use combine harvester for efficient harvesting."
+        ]
+    },
+    "chickpea-001": {
+        "general": [
+            "💡 Tip: Chickpea is a cool-season rabi crop - plant timing is crucial.",
+            "💡 Tip: Early weed control in first 30 days determines yield.",
+            "💡 Tip: Pod borers are a major pest - monitor regularly.",
+            "💡 Tip: Harvest when pods turn brown completely."
+        ]
+    },
+    "lentil-001": {
+        "general": [
+            "💡 Tip: Lentil is hardy and low-input - ideal for marginal soils.",
+            "💡 Tip: Early weeding critical; late weeding reduces yields significantly.",
+            "💡 Tip: Monitor for wilt disease in poorly drained fields.",
+            "💡 Tip: Harvest at 100-120 days for best grain quality."
+        ]
+    },
+    "mustard-001": {
+        "general": [
+            "💡 Tip: Mustard is quick-growing - from seed to harvest in 90 days.",
+            "💡 Tip: Harvest leaves early for greens; let plants mature for seeds.",
+            "💡 Tip: Avoid overwatering to prevent lodging.",
+            "💡 Tip: Use for intercropping with slower-growing crops."
+        ]
+    },
+    "potato-001": {
+        "general": [
+            "💡 Tip: Use certified, disease-free seed potatoes for best results.",
+            "💡 Tip: Earth up soil as plants grow to protect tubers from light.",
+            "💡 Tip: Consistent moisture is critical during tuber enlargement.",
+            "💡 Tip: Harvest when foliage dies down completely."
+        ]
+    },
+    "onion-001": {
+        "general": [
+            "💡 Tip: Onion requires good weed management throughout growth.",
+            "💡 Tip: Proper plant spacing prevents diseases and pest damage.",
+            "💡 Tip: Cure harvested bulbs in warm, dry place for storage.",
+            "💡 Tip: Monitor for thrips and spray neem if infestation occurs."
+        ]
+    },
+    "garlic-001": {
+        "general": [
+            "💡 Tip: Garlic requires cold winter period for proper clove development.",
+            "💡 Tip: Use healthy, disease-free cloves for planting.",
+            "💡 Tip: Mulch plants in winter to protect from extreme cold.",
+            "💡 Tip: Harvest when leaves completely dry and yellow."
+        ]
+    },
+    "ginger-001": {
+        "general": [
+            "💡 Tip: Ginger grows best in shade with 50% shade cover optimal.",
+            "💡 Tip: High organic matter in soil is essential for good yields.",
+            "💡 Tip: Maintain high moisture throughout growing season.",
+            "💡 Tip: Harvest after 8-10 months when leaves dry completely."
+        ]
+    },
+    "turmeric-001": {
+        "general": [
+            "💡 Tip: Turmeric requires very rich soil with high organic matter.",
+            "💡 Tip: Partial shade protects plants from intense heat.",
+            "💡 Tip: Heavy mulching maintains moisture and soil temperature.",
+            "💡 Tip: Harvest after 7-10 months for maximum rhizome development."
+        ]
+    },
+    "brinjal-001": {
+        "general": [
+            "💡 Tip: Regular harvesting encourages continuous fruiting.",
+            "💡 Tip: Pest management is critical - monitor daily in peak season.",
+            "💡 Tip: Support plants to prevent branch breaking under fruit load.",
+            "💡 Tip: Fruits are ready 60-70 days after transplanting."
+        ]
+    },
+    "okra-001": {
+        "general": [
+            "💡 Tip: Harvest okra pods every 2-3 days while tender.",
+            "💡 Tip: Missed harvests lead to tough, fibrous pods.",
+            "💡 Tip: Direct sowing gives better plants than transplanting.",
+            "💡 Tip: High temperatures increase pod production."
+        ]
+    }
+};
+
+// Merge tips with original PLANT_TIPS
+Object.assign(PLANT_TIPS, PLANT_TIPS_NEW);
 
 // ===== Convert GUIDE_DATA → PLANTS (REQUIRED FOR EXPLORE PAGE) =====
 
@@ -972,17 +1899,26 @@ const PLANTS = Object.keys(GUIDE_DATA)
     })
     .filter(plant => !EXCLUDED_PLANT_NAMES.has(plant.name));
 
+// Expose to window for global access
+window.GUIDE_DATA = GUIDE_DATA;
+window.PLANTS = PLANTS;
+
 // ===== Category Helper Function =====
 function getCategory(name) {
-    const vegetables = ['Tomato', 'Carrot', 'Cucumber', 'Bell Pepper', 'Broccoli', 'Spinach', 'Lettuce'];
+    // Clean plant name first (remove brackets)
+    const cleanName = name.replace(/\s*\(.*?\)\s*/g, '');
+    
+    const vegetables = ['Tomato', 'Carrot', 'Cucumber', 'Bell Pepper', 'Broccoli', 'Spinach', 'Lettuce', 'Potato', 'Onion', 'Garlic', 'Ginger', 'Turmeric', 'Brinjal', 'Okra'];
     const herbs = ['Basil', 'Mint', 'Parsley', 'Thyme', 'Oregano', 'Sage', 'Chives'];
     const flowers = ['Rose', 'Sunflower', 'Tulip', 'Daffodil', 'Lavender', 'Daisy'];
     const fruits = ['Apple', 'Banana', 'Orange', 'Strawberry', 'Mango'];
+    const crops = ['Kulthi', 'Peanut', 'Tur', 'Bajra', 'Cotton', 'Rice', 'Wheat', 'Maize', 'Sugarcane', 'Soybean', 'Chickpea', 'Lentil', 'Mustard'];
 
-    if (vegetables.includes(name)) return 'Vegetable';
-    if (herbs.includes(name)) return 'Herb';
-    if (flowers.includes(name)) return 'Flower';
-    if (fruits.includes(name)) return 'Fruit';
+    if (vegetables.includes(cleanName)) return 'Vegetable';
+    if (herbs.includes(cleanName)) return 'Herb';
+    if (flowers.includes(cleanName)) return 'Flower';
+    if (fruits.includes(cleanName)) return 'Fruit';
+    if (crops.includes(cleanName)) return 'Crop';
 
     return 'Other';
 }
