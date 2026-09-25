@@ -1,11 +1,6 @@
 // Browse page JavaScript
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Show loading UI
-    if (typeof LoadingUI !== 'undefined') {
-        LoadingUI.show();
-    }
-
     const mainHeader = document.querySelector('header');
     const scrollHeader = document.querySelector('.scroll-header');
 
@@ -21,12 +16,5 @@ document.addEventListener('DOMContentLoaded', function() {
                 scrollHeader.classList.remove('visible');
             }
         });
-    }
-
-    // Hide loading UI with minimum delay for smooth animation
-    if (typeof LoadingUI !== 'undefined') {
-        setTimeout(() => {
-            LoadingUI.hide();
-        }, 500);
     }
 });

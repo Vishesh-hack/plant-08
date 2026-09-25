@@ -125,30 +125,6 @@
     border-bottom: 2px solid rgba(123, 179, 66, 0.3);
 }
 
-.plant-image {
-    width: 100%;
-    height: 160px;
-    overflow: hidden;
-    background: linear-gradient(135deg, #f8fff5 0%, #e8f5e8 100%);
-    border-bottom: 2px solid rgba(123, 179, 66, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.plant-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.plant-image:hover img {
-    transform: scale(1.05);
-}
-
 .plant-info {
     padding: 15px;
     flex: 1;
@@ -439,19 +415,4 @@
         height: 24px;
         font-size: 0.82rem;
     }
-}
-
-/* ===== Lazy Loading Optimization ===== */
-.plant-image img {
-    transition: opacity 0.3s ease;
-}
-
-.plant-image img.lazy-img {
-    opacity: 0.7;
-    filter: blur(5px);
-}
-
-.plant-image img:not(.lazy-img) {
-    opacity: 1;
-    filter: blur(0);
 }
